@@ -1,0 +1,64 @@
+b770 -- (R380)(4), GROUP C3: [Z1] [U1] [D1] [L1], OPEN_TRAILS, APPENDED AT ITS END (2026-11-27T03:37:11Z)
+
+### tools/b770_rulings.py ledgers c3; the papers` repository at HEAD a0ac08c9; the texts from the ferry bank (data/b770_ferry.txt, sha256 98b6e4d17af39cce),
+### the fields from data/b770_dispatch_rows.json (sha256 89fe8a3fc3e7a958) and SIDE-explicit-formula at cc2f3ba8; <DATE> 2026-11-27; each text by line and sha256 here; no line of
+### the papers` repository printed but the texts composed; each run of eight digits or more in a gate row masked by its length.
+
+## THE CONTROLS
+  the papers` repository`s HEAD a0ac08c9, the act`s last commit there before this write (a0ac08c9)                                                       AS WANTED
+  OPEN_TRAILS` bytes at HEAD a prefix of its new bytes: no line moves                                                                                    AS WANTED
+  each text as entered equals the ruling`s with its fields filled, each whole in the appended text: Z1 True U1 True D1 True L1 True                      AS WANTED
+  every text of the group composed (none missing)                                                                                                        AS WANTED
+  no field left in the appended text (none)                                                                                                              AS WANTED
+  each appended line`s backticks even (odd at none)                                                                                                      AS WANTED
+  the identifiers` counts and the account`s equal before and after, and 0 in the appended text (the account read from the relay`s remote, never printed) AS WANTED
+  none of the texts in OPEN_TRAILS before the write (none)                                                                                               AS WANTED
+  [S5] as entered the last line of OPEN_TRAILS before the write, so the dated head of (4) stands beneath it                                              AS WANTED
+  the dispatch rows bank data/b770_dispatch_rows.json committed at HEAD and its working file equal to it (77356 bytes)                                   AS WANTED
+  THE RUN: dispatch 6 read, built at cc2f3ba8 equal with exit 0, KERNEL (run 45933086394)                                                                AS WANTED
+  <commit> the act`s last restored read exiting 0 by verdicts(): dispatch 6 at cc2f3ba8; no step dispatched after it (none); the closing build rows 1    AS WANTED
+  each text`s theorems COMPILED in the read, their axioms within [propext, Classical.choice, Quot.sound] (Z1 True U1 True D1 True L1 True)               AS WANTED
+  THE POPULATION: the act`s 13 theorems (ACT_NAMES, (b) to (g)) each in print_targets.txt at cc2f3ba8 (13) and equal both ways to the names the read gives (13) AS WANTED
+  THE E0 RULE`S LEXICON extended in this tool, tools/e0_rule.py not edited: DirichletHypothesis a Prop, read at its declaration line at the commit (DirichletHypothesis :27 True), none held by the shared lexicon before (held: none) AS WANTED
+  THE E0 GATE: each of the 13 theorems found once by its declaration line among the 6 files of the act at the commit, read at its statement and graded (DERIVES 10, INTERFACES 3) AS WANTED
+  each COMPILED in the read, its axioms within [propext, Classical.choice, Quot.sound], sorryAx in none (the prints: [] 1; [propext, Classical.choice, Quot.sound] 12) AS WANTED
+  THE POSITIONS THE TEXTS STATE, read by the gate: [Z1]`s closing statement, [U1]`s five and [L1]`s one DERIVES, [D1]`s two INTERFACES (zq_offline_from_coefficients DERIVES positive_iff_forall_upto DERIVES positiveUpto_mono DERIVES h2_sign_upto_iff DERIVES control_not_positiveUpto DERIVES control_not_positiveUpto_of_le DERIVES familyConfig_h2_sign INTERFACES positivity_of_premises INTERFACES cQ_least_negative DERIVES) AS WANTED
+  [D1]: each statement binds its named premises and nothing else, the premises the gate read within ['DirichletHypothesis', 'RiemannHypothesis'] and the joined statement binding both (familyConfig_h2_sign ['DirichletHypothesis']; positivity_of_premises ['RiemannHypothesis', 'DirichletHypothesis']) AS WANTED
+  [Z1]: its file`s import closure holds no module under SIDEExplicitFormula.Schema.ZQ.OffZero. (held none), read through the kernel`s import graph at the commit; the control Located.lean`s closure holding 28 AS WANTED
+  [Z1]: two proofs of one statement: zq_offline_from_coefficients`s statement equal by its words to zq_offline_zero`s (SP4.lean :32)                     AS WANTED
+  PLANTED: a gate row with no statement read as the gate`s failure, a planted name as the population`s, and a [U1] theorem read INTERFACES as the positions` (FAILED, DIFFER, FAILED) AS WANTED
+  the appended lines outside a hand section (inside at none)                                                                                             AS WANTED
+  the roster: no order moving and none added (moved none ; added none)                                                                                   AS WANTED
+
+## THE E0 GATE (tools/e0_rule.py grade(head, 'theorem'), the head the statement from the name to its first `:=`, read at cc2f3ba8)
+  SIDEExplicitFormula.Schema.online_imp_zeroSideQ_nonneg         SIDEExplicitFormula/Schema/ZQ/FromCoefficients.lean :26 ; GRADE INTERFACES ; hk : B321.classK k ; COMPILED [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.ZQ.zq_offline_from_coefficients     SIDEExplicitFormula/Schema/ZQ/FromCoefficients.lean :57 ; GRADE DERIVES ; no hypothesis binder ; COMPILED [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.positive_iff_forall_upto                   SIDEExplicitFormula/SupportPositivity.lean :28 ; GRADE DERIVES ; no hypothesis binder ; COMPILED [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.positiveUpto_mono                          SIDEExplicitFormula/SupportPositivity.lean :44 ; GRADE DERIVES ; domain conditions only: h : L ≤ L' ; COMPILED [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.h2_sign_upto_iff                           SIDEExplicitFormula/SupportPositivity.lean :51 ; GRADE DERIVES ; no hypothesis binder ; COMPILED [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.control_not_positiveUpto                   SIDEExplicitFormula/SupportPositivity.lean :62 ; GRADE DERIVES ; no hypothesis binder ; COMPILED [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.control_not_positiveUpto_of_le             SIDEExplicitFormula/SupportPositivity.lean :70 ; GRADE DERIVES ; domain conditions only: h : Real.log 1024 ≤ L ; COMPILED [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.familyConfig_h2_sign                       SIDEExplicitFormula/Composition.lean :33 ; GRADE INTERFACES ; H : DirichletHypothesis ; COMPILED [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.positivity_of_premises                     SIDEExplicitFormula/Composition.lean :41 ; GRADE INTERFACES ; H0 : RiemannHypothesis, H : DirichletHypothesis ; COMPILED [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Window.cq_nonneg_ok                        SIDEExplicitFormula/Window/CQLeast.lean :26 ; GRADE DERIVES ; no hypothesis binder ; COMPILED []
+  SIDEExplicitFormula.Window.cQ_least_negative                   SIDEExplicitFormula/Window/CQLeast.lean :30 ; GRADE DERIVES ; no hypothesis binder ; COMPILED [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.ZQ.OffZero.zq_offline_zero_located  SIDEExplicitFormula/Schema/ZQ/OffZero/Located.lean :25 ; GRADE DERIVES ; no hypothesis binder ; COMPILED [propext, Classical.choice, Quot.sound]
+  SIDEExplicitFormula.Schema.ZQ.zq_ne_zero_of_real_one_lt        SIDEExplicitFormula/Schema/ZQ/RealAxis.lean :23 ; GRADE DERIVES ; domain conditions only: hx : 1 < x ; COMPILED [propext, Classical.choice, Quot.sound]
+
+## THE PLAN`S KIND BESIDE THE GATE (data/b770_plan.txt; a reading, no control): equal 12, differing 1
+  DIFFER SIDEExplicitFormula.Schema.online_imp_zeroSideQ_nonneg: the plan :51 DERIVES, the gate INTERFACES (hk : B321.classK k)
+  ### the cause read: the rule`s restriction reader (tools/e0_rule.py restriction_case, :404-:413) matches a RESTRICTIONS head written as itself, so a binder typed by the qualified `B321.classK k` reads as a premise where `classK k` reads as a restriction; the shared rule not edited, the gate`s grade standing, printed for the navigator
+
+## THE ROSTER BY tools/standing/orders.py`S RULE IN MEMORY (printed)
+  orders 229 -> 229 ; statuses moving none ; added none
+
+## THE FILE: OPEN_TRAILS.md | lines 19599 -> 19609 | the appended text from :19601 | its sha256 0a089c1a00569945 | the file`s sha256 aa2c7d7a392be49d -> 980f38a030ff287d
+
+## THE PARAGRAPHS BY LINE
+  head       :19601 (sha256 05f56f648763a280)
+  Z1         :19603 (sha256 b98da016ab77cbf8)
+  U1         :19605 (sha256 233453d30aee399b)
+  D1         :19607 (sha256 ee5eac92b570a4c6)
+  L1         :19609 (sha256 98b9eaa9f3951e36)
+
+### ### **THE LEDGERS, GROUP C3: OPEN_TRAILS APPENDED, NO LINE MOVING ; 4 LINES UNDER ONE HEAD ([Z1] [U1] [D1] [L1]) ; THE E0 GATE 13 OF 13 READ ; THE PLAN`S KIND DIFFERING 1 ; CONTROLS 24 OF 24 AS WANTED ; WRITTEN.**

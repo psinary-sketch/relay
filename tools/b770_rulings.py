@@ -42,8 +42,16 @@ the register nor SPIRAL_MAP.md, so OPEN_TRAILS is the one file here.
                          control). (f) and (g) take no line (data/b770_author_words_preseal.txt :8). A step not COMPILED holds the group:
                          its CARRIED text comes by a later Edit. Bank: data/b770_ledgers_c3.txt and .json. Added by an Edit committed
                          before its run (b770, after dispatch 6's read).
-The later texts -- each of (4)'s CARRIED texts and [C10] or [C11] -- are groups this tool gains by an Edit committed before its run; their
-lines are checked here already (WANT).
+  ledgers c4 dry|write   Component 4 ((4) MAIN AND THE TAG, data/b770_ferry.txt :25; (5) :27): [C11] where tools/b770_controls.py
+                         verdicts() over data/b770_dispatch_rows.json (committed and unmodified, a control) reads the closing build from
+                         source and its one repeat each stopped under the hold, <commit> the closing Lean commit, <ids> their runs and
+                         <figures> their runners' lows; [C10] where it reads the pair's axioms files differing, the source build's sha256
+                         first; neither, a refusal (main moves, no line). Appended beneath [L1] with no head of its own (the c3 head names
+                         it), no line moving; the order the text names OPEN by tools/standing/orders.py's rule after it and no other order
+                         moving; a planted pair read as the decision's failure. Bank: data/b770_ledgers_c4.txt and .json. Added by an Edit
+                         committed before its run (b770, after dispatch 7's read).
+The later texts -- each of (4)'s CARRIED texts -- are groups this tool gains by an Edit committed before its run; their lines are checked
+here already (WANT).
 
 No line of the papers` repository is printed but the texts this tool composes; the account is counted, never printed; no git write.
 """
@@ -75,11 +83,11 @@ WANT = dict(A5=(52, 52), Z1=(56, 56), Z2=(60, 60), U1=(64, 64), U2=(68, 68), D1=
             C10=(88, 88), C11=(92, 92), I1=(96, 96), I2=(100, 100), S5=(104, 104))
 FIELD = re.compile(r'<[A-Za-z][^<>\n]*>')
 LI_INDEX = 'W-ORD-LI-INDEX'      # ### the one order [A5] names, at its (k) (data/b770_ferry.txt :52)
-GROUPS = dict(c2=('A5',), c2i=('I1',), c2s=('S5',), c3=('Z1', 'U1', 'D1', 'L1'))   # ### c2i: [I1], or [I2] where data/b770_li_index.json reads NOT AS READ (set at run time)
+GROUPS = dict(c2=('A5',), c2i=('I1',), c2s=('S5',), c3=('Z1', 'U1', 'D1', 'L1'), c4=('C10', 'C11'))   # ### c2i: [I1], or [I2] where data/b770_li_index.json reads NOT AS READ (set at run time)
 # ### the papers` repository's HEAD before each group's write: c2 after the corrigendum (step 12), c2i after [A5] (step 29), c2s after [I1] (step 38),
-# ### c3 after [S5] (step 44)
-PP_BEFORE = dict(c2=C1PP, c2i='f945cbd9', c2s='c599930d', c3='a0ac08c9')
-CLAUSE = dict(c2='7', c2i='6', c2s='7', c3='4')
+# ### c3 after [S5] (step 44), c4 after [Z1] to [L1] (step 55)
+PP_BEFORE = dict(c2=C1PP, c2i='f945cbd9', c2s='c599930d', c3='a0ac08c9', c4='c0146cf4')
+CLAUSE = dict(c2='7', c2i='6', c2s='7', c3='4', c4='4')
 # ### the planted status word set after the order's name in each text, read in memory alone; [S5] names no order, so its plant sets one into it
 PLANTS = dict(A5=(LI_INDEX + ' is read', LI_INDEX + ' CLOSED, is read'), I1=('`%s` READ' % LI_INDEX, '`%s` CLOSED, READ' % LI_INDEX),
               I2=('`%s` READ' % LI_INDEX, '`%s` CLOSED, READ' % LI_INDEX),
@@ -711,11 +719,164 @@ def ledgers_c3(mode):
     return 0
 
 
+# ================================================================================ GROUP c4: [C10] or [C11]
+C4_ORDER = {'C10': 'W-ORD-RUNNER-CACHE', 'C11': 'W-ORD-SOURCE-BUILD'}   # ### the order each text names (data/b770_ferry.txt :88, :92)
+
+
+def c4_read(R):
+    """verdicts() over the rows, the closing build's dispatch rows, and the reads of the build from source and of its repeat."""
+    import b770_controls as C
+    v = C.verdicts(R)
+    disp = [r for r in R if r.get('kind') == 'dispatch' and r.get('kernel') == C.EF]
+    reads = dict((int(r['run']), r) for r in R if r.get('kind') == 'read' and r.get('kernel') == C.EF)
+    cl = [r for r in disp if r.get('item') == 'closing']
+    offs = C._offs(disp, reads, cl[0]) if cl else []
+    rep = [r for r in disp if r.get('item') == 'repeat']
+    return v, cl, rep, offs, disp
+
+
+def mb(x):
+    return '{:,} MB'.format(x) if isinstance(x, int) else '%s MB' % x
+
+
+def ledgers_c4(mode):
+    import copy
+    import b770_controls as C
+    from standing import orders as O
+    group, date = 'c4', today()
+    base = at_head(OT)
+    pp_head = git(PP, 'rev-parse', 'HEAD').strip()
+    X = texts(ferry())
+    TP = dict((k, X[k][2]) for k in X)
+    with open(DROWS, encoding='utf-8') as f:
+        R = json.load(f)
+    v, cl, rep, offs, disp = c4_read(R)
+    lk = v['last_kernel'] or {}
+    commit = str(lk.get('built_ref'))[:8]
+    if v['stopped_both']:
+        key = 'C11'
+        vals = [commit, ' and '.join(str(o.get('run')) for o in offs), ' and '.join(mb(o.get('runner_low_mb')) for o in offs)]
+    elif v['pair']['state'] == 'DIFFERS':
+        key = 'C10'
+        shas = v['pair']['shas']   # ### (the restored build's, the build from source's); the text reads the source build's first
+        vals = [str(v['pair']['commit'])[:8], str(shas[1])[:16], str(shas[0])[:16]]
+    else:
+        die('[C10] OR [C11]: NEITHER STANDS BY verdicts(): %s ; the pair %s %s' % (v['main'], v['pair']['state'], v['pair'].get('where')))
+    order = C4_ORDER[key]
+    text = fill(TP[key], vals)
+    new = base + NL + text + NL
+    n_ot = len(base.split(NL)) - 1
+    I, acct = ids(), account()
+    left = sorted(set(FIELD.findall(text)))
+    ticks = [k + 1 for k, l in enumerate(text.split(NL)) if l.count('`') % 2]
+    st = lambda R_, n: (R_.get(n) or {}).get('status')   # noqa: E731
+    bl, nl_ = base.split(NL), new.split(NL)
+    before, after = dict(O.read(bl)), dict(O.read(nl_))
+    moved = sorted((n, st(before, n), st(after, n)) for n in after if n in before and st(before, n) != st(after, n))
+    added = sorted(n for n in after if n not in before)
+    hf = O.hand_flags(nl_)
+    in_hand = [i + 1 for i in range(n_ot, len(hf)) if hf[i]]
+    ib, ia, it = idcount(base, I, acct), idcount(new, I, acct), idcount(text, I, acct)
+    last = [l for l in bl if l.strip()][-1:]
+    tracked = git(RELAY, 'show', 'HEAD:' + DROWS_REL, raw=True)
+    with open(DROWS, 'rb') as f:
+        wb = f.read()
+    off_on = [r for r in disp if r.get('restore') == 'off']
+    on_n = [r for r in disp if r.get('item') in STEP_ITEMS]
+    Rp = copy.deepcopy(R)
+    if key == 'C11':
+        for r in Rp:
+            if r.get('kind') == 'read' and offs and int(r.get('run', 0)) == int(offs[-1]['run']):
+                r['verdict'], r['build_exit'] = 'KERNEL', '0'
+        plant = C.verdicts(Rp)['stopped_both']
+        plant_w = 'the repeat`s read planted as exiting 0 reads the pair not stopped twice'
+        pair_ok = (len(cl) == 1 and len(rep) == 1 and len(offs) == 2 and all(o.get('verdict') == C.STOPPED and o.get('build_exit') == '143'
+                                                                           and o.get('built_equal') and o.get('built_ref') == lk.get('built_ref')
+                                                                           and o.get('restore_input') == 'off' for o in offs)
+                   and str(v['main']).startswith('[C11]'))
+        pair_w = ('THE PAIR BY verdicts(): the closing build (dispatch %s, run %s) and its one repeat (dispatch %s, run %s) each read %s with the exit '
+                  'file 143, the restore off, built equal at %s, the lows %s ; the decision: %s' % (
+                      cl[0].get('n') if cl else None, cl[0].get('run') if cl else None, rep[0].get('n') if rep else None,
+                      rep[0].get('run') if rep else None, C.STOPPED, commit, ' and '.join(mb(o.get('runner_low_mb')) for o in offs), v['main']))
+    else:
+        for r in Rp:
+            if r.get('kind') == 'read' and offs and int(r.get('run', 0)) == int(offs[-1]['run']):
+                r['axioms_sha256'] = v['pair']['shas'][0]
+        plant = C.verdicts(Rp)['pair']['state'] == 'DIFFERS'
+        plant_w = 'the build from source`s axioms sha256 planted equal to the restored build`s reads the pair not differing'
+        pair_ok = v['pair']['state'] == 'DIFFERS' and str(v['main']).startswith('[C10]') and str(v['pair']['commit']) == str(lk.get('built_ref'))
+        pair_w = 'THE PAIR BY verdicts(): %s ; the decision: %s' % (v['pair']['where'], v['main'])
+    ctl = [('the papers` repository`s HEAD %s, the act`s last commit there before this write (%s)' % (PP_BEFORE[group], pp_head[:8]),
+            pp_head.startswith(PP_BEFORE[group])),
+           ('OPEN_TRAILS` bytes at HEAD a prefix of its new bytes: no line moves', new.startswith(base)),
+           ('[%s] as entered equals the ruling`s with its fields filled (%s)' % (key, ' | '.join(vals)), bool(re.fullmatch(pattern(TP[key]), text, re.S))),
+           ('no field left in the appended text (%s)' % (left or 'none'), not left),
+           ('each appended line`s backticks even (odd at %s)' % (ticks or 'none'), not ticks),
+           ('the identifiers` counts and the account`s equal before and after, and 0 in the appended text (the account read from the relay`s remote, '
+            'never printed)', ib == {k: ia[k] - it[k] for k in ia} and not any(it.values()) and acct is not None),
+           ('neither [C10] nor [C11] in OPEN_TRAILS before the write', not any(re.search(pattern(TP[k]), base, re.S) for k in ('C10', 'C11'))),
+           ('[L1] as entered the last line of OPEN_TRAILS before the write, so the line stands beneath the dated head of (4)',
+            bool(last) and bool(re.fullmatch(pattern(TP['L1']), last[0], re.S))),
+           ('the dispatch rows bank %s committed at HEAD and its working file equal to it (%d bytes)' % (DROWS_REL, len(wb)),
+            bool(tracked) and tracked == wb),
+           (pair_w, pair_ok),
+           ('<commit> the act`s closing Lean commit, the last restored read exiting 0 (dispatch run %s at %s), the closing build dispatched at it (%s)' % (
+               lk.get('run'), commit, str(cl[0].get('sha'))[:8] if cl else None), bool(cl) and cl[0].get('sha') == lk.get('built_ref')),
+           ('THE CAP ((R380)(4)): dispatches %d of %d, the restore on %d of %d, the restore off %d (the closing build and at most one repeat)' % (
+               len(disp), K.MAX_DISPATCHES, len(on_n), C.ON_CAP, len(off_on)),
+            len(disp) <= K.MAX_DISPATCHES and len(on_n) <= C.ON_CAP and len(off_on) <= 2),
+           ('PLANTED: %s (%s)' % (plant_w, 'NOT AS THE PAIR' if not plant else 'AS THE PAIR'), not plant),
+           ('THE ORDER [%s] NAMES, %s: OPEN by the rule after the write (before %s, after %s)' % (key, order, st(before, order), st(after, order)),
+            order in after and st(after, order) == 'OPEN'),
+           ('the roster: no order but %s moving and none added (moved %s ; added %s)' % (order, moved or 'none', added or 'none'),
+            all(m[0] == order for m in moved) and not added),
+           ('the appended line outside a hand section (inside at %s)' % (in_hand or 'none'), not in_hand)]
+    ok = all(o for _w, o in ctl)
+    P = ['%s -- (R380)(4), GROUP C4: [%s], OPEN_TRAILS, APPENDED AT ITS END (%s)' % (ACT, key, utc()), '',
+         '### tools/b770_rulings.py ledgers c4; the papers` repository at HEAD %s; the text from the ferry bank (data/b770_ferry.txt, sha256 %s);'
+         % (pp_head[:8], FERRY_SHA),
+         '### the fields from %s (sha256 %s) by tools/b770_controls.py verdicts(); <DATE> %s; no line of the papers` repository printed but the'
+         % (DROWS_REL, fsha(DROWS), date),
+         '### text composed.', '', '## THE CONTROLS']
+    P += ['  %-150s %s' % (w, 'AS WANTED' if o else 'NOT AS WANTED') for w, o in ctl]
+    P += ['', '## THE ROSTER BY tools/standing/orders.py`S RULE IN MEMORY (printed)',
+          '  orders %d -> %d ; statuses moving %s ; added %s' % (len(before), len(after), moved or 'none', added or 'none')]
+    P += ['', '## THE FILE: OPEN_TRAILS.md | lines %d -> %d | the appended line at :%d (sha256 %s) | the file`s sha256 %s -> %s' % (
+        n_ot, len(nl_) - 1, n_ot + 2, sha(text)[:16], sha(base)[:16], sha(new)[:16])]
+    P += ['', '### ### **THE LEDGERS, GROUP C4: OPEN_TRAILS APPENDED, NO LINE MOVING ; [%s] ; %s ; CONTROLS %d OF %d AS WANTED ; %s.**' % (
+        key, v['main'], sum(1 for _w, o in ctl if o), len(ctl), ('WRITTEN' if mode == 'write' else 'DRY, NOTHING WRITTEN') if ok else 'HELD')]
+    print(NL.join(P))
+    if mode == 'dry':
+        print(NL + '### THE TEXT APPENDED TO OPEN_TRAILS.md (the dry run`s print alone):')
+        print(text)
+        return 0 if ok else 1
+    if not ok:
+        die('A CONTROL NOT AS WANTED')
+    lb, lj = os.path.join(D, 'b770_ledgers_c4.txt'), os.path.join(D, 'b770_ledgers_c4.json')
+    if os.path.exists(lb) or os.path.exists(lj):
+        die('THE BANK STANDS ALREADY')
+    if any(idcount(NL.join(P), I, acct).values()):
+        die('AN IDENTIFIER OR THE ACCOUNT IN THE BANK')
+    with open(os.path.join(PP, OT), 'wb') as f:
+        f.write(new.encode('utf-8'))
+    if fsha(os.path.join(PP, OT)) != sha(new)[:16]:
+        die('THE WRITTEN FILE IS NOT ITS COMPOSITION')
+    put(lb, NL.join(P) + NL)
+    put(lj, json.dumps(dict(at=utc(), act=ACT, group=group, date=date, pp_head=pp_head, key=key, fills=vals, order=order, main=v['main'],
+                            file=dict(path=OT, lines_before=n_ot, lines_after=len(nl_) - 1, line=n_ot + 2, sha_before=sha(base)[:16],
+                                      sha_after=sha(new)[:16], text_sha=sha(text)[:16], prefix=new.startswith(base)),
+                            runs=[o.get('run') for o in offs], controls=[[w, o] for w, o in ctl]), ensure_ascii=False, indent=1) + NL)
+    print('written OPEN_TRAILS.md ; %s and .json' % os.path.relpath(lb, RELAY).replace(os.sep, '/'))
+    return 0
+
+
 def main(argv):
     if len(argv) != 3 or argv[0] != 'ledgers' or argv[1] not in GROUPS or argv[2] not in ('dry', 'write'):
         sys.exit(__doc__)
     if argv[1] == 'c3':
         return ledgers_c3(argv[2])
+    if argv[1] == 'c4':
+        return ledgers_c4(argv[2])
     return ledgers(argv[1], argv[2])
 
 

@@ -1,0 +1,369 @@
+{
+ "at": "2026-11-27T03:37:11Z",
+ "act": "b770",
+ "group": "c3",
+ "date": "2026-11-27",
+ "pp_head": "a0ac08c96943dd8950d20396aee516a39cdc7d28",
+ "file": {
+  "path": "OPEN_TRAILS.md",
+  "lines_before": 19599,
+  "lines_after": 19609,
+  "first_new": 19601,
+  "sha_before": "aa2c7d7a392be49d",
+  "sha_after": "980f38a030ff287d",
+  "text_sha": "0a089c1a00569945",
+  "prefix": true
+ },
+ "entered": {
+  "Z1": [
+   19603,
+   "b98da016ab77cbf8"
+  ],
+  "U1": [
+   19605,
+   "233453d30aee399b"
+  ],
+  "D1": [
+   19607,
+   "ee5eac92b570a4c6"
+  ],
+  "L1": [
+   19609,
+   "98b9eaa9f3951e36"
+  ]
+ },
+ "head": [
+  19601,
+  "05f56f648763a280"
+ ],
+ "keys": [
+  "Z1",
+  "U1",
+  "D1",
+  "L1"
+ ],
+ "fills": {
+  "Z1": [
+   "`SIDEExplicitFormula.Schema.ZQ.zq_offline_from_coefficients`",
+   "cc2f3ba8",
+   "`SIDEExplicitFormula.Schema.online_imp_zeroSideQ_nonneg`",
+   "[propext, Classical.choice, Quot.sound]"
+  ],
+  "U1": [
+   "`SIDEExplicitFormula.positive_iff_forall_upto`, `SIDEExplicitFormula.positiveUpto_mono`, `SIDEExplicitFormula.h2_sign_upto_iff`, `SIDEExplicitFormula.control_not_positiveUpto` and `SIDEExplicitFormula.control_not_positiveUpto_of_le`",
+   "cc2f3ba8",
+   "[propext, Classical.choice, Quot.sound]"
+  ],
+  "D1": [
+   "`SIDEExplicitFormula.familyConfig_h2_sign` and `SIDEExplicitFormula.positivity_of_premises`",
+   "cc2f3ba8",
+   "[propext, Classical.choice, Quot.sound]"
+  ],
+  "L1": [
+   "`SIDEExplicitFormula.Window.cQ_least_negative`",
+   "cc2f3ba8",
+   "[propext, Classical.choice, Quot.sound]"
+  ]
+ },
+ "run": 45933086394,
+ "commit": "cc2f3ba8",
+ "e0": [
+  {
+   "name": "SIDEExplicitFormula.Schema.online_imp_zeroSideQ_nonneg",
+   "path": "SIDEExplicitFormula/Schema/ZQ/FromCoefficients.lean",
+   "line": 26,
+   "grade": "INTERFACES",
+   "why": "hk : B321.classK k",
+   "prem": [
+    "∀ ρ ∈ Z.carrier, ρ.re = 1 / 2",
+    "B321.classK k"
+   ],
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]",
+   "plan": [
+    "DERIVES",
+    51
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.Schema.ZQ.zq_offline_from_coefficients",
+   "path": "SIDEExplicitFormula/Schema/ZQ/FromCoefficients.lean",
+   "line": 57,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "prem": [],
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]",
+   "plan": [
+    "DERIVES",
+    57
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.positive_iff_forall_upto",
+   "path": "SIDEExplicitFormula/SupportPositivity.lean",
+   "line": 28,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "prem": [],
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]",
+   "plan": [
+    "DERIVES",
+    86
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.positiveUpto_mono",
+   "path": "SIDEExplicitFormula/SupportPositivity.lean",
+   "line": 44,
+   "grade": "DERIVES",
+   "why": "domain conditions only: h : L ≤ L'",
+   "prem": [
+    "L ≤ L'"
+   ],
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]",
+   "plan": [
+    "DERIVES",
+    86
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.h2_sign_upto_iff",
+   "path": "SIDEExplicitFormula/SupportPositivity.lean",
+   "line": 51,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "prem": [],
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]",
+   "plan": [
+    "DERIVES",
+    86
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.control_not_positiveUpto",
+   "path": "SIDEExplicitFormula/SupportPositivity.lean",
+   "line": 62,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "prem": [],
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]",
+   "plan": [
+    "DERIVES",
+    86
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.control_not_positiveUpto_of_le",
+   "path": "SIDEExplicitFormula/SupportPositivity.lean",
+   "line": 70,
+   "grade": "DERIVES",
+   "why": "domain conditions only: h : Real.log 1024 ≤ L",
+   "prem": [
+    "Real.log 1024 ≤ L"
+   ],
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]",
+   "plan": [
+    "DERIVES",
+    86
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.familyConfig_h2_sign",
+   "path": "SIDEExplicitFormula/Composition.lean",
+   "line": 33,
+   "grade": "INTERFACES",
+   "why": "H : DirichletHypothesis",
+   "prem": [
+    "DirichletHypothesis"
+   ],
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]",
+   "plan": [
+    "INTERFACES",
+    105
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.positivity_of_premises",
+   "path": "SIDEExplicitFormula/Composition.lean",
+   "line": 41,
+   "grade": "INTERFACES",
+   "why": "H0 : RiemannHypothesis, H : DirichletHypothesis",
+   "prem": [
+    "RiemannHypothesis",
+    "DirichletHypothesis"
+   ],
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]",
+   "plan": [
+    "INTERFACES",
+    105
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.cq_nonneg_ok",
+   "path": "SIDEExplicitFormula/Window/CQLeast.lean",
+   "line": 26,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "prem": [],
+   "state": "COMPILED",
+   "axioms": "[]",
+   "plan": [
+    "DERIVES",
+    123
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.Window.cQ_least_negative",
+   "path": "SIDEExplicitFormula/Window/CQLeast.lean",
+   "line": 30,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "prem": [],
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]",
+   "plan": [
+    "DERIVES",
+    123
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.Schema.ZQ.OffZero.zq_offline_zero_located",
+   "path": "SIDEExplicitFormula/Schema/ZQ/OffZero/Located.lean",
+   "line": 25,
+   "grade": "DERIVES",
+   "why": "no hypothesis binder",
+   "prem": [],
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]",
+   "plan": [
+    "DERIVES",
+    139
+   ]
+  },
+  {
+   "name": "SIDEExplicitFormula.Schema.ZQ.zq_ne_zero_of_real_one_lt",
+   "path": "SIDEExplicitFormula/Schema/ZQ/RealAxis.lean",
+   "line": 23,
+   "grade": "DERIVES",
+   "why": "domain conditions only: hx : 1 < x",
+   "prem": [
+    "1 < x"
+   ],
+   "state": "COMPILED",
+   "axioms": "[propext, Classical.choice, Quot.sound]",
+   "plan": [
+    "DERIVES",
+    151
+   ]
+  }
+ ],
+ "differ": [
+  "SIDEExplicitFormula.Schema.online_imp_zeroSideQ_nonneg"
+ ],
+ "controls": [
+  [
+   "the papers` repository`s HEAD a0ac08c9, the act`s last commit there before this write (a0ac08c9)",
+   true
+  ],
+  [
+   "OPEN_TRAILS` bytes at HEAD a prefix of its new bytes: no line moves",
+   true
+  ],
+  [
+   "each text as entered equals the ruling`s with its fields filled, each whole in the appended text: Z1 True U1 True D1 True L1 True",
+   true
+  ],
+  [
+   "every text of the group composed (none missing)",
+   true
+  ],
+  [
+   "no field left in the appended text (none)",
+   true
+  ],
+  [
+   "each appended line`s backticks even (odd at none)",
+   true
+  ],
+  [
+   "the identifiers` counts and the account`s equal before and after, and 0 in the appended text (the account read from the relay`s remote, never printed)",
+   true
+  ],
+  [
+   "none of the texts in OPEN_TRAILS before the write (none)",
+   true
+  ],
+  [
+   "[S5] as entered the last line of OPEN_TRAILS before the write, so the dated head of (4) stands beneath it",
+   true
+  ],
+  [
+   "the dispatch rows bank data/b770_dispatch_rows.json committed at HEAD and its working file equal to it (77356 bytes)",
+   true
+  ],
+  [
+   "THE RUN: dispatch 6 read, built at cc2f3ba8 equal with exit 0, KERNEL (run 45933086394)",
+   true
+  ],
+  [
+   "<commit> the act`s last restored read exiting 0 by verdicts(): dispatch 6 at cc2f3ba8; no step dispatched after it (none); the closing build rows 1",
+   true
+  ],
+  [
+   "each text`s theorems COMPILED in the read, their axioms within [propext, Classical.choice, Quot.sound] (Z1 True U1 True D1 True L1 True)",
+   true
+  ],
+  [
+   "THE POPULATION: the act`s 13 theorems (ACT_NAMES, (b) to (g)) each in print_targets.txt at cc2f3ba8 (13) and equal both ways to the names the read gives (13)",
+   true
+  ],
+  [
+   "THE E0 RULE`S LEXICON extended in this tool, tools/e0_rule.py not edited: DirichletHypothesis a Prop, read at its declaration line at the commit (DirichletHypothesis :27 True), none held by the shared lexicon before (held: none)",
+   true
+  ],
+  [
+   "THE E0 GATE: each of the 13 theorems found once by its declaration line among the 6 files of the act at the commit, read at its statement and graded (DERIVES 10, INTERFACES 3)",
+   true
+  ],
+  [
+   "each COMPILED in the read, its axioms within [propext, Classical.choice, Quot.sound], sorryAx in none (the prints: [] 1; [propext, Classical.choice, Quot.sound] 12)",
+   true
+  ],
+  [
+   "THE POSITIONS THE TEXTS STATE, read by the gate: [Z1]`s closing statement, [U1]`s five and [L1]`s one DERIVES, [D1]`s two INTERFACES (zq_offline_from_coefficients DERIVES positive_iff_forall_upto DERIVES positiveUpto_mono DERIVES h2_sign_upto_iff DERIVES control_not_positiveUpto DERIVES control_not_positiveUpto_of_le DERIVES familyConfig_h2_sign INTERFACES positivity_of_premises INTERFACES cQ_least_negative DERIVES)",
+   true
+  ],
+  [
+   "[D1]: each statement binds its named premises and nothing else, the premises the gate read within ['DirichletHypothesis', 'RiemannHypothesis'] and the joined statement binding both (familyConfig_h2_sign ['DirichletHypothesis']; positivity_of_premises ['RiemannHypothesis', 'DirichletHypothesis'])",
+   true
+  ],
+  [
+   "[Z1]: its file`s import closure holds no module under SIDEExplicitFormula.Schema.ZQ.OffZero. (held none), read through the kernel`s import graph at the commit; the control Located.lean`s closure holding 28",
+   true
+  ],
+  [
+   "[Z1]: two proofs of one statement: zq_offline_from_coefficients`s statement equal by its words to zq_offline_zero`s (SP4.lean :32)",
+   true
+  ],
+  [
+   "PLANTED: a gate row with no statement read as the gate`s failure, a planted name as the population`s, and a [U1] theorem read INTERFACES as the positions` (FAILED, DIFFER, FAILED)",
+   true
+  ],
+  [
+   "the appended lines outside a hand section (inside at none)",
+   true
+  ],
+  [
+   "the roster: no order moving and none added (moved none ; added none)",
+   true
+  ]
+ ]
+}
