@@ -3118,7 +3118,7 @@ def _prem_bad(x):
     if re.search(N3_PREM, x):
         return True
     return bool(re.search(r'\b[Ee]ach zero of each Dirichlet L-function\b', x)) and not re.search(
-        r'\b(?:premise|premises|suppose|supposing|assume|assuming|where|if|unless|hypothesis)\b', x, re.I)
+        r'\b(?:premise|premises|suppose|supposing|assume|assuming|where|if|unless|hypothesis|DirichletHypothesis|RiemannHypothesis)\b', x, re.I)   # ### b770 defect (c'): the premise named by its own Lean name
 N3_BANKS_B768 = ('stepzero', 'misses', 'corrigendum', 'price', 'ceiling', 'repairs', 'repair_controls', 'plan', 'controls_control', 'controls',
                  'ledgers_c2', 'ledgers_c5', 'reproduce', 'events', 'defects')   # ### b768's, kept beside
 # ### b769, before the lock (the Edit tool): b769's own banks (scratch feet769.py, 22:24:15Z), b768's plan, dispatch tool and c5 banks,
@@ -3278,9 +3278,9 @@ def _dated_line(l_):
 
 
 def _side_sentences(t):
-    """(R368)(9): the act's own sentences for the side matcher alone -- _own_sentences over the bank with each line headed by a dated record
-    (_dated_line) left out."""
-    return _own_sentences(NL.join(l_ for l_ in (t or '').replace(chr(13), '').split(NL) if not _dated_line(l_)))
+    """(R368)(9): _own_sentences over the bank with each line headed by a dated record (_dated_line) left out; b770 defect (b'): each row of a column table read whole and apart, as _nav_units reads a ' | ' row."""
+    ls_ = [l_ for l_ in (t or '').replace(chr(13), '').split(NL) if not _dated_line(l_)]; tr_ = lambda l_: bool(re.match(r'^ {2}\(\S.{0,30}?\S {3,}\S', l_))
+    return _own_sentences(NL.join(l_ for l_ in ls_ if not tr_(l_))) + [x_ for l_ in ls_ if tr_(l_) for x_ in _own_sentences(l_)]
 
 
 def _nav_bad(x):
@@ -4116,7 +4116,7 @@ def _pp_units():
     line_n_ = 'the navigator’s figures, printed as the navigator’s: 5938 negative with its sign certified; 10034 by a partial sum over 360 certified zeros.\n'
     line_x_ = 'the figures as read: 5938 negative with its sign certified; 10034 by a partial sum over 360 certified zeros.\n'
     upper_n_ = '    (42) THE NAVIGATOR`S [CLAIM ; REPEAT b769 events (44)]: (ii) the bundle as of 140 files by its writer`s\n     count; it carries 44 members.\n'
-    upper_x_ = '    (42) THE SEAT`S [CLOSE ; NEW]: (ii) the bundle as of 140 files by its writer`s\n     count; it carries 44 members.\n'
+    upper_x_ = '    (42) THE SEAT`S [CLOSE ; NEW]: (ii) the bundle as of 140 files by its writer`s\n     count; it carries 44 members.\n'; tab_ = '  (4)(b)                 zq_offline_from_coefficients compiled at 1b413384\n  (4)(c)                 the five of positivity by support compiled at c8913190\n'; tabx_ = '  (4)(c)                 the control`s positivity fails at log 1024\n'   # ### b770 defect (b'): two rows of the ceiling's table, and a planted row
     ctl3_ = dict(lit=bool(re.search(N3_LIT, 'The join is a new result.', re.I)), loc=bool(re.search(N3_LOC, 'RH holds at every height.')),
                  loc_k=bool(re.search(N3_LOC, 'Weil positivity on classK holds.')), loc_e=not re.search(N3_LOC, 'The Epstein zeta function holds no zero there.'),
                  # ### b759: (5)'s ruled sentence, its head as the ruling writes it, passed; the same words for zeta caught
@@ -4130,7 +4130,7 @@ def _pp_units():
                  side=_side_bad('Weil positivity fails at the control.') and not _side_bad('Positivity of the arithmetic side fails at the control.'),
                  # ### (R368)(9), one control of each kind: a sentence the act writes about a result, caught; a line reporting a dated record in its
                  # ### own words under the record's head (b757's sweep bank :159's form), passed
-                 side_result=any(_side_bad(x_) for x_ in _side_sentences('  THE LANDING: the control`s positivity fails at v0.40.\n')),
+                 side_result=any(_side_bad(x_) for x_ in _side_sentences('  THE LANDING: the control`s positivity fails at v0.40.\n')), side_table=not any(_side_bad(x_) for x_ in _side_sentences(tab_)) and any(_side_bad(x_) for x_ in _own_sentences(tab_)) and any(_side_bad(x_) for x_ in _side_sentences(tabx_)),
                  side_dated=not any(_side_bad(x_) for x_ in _side_sentences(
                      '  FINDINGS.md :12999 -- SAYS IT ; A DATED RECORD -- TAKES MOVED BY NO RULE -- hand-read: b736`s discharge: the control`s positivity '
                      'failure held numerically at b726`s two windows, stated by no declaration then; true of its act\n      sha256 92c4460ac53deb3b\n')),
@@ -4154,7 +4154,7 @@ def _pp_units():
                  prem=_prem_bad('DirichletHypothesis holds.') and _prem_bad('The premise of (4)(d) is proved at cc2f3ba8.')
                  and _prem_bad('Each zero of each Dirichlet L-function in the strip has real part 1/2.')
                  and not _prem_bad('On the premise that each zero of each Dirichlet L-function in the strip has real part 1/2, positivity holds at each modulus.')
-                 and not _prem_bad('This line says of no premise that it holds.') and not _prem_bad('positivity_of_premises compiled at cc2f3ba8.'),
+                 and not _prem_bad('This line says of no premise that it holds.') and not _prem_bad('positivity_of_premises compiled at cc2f3ba8.') and not _prem_bad('DirichletHypothesis (def) -- each zero of each Dirichlet L-function in the strip 0 < Re s < 1 has real part 1/2.'),
                  nav_row=any(_nav_bad(x_) for x_ in _own_sentences(row_n_)) and not any(_nav_bad(x_) for x_ in _nav_units(row_n_))
                  and any(_nav_bad(x_) for x_ in _nav_units(row_x_)),
                  # ### b767: a prose line naming the navigator read whole, its later parts passed; the same line with no navigator caught
@@ -4168,16 +4168,16 @@ def _pp_units():
                  and not _def_bad_b766('archTermQ_windowK_k0 compiled at 3c67b8b5, a theorem of L9.')
                  # ### b768 (defect (d')): at [P1], a step's theorem entered as the closing theorem caught four ways; the closing theorem's own
                  # ### entry as compiled, the four steps and their theorems named beside it, the not-sent carry, the ruling's condition and a
-                 # ### step's own theorem passed; the reading in use the one [P1]'s entry gives
-                 and _step_as_closing('window_arith_neg is the closing theorem.') and _step_as_closing('L11d, entered as the closing theorem, compiled at ffefddc6.')
-                 and _step_as_closing('archJ_comb proves ControlFailureExists.') and _step_as_closing('The closing theorem, arith_eq_comb, compiled at ffefddc6.')
+                 # ### step's own theorem passed; the reading in use the one [P1]'s entry gives; b770 defect (a'): the plants b770's step names
+                 and _step_as_closing('cq_nonneg_ok is the closing theorem.') and _step_as_closing('zq_offline_from_coefficients, entered as the closing theorem, compiled at cc2f3ba8.')
+                 and _step_as_closing('positivity_of_premises proves ControlFailureExists.') and _step_as_closing('The closing theorem, cQ_least_negative, compiled at cc2f3ba8.')
                  and not _step_as_closing('controlFailureExists proves ControlFailureExists at ffefddc6.')
                  and not _step_as_closing('ControlFailureExists is proved at ffefddc6.')
-                 and not _step_as_closing('So L11d, window_arith_neg, and L12, controlFailureExists, a proof of ControlFailureExists, stand compiled at ffefddc6.')
+                 and not _step_as_closing('So cQ_least_negative, positivity_of_premises, and L12, controlFailureExists, a proof of ControlFailureExists, stand compiled at cc2f3ba8.')
                  and not _step_as_closing('L12, the closing theorem, was not sent.')
-                 and not _step_as_closing('Where window_arith_neg is the closing theorem, [P1] is entered.')
-                 and not _step_as_closing('arith_eq_comb compiled at 9b2a69e0, a theorem of L11c.')
-                 and _def_bad('window_arith_neg is the closing theorem.') == N3_P1 and _def_bad('The closing theorem compiled at 3c67b8b5.') == (not N3_P1))
+                 and not _step_as_closing('Where cq_nonneg_ok is the closing theorem, [P1] is entered.')
+                 and not _step_as_closing('cq_nonneg_ok compiled at 97d7285b, a theorem of (4)(e).')
+                 and _def_bad('cq_nonneg_ok is the closing theorem.') == N3_P1 and _def_bad('The closing theorem compiled at 3c67b8b5.') == (not N3_P1))
     more_ = [x for x in nsents_ + sents if re.search(N3_LIT, x, re.I) and not re.search(neg_, x)]
     first_ = [x for x in sents if re.search(r'\b(?:first|earliest)\b', x, re.I) and re.search(r'\b(?:assistant|AI|model|machine)\b', x)]
     loc_ = [x for x in sents + nsents_ if re.search(N3_LOC, x) and not re.search(neg_, x)]
