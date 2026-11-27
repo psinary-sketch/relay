@@ -331,6 +331,12 @@ W_WORDS = (('relay/HANDOFF.md', '(R380)(13): HANDOFF.md'),
            ('relay/tools/push_gated.sh', '(R380)(13): tools/push_gated.sh -- each capture written masked, PLACE-papers` under [K32] from its commit on ((9))'),
            ('relay/tools/project_set.py', '(R380)(9), (13): tools/project_set.py -- the Project set built at the close under [K24], as at b769'),
            ('SIDE-explicit-formula/print_targets.txt', '(R380)(4), (13): in SIDE-explicit-formula print_targets.txt -- each compiled theorem`s name joins it'),
+           # ### b770 Component 3 (defect (h)): the files of (4) in the kernel's source folder, each by the plan's line naming it (data/b770_plan.txt,
+           # ### relay 365e5ecb), as this list's step-zero note below orders; (f) and (g) stand in the list by amendment row 1
+           ('SIDE-explicit-formula/SIDEExplicitFormula/Schema/ZQ/FromCoefficients.lean', '(R380)(4)(b), (13): in SIDE-explicit-formula the file of (4)(b) in the kernel`s source folder, named by the plan (data/b770_plan.txt :43)'),
+           ('SIDE-explicit-formula/SIDEExplicitFormula/SupportPositivity.lean', '(R380)(4)(c), (13): in SIDE-explicit-formula the file of (4)(c) in the kernel`s source folder, named by the plan (data/b770_plan.txt :67)'),
+           ('SIDE-explicit-formula/SIDEExplicitFormula/Composition.lean', '(R380)(4)(d), (13): in SIDE-explicit-formula the file of (4)(d) in the kernel`s source folder, named by the plan (data/b770_plan.txt :92)'),
+           ('SIDE-explicit-formula/SIDEExplicitFormula/Window/CQLeast.lean', '(R380)(4)(e), (13): in SIDE-explicit-formula the file of (4)(e) in the kernel`s source folder, named by the plan (data/b770_plan.txt :112)'),
            ('PLACE-project-set/*', '(R380)(9), (13): the Project`s repository whole -- PLACE-project-set under the account, private, its clone outside every repository of the record, written by the builder`s step alone and edited by no hand'))
 #   ### b770 step zero: (R380)(13)'s (W) list in words: the banks as data/b770_* and their generators as tools/b770_*.py; tools/acts/b770.py;
 #   ### the files b769 left by name ((R380)(3): the masked closing push capture, data/b770_address_scan_commits.txt, the two put banks
