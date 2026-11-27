@@ -1,0 +1,181 @@
+b770 -- THE PLAN, (R380)(4)(a) WITH THE AUTHOR'S WORD (amendment row 1): (4)(b) TO (4)(g), IN THE ORDER THE SEAT WILL SEND THEM (2026-11-27)
+
+### Written by the seat by the Write tool in Component 2, after the three keys (relay f9e41612) and before any dispatch; no Lean sent. Paths
+### of the kernel are under SIDEExplicitFormula/ where not named whole. The statements read at SIDE-explicit-formula's working tree at main
+### ffefddc6, clean (the Read tool, 00:14Z-00:23Z, each file counted first): Schema/ZQ/EF/Main.lean :1-:40 and :180-:213, Schema/EpsteinZQ.lean
+### :70-:169, Schema/Config.lean :1-:78, Schema/Wide/Config.lean :1-:145, Window/ArithNeg.lean :1-:36, ControlFailureExists.lean :1-:29,
+### DetectionRegion.lean :1-:57, H2Sign.lean :1-:41, Schema/Family.lean :1-:60 and :150-:280, GRHWeil.lean :1-:70, RHChain.lean :1-:40,
+### Schema/ZQ/Mechanism/CoeffSign.lean :1-:40 and :260-:307, Window/CQValues.lean :1-:40 and :120-:313, Schema/ZQ/OffZero/SP4.lean, Box.lean,
+### MinModulus.lean and Carrier.lean whole and Frame.lean :60-:103, Schema/ZQ/Continuation.lean :120-:149, Schema/ZQ/Lattice.lean :225-:253,
+### Schema/ZQ/LogDeriv.lean :1-:70, :226-:250 and :300-:369, Schema/ZQ/Growth.lean :1-:116, the kernel's lakefile.toml, its
+### .github/workflows/build-module.yml whole and its print_targets.txt :1830-:2041; by git grep at ffefddc6 (00:15Z-00:26Z) the definitions'
+### lines (Schema/ZQ/OffZero/Elem.lean :222-:226, Frontier.lean :140, Diff.lean :19, Centre.lean :247; Schema/ZQ/Zeros.lean :319) and the
+### Mathlib names the kernel already uses. Each statement: its name as planned; in ordinary terms; its statement's opening as Lean; its file;
+### its kind; the compiled statements it consumes by name, file and line; its lines and dispatches, priced from b768's steps
+### (data/b770_price.txt :13: b768's L11c, 330 hand lines an hour; :12: its restored dispatches 3.0-18.9 min, the median 12.9). The
+### navigator's signatures and routes (data/b770_ferry.txt :19-:22) and the author's word's (data/b770_author_words_preseal.txt :4, :6) are at
+### workspace grade; each amendment the seat makes of a name, an import, a file or an instance is stated with its reason; no conclusion is
+### changed. No figure of the navigator's workspace is printed here as a banked figure (N3).
+
+## WHAT THE KERNEL HOLDS AND WHAT THIS ACT ADDS (data/b770_ferry.txt :13, :19-:22)
+  COMPILED at ffefddc6 (main, v0.46): controlFailureExists (Window/ArithNeg.lean :31), the control's arithmetic side of negative real part
+  at one k of classK vanishing outside [-log 1024, log 1024]; zq_explicit_formula_instance (Schema/ZQ/EF/Main.lean :198); zq_offline_zero
+  (Schema/ZQ/OffZero/SP4.lean :32), a zero in box A by the minimum modulus; rh_imp_h2_sign (RHChain.lean :24); family_theorem
+  (Schema/Family.lean :213); cQ_forty_eight (Schema/ZQ/Mechanism/CoeffSign.lean :281); cQ_eq_comb (Window/CQValues.lean :240);
+  zq_ne_zero_of_three_halves_le (Schema/ZQ/LogDeriv.lean :341).
+  ADDED: six statements, each in a new file of its own, no one of them importing another's: (b) to (e) by (R380)(4), (f) and (g) by the
+  author's word.
+
+## THE SEAT'S READS FOR THE PLAN (scratch, read-only, writing nothing in any repository; 00:24:45Z-00:26:26Z)
+  THE IMPORT CLOSURE for (b)'s control, read by `git show` at ffefddc6: Schema.ZQ.EF.Main with Window.ArithNeg, 214 modules, none under
+  SIDEExplicitFormula/Schema/ZQ/OffZero/; its positive control, Schema.ZQ.OffZero.SP4's closure, 156 modules, 28 of them under that folder.
+  THE OTHER CLOSURES, read for the imports: Schema.ZQ.Continuation's (115 modules) holds no Schema.ZQ.LogDeriv; DetectionRegion's (71) no
+  Window.ArithNeg; Schema.Family's (98) holds RHChain; Window.CQValues's (127) no Schema.ZQ.Mechanism.CoeffSign.
+  THE NAMES: the seventeen names this plan declares, searched by git grep at ffefddc6 over the kernel (sixteen at 00:26:08Z, cq_nonneg_ok
+  at 00:29:54Z): none held; the search's positive controls (zq_offline_zero and h2_sign_upto in six files; cq_ok at CQValues.lean :214
+  and :233, the two lines of the second search).
+  THE SIGNS BELOW 48, for (e)'s route: r_Q(n) for n to 48 by enumeration of Q0 (4 Q0 = (2m + n)^2 + 23 n^2, CoeffSign.lean :8) and the
+  coefficient of each log p in c(n) by the recursion of LogDeriv.lean :63-:65: every coefficient an integer; no n below 48 with a
+  coefficient below 0 (12 of them with a coefficient); c(48)'s coefficients -8 at 2 and -2 at 3, those of cQ_forty_eight (CoeffSign.lean
+  :281). A reading by the seat, entered as such; the kernel's evaluation decides.
+
+## THE LEMMAS, IN THE ORDER OF SENDING
+  (4)(b) A ZERO OFF THE LINE FROM THE COEFFICIENTS. File SIDEExplicitFormula/Schema/ZQ/FromCoefficients.lean, importing
+      SIDEExplicitFormula.Schema.ZQ.EF.Main and SIDEExplicitFormula.Window.ArithNeg.
+      online_imp_zeroSideQ_nonneg -- in ordinary terms: where every point of a configuration of the wide class lies on the line Re s = 1/2,
+          the real part of its zero sum at each k of classK is at least 0, each term a multiplicity times a squared modulus. `theorem
+          online_imp_zeroSideQ_nonneg (Z : WideConfig) (hon : ∀ ρ ∈ Z.carrier, ρ.re = 1 / 2) (k : ℝ → ℂ) (hk : B321.classK k) : 0 ≤
+          (zeroSideQ Z k).re`, in namespace SIDEExplicitFormula.Schema beside zeroSideQ (Schema/EpsteinZQ.lean :107). Route:
+          online_imp_h2_sign_cfg's (Schema/Config.lean :52-:74) over zeroSideQ's terms, which are WeilConfig's (Schema/Config.lean :29,
+          Schema/EpsteinZQ.lean :108): classK's witness, Zeta23.EF.paperFT_weilTest and Complex.mul_conj (Config.lean :67-:68), each term at
+          least 0 in ℂ's order and tsum_nonneg, then 0 <= z giving 0 <= z.re. DERIVES. Consumes: classK (H2Sign.lean :24), zeroSideQ
+          (EpsteinZQ.lean :107), WideConfig (Schema/Wide/Config.lean :28).
+      zq_offline_from_coefficients -- in ordinary terms: the configuration of the control's zeros has a point off the line, by
+          contradiction: were every point on it, the zero sum's real part at controlFailureExists's k would be at least 0, and it equals the
+          arithmetic side's, below 0. `theorem zq_offline_from_coefficients : ∃ ρ ∈ zqZeroConfig.carrier, ρ.re ≠ 1 / 2`, in namespace
+          SIDEExplicitFormula.Schema.ZQ beside zqZeroConfig (Schema/ZQ/Zeros.lean :319), the statement of zq_offline_zero proved by another
+          road. DERIVES. Consumes: online_imp_zeroSideQ_nonneg; EF.zq_explicit_formula_instance (Schema/ZQ/EF/Main.lean :198);
+          Window.controlFailureExists (Window/ArithNeg.lean :31) through B321.ControlFailureExists (ControlFailureExists.lean :23).
+      AMENDMENT (B1), NO HYPOTHESIS ON THE COUNT: the ferry adds one "where summability asks for it" (:19); tsum_nonneg in ℂ's order reads
+          no summability (Config.lean :57; a sum with no limit is 0), so none is added and the half-scale map is not used; the statement is
+          the ferry's as written. AMENDMENT (B2), THE FILE AND ITS NAMESPACES, which the ferry leaves to the seat: as above; the file's
+          import closure holds no file under Schema/ZQ/OffZero/ (the read above), and the step's control reads it again at the commit sent.
+          AMENDMENT (B3): the explicit formula at the instance reads the coefficients as `fun n => cQ n` (Main.lean :200) where
+          ControlFailureExists reads `Schema.ZQ.cQ` (:25); the two are one term by eta, read by `exact` and by no rewrite.
+      THE PRICE: 40-120 hand lines ; dispatches 1-4 ; at b768's rate 0.12-0.36 h, with the dispatches 0.17-1.62 h; its row
+          (data/b770_price.txt :28) 60-300 lines and 2-6 dispatches, the lower figures moved by (B1).
+  (4)(c) POSITIVITY BY SUPPORT. File SIDEExplicitFormula/SupportPositivity.lean, importing SIDEExplicitFormula.DetectionRegion and
+      SIDEExplicitFormula.Window.ArithNeg, namespace SIDEExplicitFormula, `open scoped ComplexOrder` (H2Sign.lean :8: 0 <= on ℂ is a
+      nonnegative real).
+      positiveUpto (def) -- for an arithmetic side rhs and a bound L, 0 <= rhs k at each k of classK vanishing outside [-L, L]. `def
+          positiveUpto (rhs : (ℝ → ℂ) → ℂ) (L : ℝ) : Prop := ∀ k, B321.classK k → (∀ u : ℝ, L < |u| → k u = 0) → 0 ≤ rhs k`.
+      positive_iff_forall_upto -- positivity on the whole of classK is positivity up to each L. `theorem positive_iff_forall_upto (rhs :
+          (ℝ → ℂ) → ℂ) : (∀ k, B321.classK k → 0 ≤ rhs k) ↔ ∀ L, positiveUpto rhs L`, by the proof of upto_all_imp_h2_sign
+          (DetectionRegion.lean :37-:44) with rhs in place of zeta's side, and h2_sign_imp_upto's (:33) for the arrow forward.
+      positiveUpto_mono -- positivity up to a larger bound gives it up to a smaller. `theorem positiveUpto_mono {rhs : (ℝ → ℂ) → ℂ} {L L' :
+          ℝ} (h : L ≤ L') : positiveUpto rhs L' → positiveUpto rhs L`.
+      h2_sign_upto_iff -- at zeta's arithmetic side the notion is h2_sign_upto. `theorem h2_sign_upto_iff (L : ℝ) : B321.h2_sign_upto L ↔
+          positiveUpto (fun k => B321.poleTerm k - B321.primeSum k + B321.archTerm k) L`, the two sides one proposition by their
+          definitions (DetectionRegion.lean :29-:30), Iff.rfl.
+      controlSide (def) -- `def controlSide (k : ℝ → ℂ) : ℂ := B321.poleTerm k - Schema.primeTermQ Schema.ZQ.cQ k + Schema.archTermQ k`, the
+          side ControlFailureExists.lean :25 names.
+      control_not_positiveUpto -- the control's side is not positive up to log 1024. `theorem control_not_positiveUpto : ¬ positiveUpto
+          controlSide (Real.log 1024)`, from Window.controlFailureExists (ArithNeg.lean :31), 0 <= z giving 0 <= z.re.
+      control_not_positiveUpto_of_le -- nor up to any L at or above it. `theorem control_not_positiveUpto_of_le {L : ℝ} (h : Real.log 1024
+          ≤ L) : ¬ positiveUpto controlSide L`, by positiveUpto_mono.
+      DERIVES. The compiled home of the term critical width: at most log 1024, from controlFailureExists; zq_weil_positivity_fails
+          (Schema/Wide/HalfScaleControl.lean :44) cited for none. AMENDMENT (C1): the ferry writes positive_iff_forall_upto's binder as
+          `(rhs)`; its type is written, as positiveUpto's. AMENDMENT (C2): the file and namespace, left to the seat; DetectionRegion's closure
+          holds no Window.ArithNeg, so both are imported.
+      THE PRICE: 40-100 hand lines ; dispatches 1-3 ; at b768's rate 0.12-0.30 h, with the dispatches 0.17-1.25 h; its row (:29) 40-150
+          lines and 1-3 dispatches.
+  (4)(d) THE COMPOSITION, as (R379)(7)(a) rules it. File SIDEExplicitFormula/Composition.lean, importing SIDEExplicitFormula.Schema.Family
+      (its closure holds RHChain), namespace SIDEExplicitFormula.
+      DirichletHypothesis (def) -- each zero of each Dirichlet L-function in the strip 0 < Re s < 1 has real part 1/2. `def
+          DirichletHypothesis : Prop := ∀ (N : ℕ) [NeZero N] (χ : DirichletCharacter ℂ N) (s : ℂ), 0 < s.re → s.re < 1 →
+          DirichletCharacter.LFunction χ s = 0 → s.re = 1 / 2`.
+      familyConfig_h2_sign -- on that premise, the summed configuration of the characters modulo q other than the trivial one, each at its
+          primitive character, satisfies Weil positivity on classK, for each modulus q. `theorem familyConfig_h2_sign (H :
+          DirichletHypothesis) (q : ℕ) [NeZero q] : Schema.h2_sign_cfg (Schema.Family.familyConfig q)`, by family_theorem's arrow from its
+          right side to its left (Schema/Family.lean :213), GRH_chi (GRHWeil.lean :53) taking its hypotheses in the order zero, 0 < re,
+          re < 1, at each member's primitive character, with the instance conductor_neZero (Family.lean :166).
+      positivity_of_premises -- the two premises joined. `theorem positivity_of_premises (H0 : RiemannHypothesis) (H : DirichletHypothesis)
+          : B321.h2_sign ∧ ∀ (q : ℕ) [NeZero q], Schema.h2_sign_cfg (Schema.Family.familyConfig q)`, by rh_imp_h2_sign (RHChain.lean :24)
+          and familyConfig_h2_sign.
+      INTERFACES on the named premises: each statement binds its premises and nothing else; its conclusion restates no premise; each
+          premise worded in Mathlib's predicates (RiemannHypothesis, DirichletCharacter.LFunction) and the kernel's. Nothing of the Lean
+          archive of November 2026 is imported or copied. At modulus 1 the premise contains zeta's statement in the strip; not used, and
+          Mathlib's RiemannHypothesis kept as a premise of its own, so that the half at zeta is rh_imp_h2_sign as it stands (:21).
+          AMENDMENT (D1): the file and namespace, left to the seat; RHChain stands in Schema.Family's closure, so one import.
+      THE PRICE: 25-80 hand lines ; dispatches 1-3 ; at b768's rate 0.08-0.24 h, with the dispatches 0.13-1.19 h; its row (:30) 30-150
+          lines and 1-4 dispatches.
+  (4)(e) THE LEAST NEGATIVE COEFFICIENT AT THE CONTROL, sent after (b) to (d). File SIDEExplicitFormula/Window/CQLeast.lean, importing
+      SIDEExplicitFormula.Window.CQValues and SIDEExplicitFormula.Schema.ZQ.Mechanism.CoeffSign, namespace SIDEExplicitFormula.Window.
+      cq_nonneg_ok -- for each n below 48 and each prime of the list, the integer coefficient is at least 0. `def cqNonneg (n : ℕ) : Bool :=
+          primeList.all (fun p => decide (0 ≤ cqZ n p))` and `theorem cq_nonneg_ok : allDC cqNonneg 0 48 6 = true := by decide +kernel`,
+          read at one n by allDC_at (CQValues.lean :23). A kernel evaluation of 48 places, each over the 172 primes below 1024 (primeList,
+          cqPF, CQValues.lean :123-:128): beneath the seat's size for one declaration (KT_CAP 4,100 places, tools/b768_controls.py :111, from
+          tools/b766_kdata.py :65) and beneath CQValues' own blocks of 128 places (:198-:212), so not cut.
+      cQ_least_negative -- c(48) is negative and c(n) is at least 0 for each n below 48, c the coefficients of minus the logarithmic
+          derivative of the control. `theorem cQ_least_negative : Schema.ZQ.cQ 48 < 0 ∧ ∀ n : ℕ, n < 48 → 0 ≤ Schema.ZQ.cQ n`: its leading
+          half from cQ_forty_eight (CoeffSign.lean :281) with 0 < log 2 and 0 < log 3; its second from cQ_eq_comb (CQValues.lean :240),
+          each term cqZ n p times log p, cqZ n p at least 0 by cq_nonneg_ok and log p at least 0 from primeList_two_le (:125).
+      DERIVES. AMENDMENT (E1): the file and namespace, left to the seat; the evaluation stated as a named check, as CQValues' are. The
+          seat's read above finds no coefficient below 0 below 48; where the kernel's evaluation reads otherwise, the step is printed for the
+          navigator and waits, its conclusion asking another route, [L2].
+      THE PRICE: 25-80 hand lines ; dispatches 1-3 ; at b768's rate 0.08-0.24 h, with the dispatches 0.13-1.19 h; its row (:31) 20-120
+          lines and 1-3 dispatches.
+  (4)(f) THE ZERO OF THE CONTROL OFF THE LINE, WITH ITS ENCLOSURE, by the author's word (data/b770_author_words_preseal.txt :4), sent after
+      (e). File SIDEExplicitFormula/Schema/ZQ/OffZero/Located.lean (the word's), importing SIDEExplicitFormula.Schema.ZQ.OffZero.SP4,
+      namespace SIDEExplicitFormula.Schema.ZQ.OffZero (zq_offline_zero's); the files of its route under Schema/ZQ/OffZero/.
+      zq_offline_zero_located -- the control has a zero whose real part lies from 0.85326 to 1.05326 and whose height lies from 16.190216 to
+          16.390216 (the decimals in its docstring). `theorem zq_offline_zero_located : ∃ ρ ∈ zqZeroConfig.carrier, x0 ≤ ρ.re ∧ ρ.re ≤ x1 ∧
+          y0 ≤ ρ.im ∧ ρ.im ≤ y1`, the four numbers as the kernel's x0, x1, y0, y1 (Box.lean :21-:24), as the word allows. Route:
+          min_modulus_zero (MinModulus.lean :23) with boxA_isBounded (Box.lean :33), lamF_diffContOnCl_boxA (Frame.lean :49), cA_mem_boxA
+          and lamF_cA_lt (SP4.lean :23, :27) and lamF_frontier_ge (Frontier.lean :140), the two bounds zq_offline_zero consumes, gives a
+          zero of lamF in the closure of boxA; carrier_of_box (Carrier.lean :21) with zqFn_eq_zero_of_lamF (Frame.lean :80),
+          ne_zero_of_mem_closure_boxA (Frame.lean :43) and ne_one_of_mem_closure_boxA (Diff.lean :19), as lamF_min_modulus_zero has them
+          (Frame.lean :84-:89), its membership of the carrier; mem_closure_boxA (Box.lean :39), the four inequalities. No evaluation added.
+          DERIVES. zq_offline_zero stands as compiled and is not edited.
+      THE PRICE: 15-40 hand lines ; dispatches 1-2 ; at b768's rate 0.05-0.12 h, with the dispatches at b768's restored minutes 0.10-0.75 h:
+          AT OR BELOW ONE HOUR, so it is sent by the word's bar, the plan's price governing (data/b770_misses.txt (1)).
+  (4)(g) NO ZERO OF THE CONTROL ON THE REAL AXIS BEYOND 1, by the author's word (:6), sent after (f). File
+      SIDEExplicitFormula/Schema/ZQ/RealAxis.lean (the word's), importing SIDEExplicitFormula.Schema.ZQ.Continuation and
+      SIDEExplicitFormula.Schema.ZQ.LogDeriv, namespace SIDEExplicitFormula.Schema.ZQ.
+      zq_ne_zero_of_real_one_lt -- for real x above 1 the control's value at x is not zero, the terms of its series being at least 0 there
+          and its term at n = 1 being 2. `theorem zq_ne_zero_of_real_one_lt (x : ℝ) (hx : 1 < x) : zqFn (x : ℂ) ≠ 0`. Route: zqFn_agrees
+          (Continuation.lean :138) to ZQ (EpsteinZQ.lean :69); zq_summable (Lattice.lean :239) and Complex.re_tsum (as
+          LiCriterionBridge.lean :170 has it), the real part of ZQ x the sum of r_Q(n) / n^x, each term at least 0 (LSeries.term_of_ne_zero
+          and Complex.ofReal_cpow, as Growth.lean :109-:113 read them at 3/2); that real series summable by rQ_term_summable (Lattice.lean
+          :228, the series zq_summable is proved from); its term at 1 is 2 (rQ_one, LogDeriv.lean :56), so the real part is at least 2, by
+          le_tsum. DERIVES. zq_ne_zero_of_three_halves_le stands beside it and is not edited. AMENDMENT (G1): rQ_term_summable named beside
+          zq_summable, the real series' summability the route asks; LogDeriv imported for rQ_one, Continuation's closure not holding it.
+          Where Complex.re_tsum's route is refused, zq_three_halves_eq's (Growth.lean :94-:113) at x in place of 3/2, by
+          Complex.ofReal_tsum, with the same two names.
+      THE PRICE: 25-60 hand lines ; dispatches 1-2 ; at b768's rate 0.08-0.18 h, with the dispatches 0.13-0.81 h: AT OR BELOW ONE HOUR, so
+          it is sent.
+
+## THE ORDER, THE HOURS AND THE CHECKS
+  THE ORDER: push-b770-proof cut from push-b768-proof at ffefddc6 by the tool's route, push-b768-proof kept; tools/b770_controls.py carried
+  from tools/b768_controls.py and set for b770 (its kinds; the six statements' files and namespaces in place of b768's one folder and
+  namespace, tools/b768_controls.py :114-:115; (b)'s import closure check), its controls first, committed before the first dispatch; then
+  (b), (c), (d), (e), (f), (g), each its own commit on the branch with its names appended to print_targets.txt and one dispatch with the
+  restore on, the target the modules of print_targets.txt's names as b768's tool reads them (tools/b768_controls.py :1270-:1290). A
+  statement whose dispatches reach its row's upper figure without compiling is set aside: its file and its names leave the branch's next
+  commit, so that each later build reads what compiles; it is entered by its CARRIED text and sent again after (g) where the hours allow.
+  No step dispatch after 2026-11-27T11:01:37Z; the closing build of route (i) at the last commit a restored build read exit 0, sent where
+  the steps end or at that hour.
+  THE SEAT'S FORECAST, not the ceiling's rule: the six statements 170-480 hand lines, at b768's rate 0.52-1.45 h, with 6-17 dispatches of
+  3.0-18.9 min each, beside some 10.6 h from this plan to the last step dispatch; each of (b) to (g) likely to compile within its row.
+  THE CHECKS BEFORE A DISPATCH ((R380)(4) :23, carried from tools/b768_controls.py): each Mathlib name a commit newly uses found in the
+  pinned Mathlib within the kernel's closure, or printed as not found, a name in a comment not read; each data file read to begin with its
+  import (no data file is planned); each kernel evaluation above the seat's size for one declaration cut in blocks before it is sent ((e)'s
+  48 places beneath it); (b)'s file's import closure read for Schema/ZQ/OffZero/, none wanted; the barred words of the Lean text read as
+  b768's tool reads them (tools/b768_controls.py :117); a relay tool's compile check sent by a route naming no tool's path.
+
+## THE TOTALS
+  the Lean 170-480 hand lines in six new files, no generated data; dispatches with the restore on 6-17 ((b) 1-4, (c) 1-3, (d) 1-3, (e) 1-3,
+  (f) 1-2, (g) 1-2), within (4)'s 36; with the restore off the closing build and one repeat of it, within 40. The names joining
+  print_targets.txt, each by its full name: online_imp_zeroSideQ_nonneg and zq_offline_from_coefficients; positive_iff_forall_upto,
+  positiveUpto_mono, h2_sign_upto_iff, control_not_positiveUpto and control_not_positiveUpto_of_le; familyConfig_h2_sign and
+  positivity_of_premises; cq_nonneg_ok and cQ_least_negative; zq_offline_zero_located; zq_ne_zero_of_real_one_lt.
