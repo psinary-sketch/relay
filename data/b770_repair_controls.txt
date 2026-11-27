@@ -47,3 +47,24 @@ b770 -- THE PLANTED CONTROLS OF THE THREE KEYS, (R380)(8), appended by tools/b77
     (needles)    the mask`s calls: record.tpl 3, closing.tpl 2, checks.tpl 4 ; the import in record, checks, closing [1, 1, 1] ; prevdry.py 4 ; push_gated.sh`s filter 1
     AFTER: CLEAN
 ### ### **[K32] THE CONTROL AS WANTED: THE FAULT READ BEFORE AND CLEAN AFTER: True.**
+
+## [K33] THE PLANTED CONTROL (2026-11-27T00:10:34Z): BEFORE relay 5a7ec193, THE REPAIR`S COMMIT relay 9432d7ce, its first parent 5a7ec193 -- THE COMMIT BEFORE
+  BEFORE (relay 5a7ec193, VERSION v1.38.32): the files tools/standing/hook.py present, tools/standing/act.py present, tools/standing/commit.py present, tools/standing/VERSION present
+    (hook)    bank_act over four planted relays (the closing record written ; the closing commit`s row in the step bank): none b770 ; the record alone b771 ; record and row b771 ; the row alone b770
+    (refusal) the refusal bank in each: b770_hook_refusals.txt, b771_hook_refusals.txt, b771_hook_refusals.txt, b770_hook_refusals.txt
+    (scan)    the next act whose commits bank takes the run (a rows-only closing commit, the closing commit, a component commit), the run() line read 1 time(s): none ['b771', None, None] ; the record alone ['b771', None, None] ; record and row ['b771', None, None] ; the row alone ['b771', None, None]
+    (agree)   standing.act.closed and the hook`s closed_act agree: NOT READ ; closed, closed_act, close_add, scan_bank_act present [False, False, False, False]
+    (close)   the closing list lacking the relay`s record capture refused False, naming it False ; the list whole passing True ; a commit before the closing, the captures untracked, passing True ; the list 11 banks, push captures 1
+    (route)   `add --close`: ABSENT
+    (needles) the route`s test 0 ; close_carried at the closing 0 ; close_add 0
+    BEFORE: THE FAULT READ
+  AFTER (relay 9432d7ce, VERSION v1.38.33): the files tools/standing/hook.py present, tools/standing/act.py present, tools/standing/commit.py present, tools/standing/VERSION present
+    (hook)    bank_act over four planted relays (the closing record written ; the closing commit`s row in the step bank): none b770 ; the record alone b770 ; record and row b771 ; the row alone b770
+    (refusal) the refusal bank in each: b770_hook_refusals.txt, b770_hook_refusals.txt, b771_hook_refusals.txt, b770_hook_refusals.txt
+    (scan)    the next act whose commits bank takes the run (a rows-only closing commit, the closing commit, a component commit), the run() line read 1 time(s): none [None, None, None] ; the record alone [None, None, None] ; record and row ['b771', 'b771', 'b771'] ; the row alone [None, None, None]
+    (agree)   standing.act.closed and the hook`s closed_act agree: [True, True, True, True] ; closed, closed_act, close_add, scan_bank_act present [True, True, True, True]
+    (close)   the closing list lacking the relay`s record capture refused True, naming it True ; the list whole passing True ; a commit before the closing, the captures untracked, passing True ; the list 16 banks, push captures 6
+    (route)   `add --close`: paths 17 ; the named path first True ; every planted bank of the act True ; the relay`s closing capture left out True ; no bank of b769 True ; no path twice True
+    (needles) the route`s test 1 ; close_carried at the closing 4 ; close_add 2
+    AFTER: CLEAN
+### ### **[K33] THE CONTROL AS WANTED: THE FAULT READ BEFORE AND CLEAN AFTER: True.**
