@@ -1331,7 +1331,7 @@ NAV_LETTERS = ()   # ### b755: no navigator's row in the defects bank; the navig
              ('b770_recut_inputs.txt', 'THE INPUTS: KEYSTONES 1 ; INPUTS 5 ; NO KEYSTONE 4 ; CONTROLS 7 OF 7 AS WANTED ; WRITTEN.')]
     ft_ = [_vlast(_txt(rd(n_))) == w_ for n_, w_ in feet_]
     cer_ = re.match(r'^THE CEILING READ BEFORE THE LOCK \(\(R380\)\(3\), read-only, \d\d:\d\d:\d\dZ\): SPENT [\d.]+ h FROM THE OPENING ROW ; THE LAST STEP DISPATCH AT '
-                    r'\d\d:\d\d:\d\dZ, [\d.]+ h FROM THE OPENING ROW ; LEFT -?[\d.]+ h OF 30 h, THE RESERVE 16 h ; THE CLOSE AT b769`S [\d.]+ h FROM ITS LOCK, [\d.]+ h FROM '
+                    r'\d\d:\d\d:\d\dZ, [\d.]+ h FROM THE OPENING ROW ; LEFT -?[\d.]+ h OF 30 h, THE RESERVE 16 h ; THE CLOSE AT b768`S 4\.85 h FROM ITS LOCK, [\d.]+ h FROM '   # ### b770, Component 5 (the Edit tool, before the ceiling's write): b768's 4.85 h, the table's close row being b768's at this act's kind (data/b770_price.txt :11, :36), where the act number moved with b768's form read b769
                     r'THE OPENING ROW ; (WITHIN THE CEILING|THE ACT WOULD PASS 30 h AT ITS CLOSE)\.$', _vlast(_txt(S['ceilt'])))
     ce_ = bool(K.C1_CEILING) and bool(_txt(S['ceilt'])) and _txt(S['ceilt']) == _txt(blob(ROOT, '%s:data/b770_ceiling.txt' % K.C1_CEILING)) \
         and gs(ROOT, 'log', '-1', '--format=%H', '--', 'data/b770_ceiling.txt').strip()[:8] == K.C1_CEILING[:8] and bool(cer_)
@@ -2317,7 +2317,7 @@ def _trail_resolved(text):
     # ### no-dispatch form named the last item of (4) to (6) entered under b770's name; checks 34's reading of the same foot
     ce_ = _bfig('%s_ceiling.txt' % ACT, r'\*\*THE CEILING READ BEFORE THE LOCK \(\(R380\)\(3\), read-only, (\d\d:\d\d:\d\dZ)\): SPENT ([\d.]+) h FROM THE OPENING ROW ; '
                 r'THE LAST STEP DISPATCH AT (\d\d:\d\d:\d\dZ), ([\d.]+) h FROM THE OPENING ROW ; LEFT (-?[\d.]+) h OF (\d+) h, THE RESERVE (\d+) h ; THE CLOSE AT '
-                r'b769`S ([\d.]+) h FROM ITS LOCK, ([\d.]+) h FROM THE OPENING ROW ; (WITHIN THE CEILING|THE ACT WOULD PASS \d+ h AT ITS CLOSE)\.\*\*',
+                r'b768`S ([\d.]+) h FROM ITS LOCK, ([\d.]+) h FROM THE OPENING ROW ; (WITHIN THE CEILING|THE ACT WOULD PASS \d+ h AT ITS CLOSE)\.\*\*',   # ### b770, Component 5: b768's, the table's close row (data/b770_price.txt :11, :36); the field keeps its name ce_b769
                 'the ceiling`s reading before the lock')
     # ### (5): each key's row of the repairs bank -- its class and state from its head, its sentence the quoted lines after it, from its
     # ### opening quote to the first line that ends in a quote -- beside the worklist's STANDING_REPAIRS (version, commit, row commit,
@@ -5337,7 +5337,7 @@ def _finding_text_b770(f, S, rep, tot):
          'lines, its dispatches and its hours, each row priced beside what a like row of b768 or b769 took, a build from source at %s minutes and a restored build at %s: step '
          'zero %s h, the lower sum %s h against the ceiling %d h from the opening row with %s h in reserve, the upper sum %s h; dispatches %s of at most %d, with the restore on '
          '%s of at most %d; the Lean %s lines; no step dispatch after %s (relay data/b770_price.txt). Read before the lock, read-only, at %s: %s h spent from the opening row, '
-         'the last step dispatch at %s, %s h from the opening row; %s h left of %d, the reserve %d h; the close at b769’s %s h from its lock, %s h from the opening row: %s '
+         'the last step dispatch at %s, %s h from the opening row; %s h left of %d, the reserve %d h; the close at b768’s %s h from its lock, %s h from the opening row: %s '   # ### b770, Component 5: b768's, the table's close row
          '(relay data/b770_ceiling.txt). The seat’s read of what the ruling misses, printed to the author before Component 1 and once more before the lock (relay '
          'data/b770_misses.txt).' % (
              *[(lambda m_: ('%s to %s' % (m_[0], m_[1]) if m_[0] != m_[1] else '%s' % m_[0]) if isinstance(m_, (list, tuple)) else '%s' % m_)(f['pr_minutes'][i_]) for i_ in (1, 0)],
@@ -8565,7 +8565,7 @@ roster (REGISTERED); the closing build from source where main did not move, [C11
     keys['PRICE'] = ('REGISTERED -- THE PRICE AND THE CEILING OF (3): the table banked before Component 1 from banked timings, step zero %s h, the lower sum %s h '
                      'against the ceiling %d h with %s h in reserve, the upper sum %s h, dispatches %d to %d of at most %d, the last step dispatch by %s; the ceiling '
                      'read before the lock at %s: %s h spent from the opening row, the last step dispatch at %s, %s h from it, %s h left of %d with the reserve %d h, '
-                     'the close at b769’s %s h from its lock, %s h from the opening row: %s. SOURCE %s ; %s.' % (
+                     'the close at b768’s %s h from its lock, %s h from the opening row: %s. SOURCE %s ; %s.' % (   # ### b770, Component 5: b768's, the table's close row
                          f['pr_step0'], f['pr_lower'], f['pr_ceiling'], f['pr_reserve'], f['pr_upper'], f['pr_disp'][0], f['pr_disp'][1], f['pr_cap'], f['pr_last'],
                          f['ce_at'], f['ce_spent'], f['ce_last'], f['ce_last_h'], f['ce_left'], f['ce_ceiling'], f['ce_reserve'], f['ce_b769'], f['ce_close'],
                          f['ce_word'].lower(), sq['text'], sce['text']))

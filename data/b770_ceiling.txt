@@ -1,0 +1,41 @@
+b770 -- THE CEILING READ BEFORE THE LOCK, (R380)(3): 30 HOURS FROM THE OPENING ROW, 16 OF THEM IN RESERVE FOR THE RECORD AND THE CLOSE, READ-ONLY (2026-11-27T06:26:02Z)
+
+## THE CONTROLS
+  (1) the table read whole by its own rule (data/b770_price.txt :37): step zero 1.98 h plus its 19 rows each as read at its kind, against its lower sum 23.02: 23.02 -> AS WANTED
+  (2) the opening row read from the step rows (step 1, relay bcf5691f, 21:01:37) against the table`s opening row 21:01:37 -> AS WANTED
+  (3) the last step dispatch read from the dispatch rows (items b to g): dispatch 6 at 03:15:19, at or before the bar 11:01:37; step dispatches past the bar 0 -> AS WANTED
+  (4) each row named done is a row of the table: named 18, absent 0 [] ; left 1 (close) -> AS WANTED
+  (5) the close row b768`s at this act`s kind (data/b770_price.txt :36) and b768`s lock to its closing read at the table`s :11: 4.85 h of 13.28 h -> AS WANTED
+  (6) PLANTED: a read 6.00 h later moves the spent hours and the close by 6.00 h each (9.41 -> 15.41 ; 22.69 -> 28.69), and a read at 18.00 h prints "THE ACT WOULD PASS 30 h AT ITS CLOSE" (the close at 31.28 h) -> AS WANTED
+  (7) PLANTED: a step dispatch row 57 s past the bar read as past it: 1 -> AS WANTED
+
+## THE ROWS DONE, BY NAME (each row of (1), (3), (4), (6), (7) and (8) ended; the hours they took stand in the spent hours, each beside its price in the report of (10))
+  (1)                    the corrigendum, PLACE-papers 11fe9707, FINDINGS :16329 (events (52))
+  (8) [K31]              relay 60e769a5, v1.38.31, its planted control AS WANTED (events (53))
+  (8) [K32]              relay 75a8c747, v1.38.32, its planted control AS WANTED (events (56))
+  (8) [K33]              relay 9432d7ce, v1.38.33, its planted control AS WANTED (events (58))
+  (3) names              tools/b770_names.py relay 53cedf70, data/b770_names.txt relay 9ddb4f1a (events (19))
+  (4) branch and tool    push-b770-proof cut at ffefddc6 01:09:07Z, the dispatch tool relay 48b1dfba (events (65))
+  (4)(a) plan            relay 365e5ecb, before any dispatch (events (60))
+  (7) [A5]               [A5] at OPEN_TRAILS :19595, PLACE-papers f945cbd9 (events (62))
+  (6)                    data/b770_li_index.txt AS READ, relay f9e94487; [I1] at OPEN_TRAILS :19597, PLACE-papers c599930d (events (66), (68))
+  (7) sitting            the agenda and its one question, passed whole, relay a2a39a09; the inputs relay 9d95c615; [S5] at OPEN_TRAILS :19599, PLACE-papers a0ac08c9 (events (69)-(71))
+  (4)(b)                 online_imp_zeroSideQ_nonneg and zq_offline_from_coefficients compiled at 1b413384, dispatch 1 (events (65), (72))
+  (4)(c)                 the five of positivity by support compiled at c8913190, dispatch 2 (events (73), (75), (77))
+  (4)(d)                 familyConfig_h2_sign and positivity_of_premises compiled at 5e1c7b72, dispatch 3 (events (76), (78), (79))
+  (4)(e)                 cq_nonneg_ok and cQ_least_negative compiled at 97d7285b, dispatch 4 (events (78), (82))
+  (4)(f)                 zq_offline_zero_located compiled at b34fdb2e, dispatch 5 (events (81), (84))
+  (4)(g)                 zq_ne_zero_of_real_one_lt compiled at cc2f3ba8, dispatch 6 (events (83), (86))
+  (4) closing build      dispatch 7, run 45933637198, stopped under the hold in part one at cc2f3ba8, the low 2,344 MB; its one repeat, dispatch 8, run 45935483550, stopped under the hold, the low 2,537 MB; [C11] at OPEN_TRAILS :19611, PLACE-papers 423a6b78 (events (88), (90), (91))
+  (4) main               main not moved, at ffefddc6 with v0.46; no tag cut; the Lean on push-b770-proof at cc2f3ba8, cited by commit (events (91))
+
+## THE ROWS LEFT, AT THE TABLE`S FIGURES (data/b770_price.json)
+  close                  13.28 h (upper 16.00 h ; dispatches 0-0)
+
+## THE READING
+  spent from the opening row (2026-11-26T21:01:37Z, step 1) to 2026-11-27T06:26:02Z: 9.41 h
+  the last step dispatch: dispatch 6, item g, its row 03:15:19, 6.23 h from the opening row and 3.18 h before this read; none after it, the bar of (3) at 11:01:37 (14 h) reached by none; the steps of (b) to (g) ended before the bar, so the closing build was sent then as dispatch 7 and its one repeat as dispatch 8, each outside the bar (events (86), (88), (90))
+  left: 20.59 h of 30 h, the reserve 16 h within what is left
+  the close at the table`s close row from this read (data/b770_price.txt :36: b768`s rows from its first Component 5 row to its closing at the kind [K27] gives this act, :11): its first Component 5 row to its lock 8.430 h, its lock to its closing 4.850 h (b768`s), 13.28 h in all: the lock at 17.84 h and the close at 22.69 h from the opening row; at the reserve`s 16 h, 25.41 h: within the ceiling
+
+### ### **THE CEILING READ BEFORE THE LOCK ((R380)(3), read-only, 06:26:02Z): SPENT 9.41 h FROM THE OPENING ROW ; THE LAST STEP DISPATCH AT 03:15:19Z, 6.23 h FROM THE OPENING ROW ; LEFT 20.59 h OF 30 h, THE RESERVE 16 h ; THE CLOSE AT b768`S 4.85 h FROM ITS LOCK, 22.69 h FROM THE OPENING ROW ; WITHIN THE CEILING.**
