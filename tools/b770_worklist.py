@@ -776,7 +776,8 @@ CHAIN = (('c1', '767a8641'), ('corr', '4d274231'),
          ('wl_c2', '9543a67b'), ('controls_gen', '48b1dfba'), ('dispatch_1', 'c3edca18'), ('li_index_gen', 'cb5b7525'),
          ('li_index_fix', '1521f59c'), ('rulings_c2i', 'd4f80fe3'), ('ledgers_c2i', 'f9e94487'), ('sitting_gen', '4780d829'),
          ('sitting_fix', '2d4d28d7'), ('sitting', 'a2a39a09'), ('rulings_c2s', '9d95c615'), ('wl_wwords', 'bb496b75'),
-         ('rows_66_76', '81d8ac6a'), ('rows_77_81', '68d3fc5b'), ('rulings_c3', '4bfa29e4'))   # ### b770: steps 11, 13-28, 30-32, 34-37, 39-43, 46, 49, 52 and 54, each from its step row (scratch steps770s.py, 03:43:41Z; steps 12, 29, 38, 44 and 55 the papers` repository's, steps 33, 45, 47, 48, 50, 51 and 53 the kernel's); the act's relay commits after step zero's banks, in their order, appended as made; b769's stands in git at tools/b769_worklist.py
+         ('rows_66_76', '81d8ac6a'), ('rows_77_81', '68d3fc5b'), ('rulings_c3', '4bfa29e4'), ('rulings_c4', 'ea1a9943'),
+         ('read_8', '7f6ca3aa'))   # ### b770: steps 11, 13-28, 30-32, 34-37, 39-43, 46, 49, 52, 54, 56 and 57, each from its step row (scratch steps770s.py, 03:43:41Z; steps 56 and 57 from commit.py's row lines, 03:52:00Z and 03:55:29Z; steps 12, 29, 38, 44, 55 and 58 the papers` repository's, steps 33, 45, 47, 48, 50, 51 and 53 the kernel's); the act's relay commits after step zero's banks, in their order, appended as made; b769's stands in git at tools/b769_worklist.py
 CHAIN_B765 = ()   # ### b765's fifty keys stand in git at tools/b765_worklist.py
 CHAIN_B764 = ()   # ### b764's sixty keys stand in git at tools/b764_worklist.py
 CHAIN_B763 = ()   # ### b763's fifty-seven keys stand in git at tools/b763_worklist.py
@@ -797,7 +798,7 @@ CHAIN_B759 = ()   # ### b759's sixty-odd keys stand in git at tools/b759_worklis
 # ### that cut it and before its relay banks (steps 25 and 63); the entry and the trail at the close appended as made
 # ### b768: the corrigendum for b767 (FINDINGS, step 6); the lines of (7), [R2] and [A3], and the outcome's text in OPEN_TRAILS, each after
 # ### the tool's commit that cut it and before its relay banks; the entry and the trail at the close appended as made
-PP_CHAIN = (('c1pp', '11fe9707'), ('c2pp', 'f945cbd9'), ('c2ipp', 'c599930d'), ('c2spp', 'a0ac08c9'), ('c3pp', 'c0146cf4'))   # ### b770: the act's PLACE-papers commits in their order, appended as made (step 12, the corrigendum at FINDINGS :16329; step 29, [A5] at OPEN_TRAILS :19595; step 38, [I1] at :19597; step 44, [S5] at :19599; step 55, [Z1] to [L1] at :19603-:19609 under their head at :19601)
+PP_CHAIN = (('c1pp', '11fe9707'), ('c2pp', 'f945cbd9'), ('c2ipp', 'c599930d'), ('c2spp', 'a0ac08c9'), ('c3pp', 'c0146cf4'), ('c4pp', '423a6b78'))   # ### b770: the act's PLACE-papers commits in their order, appended as made (step 12, the corrigendum at FINDINGS :16329; step 29, [A5] at OPEN_TRAILS :19595; step 38, [I1] at :19597; step 44, [S5] at :19599; step 55, [Z1] to [L1] at :19603-:19609 under their head at :19601; step 58, [C11] at :19611)
 PP_CHAIN_B769 = (('c1pp', 'b382b95e'), ('c2pp', '5cfb9577'), ('c2pp_map', '9aab5f65'), ('c2pp_ot', 'd4808187'), ('c2pp_arc', '4570c462'), ('c2pp_c2b', '41170e41'), ('c3pp', '5111e451'), ('c4pp', '3deb3dca'))   # ### b769: the act's PLACE-papers commits in their order, appended as made (steps 6, 15, 18, 25, 29, 32, 35 and 42: the corrigendum, the registry's block, the map's merge, [X4] and [M5] in OPEN_TRAILS, the cluster's source record, [B1] and [A4] with [C9], the four entries of ERRATA with [F2]-[F5] and [R3], [V1]), b768's keys
 PP_CHAIN_B768 = (('c1pp', '9c43f4bb'), ('c2pp', 'eea70a2d'), ('c5pp', '45f187d1'))   # ### b768: the act's PLACE-papers commits in their order, appended as made (steps 6, 22 and 66)
 PP_CHAIN_B767 = (('c1pp', '216d9715'), ('c2pp', 'ba23945a'), ('c5pp', 'adadfd62'))
@@ -816,7 +817,7 @@ _KEYS = tuple(k_ for k_, _h in CHAIN)
 # ### group's OPEN_TRAILS commit before that group's relay banks (scratch steps768.py: 14:23:33Z, 15:35:31Z, 00:23:41Z)
 # ### b769, before the lock (the Edit tool, 2026-11-25): each PLACE-papers key placed before the relay commit that follows it in time
 # ### (scratch chainchk769.py, 22:25:24Z: 19:08:47Z, 19:54:20Z, 20:06:39Z, 20:47:18Z, 21:02:32Z, 21:13:23Z, 21:26:24Z and 22:12:04Z)
-_PP_BEFORE = {'corr': 'c1pp', 'ledgers_c2': 'c2pp', 'ledgers_c2i': 'c2ipp', 'wl_wwords': 'c2spp'}   # ### b770: each papers` repository write's key placed before the relay commit that follows it in time, from the step rows (step 12 between steps 11 and 13; step 29 between steps 28 and 30; step 38 between 37 and 39; step 44 between 43 and 46), set as made; c3pp (step 55) before the next relay commit, set when it is made
+_PP_BEFORE = {'corr': 'c1pp', 'ledgers_c2': 'c2pp', 'ledgers_c2i': 'c2ipp', 'wl_wwords': 'c2spp', 'rulings_c4': 'c3pp'}   # ### b770: each papers` repository write's key placed before the relay commit that follows it in time, from the step rows (step 12 between steps 11 and 13; step 29 between steps 28 and 30; step 38 between 37 and 39; step 44 between 43 and 46; step 55 between 54 and 56), set as made; c4pp (step 58) before the next relay commit, set when it is made
 TIME_ORDER = ('actcur', 'stepzero') + tuple(x_ for k_ in _KEYS for x_ in ((_PP_BEFORE[k_], k_) if k_ in _PP_BEFORE else (k_,)))
 # ### b766, Component 5 (the Edit tool, before any run): each key's words, from its commit's subject and files (scratch steps766r.py,
 # ### 18:38:32Z); later keys given words as made. b765's kept below under its own name, read by nothing
@@ -858,6 +859,8 @@ CHAIN_WORDS.update({'c1': 'the c1 route with b769`s findings after its lock and 
                     'rows_77_81': 'events rows (77) to (81), dispatches 2 and 3 read',
                     'rulings_c3': 'the rulings tool`s group c3 with events rows (82) to (87) and the dispatch rows and targets banks',
                     'c3pp': '[Z1], [U1], [D1] and [L1] in OPEN_TRAILS',
+                    'rulings_c4': 'the rulings tool`s group c4 with the worklist`s chain and kernel commits, rows (88) and (89) and the ledgers of group c3',
+                    'read_8': 'dispatch 8 read with row (90) and the act module`s N2 section set', 'c4pp': '[C11] in OPEN_TRAILS',
                     'gate': 'the gate commit with its subject composed by the one-call tool from its banks'})
 CHAIN_WORDS_B768 = ({'c1': 'the c1 route with b769`s findings after its lock and the navigator`s claims as events', 'c1pp': 'the corrigendum for b769',
                     'corr': 'the corrigendum banks and the corrigenda row (88)', 'cites': 'the carried ferry cites and the corrigendum`s constants',
@@ -1239,7 +1242,7 @@ HANDOFF_COMMIT_B760 = '8d99ac80'   # ### (R370)(5): b760's, built and written by
 # ### arms against the banks' sha256 (data/b762_page.json's page and REGISTRY digests; data/b762_ledgers.json's file)
 # ### b763, Component 6: (1)'s corrigendum with [I1]; the ledgers of (9) appended when written
 PP_WRITES = (('corr', 'FINDINGS.md', '11fe9707'), ('trails_c2', 'OPEN_TRAILS.md', 'f945cbd9'), ('trails_c2i', 'OPEN_TRAILS.md', 'c599930d'),
-             ('trails_c2s', 'OPEN_TRAILS.md', 'a0ac08c9'), ('trails_c3', 'OPEN_TRAILS.md', 'c0146cf4'))   # ### b770 (R380)(9): each write of this act in the papers` repository, OPEN_TRAILS and FINDINGS and no other file, (key, file, commit), from the step rows (steps 12 and 29), appended as made
+             ('trails_c2s', 'OPEN_TRAILS.md', 'a0ac08c9'), ('trails_c3', 'OPEN_TRAILS.md', 'c0146cf4'), ('trails_c4', 'OPEN_TRAILS.md', '423a6b78'))   # ### b770 (R380)(9): each write of this act in the papers` repository, OPEN_TRAILS and FINDINGS and no other file, (key, file, commit), from the step rows (steps 12, 29, 38, 44, 55 and 58), appended as made
 PP_WRITES_B769 = (('corr', 'FINDINGS.md', 'b382b95e'), ('registry_block', 'REGISTRY.md', '5cfb9577'), ('map_merge', 'SPIRAL_MAP.md', '9aab5f65'),
              ('trails_c2', 'OPEN_TRAILS.md', 'd4808187'), ('archives', 'clusters/lean-archive-november-2026/MANIFEST.txt', '4570c462'),
              ('trails_c2b', 'OPEN_TRAILS.md', '41170e41'), ('registry_c2b', 'REGISTRY.md', '41170e41'), ('errata_c3', 'ERRATA.md', '5111e451'),
