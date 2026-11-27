@@ -5208,10 +5208,10 @@ def _finding_text_b770(f, S, rep, tot):
     e0j_ = (jl('%s_ledgers_c3.json' % ACT) or {}).get('e0') or []
     if len(e0j_) != 13 or any(x_.get('state') != 'COMPILED' for x_ in e0j_):
         sys.exit('### GROUP c3`S E0 LIST DOES NOT CARRY THE ACT`S THIRTEEN THEOREMS COMPILED -- NOTHING COMPOSED')
-    axn_ = {'[]': 'no axiom', '[propext, Classical.choice, Quot.sound]': 'the standard three'}
-    gr3_ = ' and '.join('%s %d' % (k_, v_) for k_, v_ in sorted(_Cn(str(x_.get('grade')) for x_ in e0j_).items()))
+    axn_, gw3_ = {'[]': 'no axiom', '[propext, Classical.choice, Quot.sound]': 'the standard three'}, {'DERIVES': 'a derivation', 'INTERFACES': 'an interface', 'SHELL': 'a shell', 'ENCODES': 'an encoding', 'ENCODES-CONCLUSION': 'an encoding of its conclusion'}   # ### b770, Component 5: gw3_ the grade words in words, for df3_ below
+    gr3_ =' and '.join('%s %d' % (k_, v_) for k_, v_ in sorted(_Cn(str(x_.get('grade')) for x_ in e0j_).items()))
     ax3_ = ', '.join('%s %d' % (axn_.get(k_, k_), v_) for k_, v_ in sorted(_Cn(str(x_.get('axioms')) for x_ in e0j_).items(), key=lambda kv_: -kv_[1]))
-    df3_ = '; '.join('%s for `%s` beside the plan’s %s' % (x_.get('grade'), x_.get('name'), (x_.get('plan') or ['-'])[0])
+    df3_ = '; '.join('`%s`, read by the gate as %s where the plan’s kind gives %s' % (x_.get('name'), gw3_.get(x_.get('grade'), 'another grade'), gw3_.get((x_.get('plan') or ['-'])[0], 'another kind'))   # ### b770, Component 5 (the Edit tool, after the entry's third dry): each grade in words, where b633's predict_cells read the capital grade word beside the backticked name as a grade cell, two in the dry (entrydry770c.txt :1), and the route refuses on any cell (record.tpl :3275)
                      for x_ in e0j_ if (x_.get('plan') or [None])[0] != x_.get('grade')) or 'none differing'
     nm3_ = lambda n_: '`%s`' % next(x_['name'] for x_ in e0j_ if x_['name'].endswith('.' + n_))
     # ### (10)'s measure: the ruling's own figures at the ferry's :41, its five parts (b769's 11.11 and b768's 4.85; b769's 18.30 and

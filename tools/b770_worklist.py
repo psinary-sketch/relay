@@ -516,7 +516,7 @@ NEW_TOOLS = tuple('standing/' + f for f in STANDING_FILES)   # ### the standing 
 FOLD_FILES = tuple(sorted('standing/fold/' + f for f in os.listdir(os.path.join(ROOT, 'tools', 'standing', 'fold')) if f.endswith('.tpl')
                           and f != 'report.tpl')) + ('acts/b770.py',)
 NEW_TOOLS = NEW_TOOLS + FOLD_FILES
-STANDING_VERSION = 'v1.38.30'            # ### entering; (R380)(8) moves tools/standing/ by three commits ([K31], [K32] and [K33], each in Component 1 before the opening pass), VERSION with each, and nowhere else ((R380)(11)); set at the close
+STANDING_VERSION = 'v1.38.33'            # ### b770, Component 5 (the Edit tool, after the entry's second dry refused at the record's guard, record 29 :4522, where this line still read the entering v1.38.30 under the note "set at the close"; b769 set its own before the lock, tools/b769_worklist.py :490 at 6b951d93): (R380)(8) moved tools/standing/ by its three commits in Component 1, [K31] (60e769a5, v1.38.31), [K32] (75a8c747, v1.38.32) and [K33] (9432d7ce, v1.38.33), VERSION with each (tools/standing/VERSION at HEAD v1.38.33), and (R380)(11) moves it nowhere else; v1.38.30 entering
 STANDING_VERSION_ENTERING = 'v1.38.30'
 LEAN_TREES = (('D:/SIDE-explicit-formula', 'ffefddc6'), ('D:/SIDE-dirichlet-mod-24', 'e5ebdd15'))   # ### (R380) SCOPE READ's Lean pins: main at v0.46 (ffefddc6, push-b768-proof's tip and push-b770-proof's base by (4), each path of (4) read there); SIDE-dirichlet-mod-24 at v0.2.0, untouched; SIDE-kernel unmoved; SIDE-explicit-formula alone touched, under (4) (N5)
 # ### b764 step zero (17:3xZ, after the citation check's dry halted on two Lean paths): the trees are the pins (R374)'s SCOPE READ names for
