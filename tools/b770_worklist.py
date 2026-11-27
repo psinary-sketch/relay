@@ -600,7 +600,7 @@ CHAIN_WORDS = {}             # ### b758: each CHAIN and PP_CHAIN key's words in 
 C1_RULES = None        # ### LEFT EMPTY BY (R379)(11): the standing clauses' bank not rewritten, the two keys standing in the repairs bank and its tool, so no rules bank of this act; data/b756_rules.txt's rows (a)-(c) in force (b768's clause (R378)(11) set to b769's before the lock)
 B756_RULES = ('data/b756_rules.txt', '0a151012')   # ### the rule this act works by ((R366)(2)), its bank and b756's commit carrying it; b758: the carry had shifted the path to b757's name, which no commit holds (defect (e))
 RULES_COMMITS = ()
-C1_CEILING = ''      # ### b770 (R380)(3): the ceiling read, set when banked
+C1_CEILING = '7bdb8198'      # ### b770 (R380)(3), Component 5 (the Edit tool): the ceiling read before the lock, data/b770_ceiling.txt, WITHIN THE CEILING, the close read at 22.69 h from the opening row at b768's 4.85 h from its lock (step 62, 06:27:06Z; scratch ceil770.py, its controls 7 of 7); its readers read first (scratch grep770.py, 06:21:40Z): checks 34 :1333-:1337 (the bank's blob at this commit and its last commit, its foot), record 4 :2318-:2320, the entry :5340 and the report :8568, the four set to b768 at this commit where the carried form read b769
 C1_CEILING_B769 = '2285c3f7'      # ### b769 (R379)(3), Component 5 (the Edit tool): the ceiling read before the lock, data/b769_ceiling.txt, WITHIN THE CEILING, the close read at 20.26 h from the opening row (step 45, 00:54:19Z, events (79)); its readers searched first (Grep with -o, 00:58Z): checks 34 :1300-:1301 (the bank's blob at this commit and its last commit), and a kept b755 text at :6300 and :6303 that record 34's return for b769 passes by
 C1_CEILING_B768 = '03fd29f9'      # ### b768 (R378)(3), Component 5 (the Edit tool): the ceiling read before the lock, data/b768_ceiling.txt, WITHIN THE CEILING, the close read at 26.48 h from the opening row (step 78, 03:23:17Z, events (126)); its readers searched first (Grep with -o, 03:2xZ): checks 34 :1262-:1263 (the bank's blob at this commit and its last commit), and a carried finding text at :5578 and :5581
 C1_CEILING_B767 = '72861d88'      # ### b767 (R377)(3): the ceiling read before the lock, data/b767_ceiling.txt, WITHIN THE CEILING, the close forecast at 26.46 h from the opening row (step 68, 21:18:26Z, events (126))
@@ -615,7 +615,8 @@ WEIGHT_LINE = None   # ### FINDINGS: no weight line ((R380)(1) orders b769 at it
 CORR_LINE = 16329    # ### FINDINGS: the corrigendum for b769 (Component 1), landed at :16329 by the c1 route's write (23:05:11Z, data/b770_corrigendum.json entry_line); B711_CORRIGENDUM stands at b769's own, 16247, read at the act's start
 NEXT_TRAIL_LINE = 18491      # ### OPEN_TRAILS: (R367)(1)'s dated line giving b756's answer, in (9)'s block (Component 6, PLACE-papers b14256c2)
 DIFFERS_LINE = None   # ### LEFT EMPTY BY (R379)(12): no DIFFERS entry, no clause of (R379) ordering one; REGISTRY, ERRATA and SPIRAL_MAP.md written under (4) and (5) alone (v1.38.1 [K1]'s marker; b769, before the lock, the Edit tool: b768's (R378)(12) and its two PLACE-papers files set to b769's)
-ERRATA_LINE = 1163   # ### ERRATA: E-2026-11-25-1, the first of (R379)(5)'s four entries, at :1163 (group c3, PLACE-papers 5111e451; data/b769_events.txt (63)); b769, before the lock (the Edit tool): set where the carry left b768's LEFT EMPTY BY (R378)(12), ERRATA being written at this act
+ERRATA_LINE = None   # ### LEFT EMPTY BY (R380)(12): ERRATA not written at this act ("REGISTRY, ERRATA, the census, the register and SPIRAL_MAP.md not written"), so no entry line; b770, Component 5 (the Edit tool): set where the carry left b769's 1163 (E-2026-11-25-1, PLACE-papers 5111e451) under b770's name, the errata override of checks 53 reading K.ERRATA_LINE is None
+ERRATA_LINE_B769 = 1163   # ### b769's: E-2026-11-25-1 at ERRATA :1163 (group c3, PLACE-papers 5111e451), kept beside, read by nothing
 ERRATA_LINE_B764 = 1149   # ### b764 (R374)(9)(a): [E1], E-2026-11-21-1, at ERRATA's end from :1149, PLACE-papers 772d5cf0, kept beside
 C2_PLAN_FIRST = '365e5ecb'   # ### Component 2's first relay commit: the plan of (4)(a), data/b770_plan.txt, committed before any dispatch (step 27, 00:30:29Z)
 C2_RELAY = '9d95c615'   # ### the last of Component 2's relay commits by its phase word, set as made: the rulings tool's group c2s with the inputs bank (step 43, 01:58:41Z); [A5]'s ledger at 4ca72b16 (step 30) before it; the c2s ledgers carried by bb496b75 (step 46, Component 3's phase)
@@ -713,7 +714,21 @@ GENS_B755 = ()   # ### b755's list (the walk, the candidates, the rules at -59, 
 # ### b769, before the lock (the Edit tool, 2026-11-25, from git by scratch gens769.py, 22:19:31Z: the relay's commits after 55166251
 # ### touching each tools/b769_*.py and each data/b769_* bank): each tool of the act that wrote a bank, its commits before the bank, the
 # ### bank and the bank's commit; the step-zero carries (tools/b769_carry.py, _address_scan.py, _worklist.py) as at b768 none of them
-GENS = ()   # ### b770: every tool of the act committed before the bank it wrote, (name, tool, its commits before the bank, bank, the bank's commit), set as made
+# ### b770, Component 5 (the Edit tool, 2026-11-27, from git by scratch gens770.py, read-only, 04:19:58Z: the relay's commits after
+# ### 376e35db touching each tools/b770_*.py that writes a bank and each of its banks): each tool, its commits before the bank (the first
+# ### its first add), the bank and the bank's last commit; the plan, the price table, the misses, the corrigendum, the repairs bank and
+# ### the ceiling read the seat's by the Write tool, a scratch writer or the act module's c1 route, so no row; the names classed at
+# ### step zero; the two banks that rode with their tool's commit in GENS_WITH_BANK below (checks 34, N2_GENS_N 12)
+GENS = (('the repairs` planted controls', 'tools/b770_repair_controls.py', ('14221add', 'af2d623a', '5a7ec193'), 'data/b770_repair_controls.txt', '0e99a945'),
+        ('the names classed', 'tools/b770_names.py', ('5266f8cb', 'd3f76ad2', '53cedf70'), 'data/b770_names.txt', '9ddb4f1a'),
+        ('the two index banks read', 'tools/b770_li_index.py', ('cb5b7525', '1521f59c'), 'data/b770_li_index.txt', 'd4f80fe3'),
+        ('the sitting`s inputs', 'tools/b770_sitting.py', ('4780d829', '2d4d28d7', 'a2a39a09'), 'data/b770_recut_inputs.txt', '9d95c615'),
+        ('the ledgers of group c2', 'tools/b770_rulings.py', ('745e234d',), 'data/b770_ledgers_c2.txt', '4ca72b16'),
+        ('the ledgers of group c2i', 'tools/b770_rulings.py', ('745e234d', 'd4f80fe3'), 'data/b770_ledgers_c2i.txt', 'f9e94487'),
+        ('the ledgers of group c2s', 'tools/b770_rulings.py', ('745e234d', 'd4f80fe3', '9d95c615'), 'data/b770_ledgers_c2s.txt', 'bb496b75'),
+        ('the ledgers of group c4', 'tools/b770_rulings.py', ('745e234d', 'd4f80fe3', '9d95c615', '4bfa29e4', 'ea1a9943'), 'data/b770_ledgers_c4.txt', '40ffd737'),
+        ('the dispatch tool`s controls', 'tools/b770_controls.py', ('48b1dfba',), 'data/b770_controls_control.txt', 'c3edca18'),
+        ('the dispatch tool`s bank', 'tools/b770_controls.py', ('48b1dfba',), 'data/b770_controls.txt', '40ffd737'))
 GENS_B769 = ()   # ### b769's stand in git at tools/b769_worklist.py
 GENS_B768 = ()   # ### b768's stand in git at tools/b768_worklist.py
 GENS_B767 = ()   # ### b767's stand in git at tools/b767_worklist.py
@@ -728,7 +743,8 @@ GENS_B758 = ()   # ### b758's ten stand in git at tools/b758_worklist.py
 PASSED_BANK = None   # ### (carried name) no passed writes this act
 # ### b761: two banks of the sitting tool rode in a commit with a later state of their tool, each written by the tool as last committed before
 # ### the write (the tool committed before each run, (N2)): (name, tool, bank, the commit carrying both, the bank's commit as it stands at HEAD)
-GENS_WITH_BANK = ()   # ### b770: none yet
+GENS_WITH_BANK = (('the sitting`s agenda', 'tools/b770_sitting.py', 'data/b770_sitting_agenda.txt', 'a2a39a09', 'a2a39a09'),   # ### b770: written by the tool as committed at 2d4d28d7 and committed with the inputs route's commit a2a39a09, its only commit (scratch gens770.py, 04:19:58Z; events (69), (70))
+                  ('the ledgers of group c3', 'tools/b770_rulings.py', 'data/b770_ledgers_c3.txt', 'ea1a9943', 'ea1a9943'))   # ### b770: written by the tool as committed at 4bfa29e4 and committed with the c4 group's commit ea1a9943, its only commit (events (86), (88))
 GENS_WITH_BANK_B769 = ()   # ### LEFT EMPTY BY (R379)(9): N2's run clause as (9) reads it, each tool committed before the command that executes it; b769: none, no bank rode with its own tool's commit (scratch gens769.py, 22:19:31Z), a reading the toset rule has no form for but this marker, checks 34 wanting none
 GENS_WITH_BANK_B768 = (('the dispatch tool`s controls', 'tools/b769_controls.py', 'data/b769_controls_control.txt', 'e7f39dc2', '85f17b9a'),)   # ### b768: the bank of 17:04:19Z, written by the tool as committed at 26c49bdb, rode with the tool's repair of the import graph, e7f39dc2 (step 33, events (66)); written again by the tool at e7f39dc2 (17:11:15Z, 31 of 31, events (67)) and committed at 85f17b9a, its commit at HEAD (scratch gens768.py, 00:44:31Z)
 GENS_WITH_BANK_B767 = (('the dispatch tool`s controls', 'tools/b769_controls.py', 'data/b769_controls_control.txt', '4f4c7c07', 'c8416cec'),)   # ### b767: the bank of 14:26:06Z, written by the tool as committed at 922f34c4, rode with the tool's repair of defect (l), 4f4c7c07 (step 39); written again by the tool at bf9ce5c2 (15:46:50Z) and committed alone at c8416cec (step 46), its commit at HEAD (scratch gens767.py, 18:50:54Z)
@@ -777,7 +793,8 @@ CHAIN = (('c1', '767a8641'), ('corr', '4d274231'),
          ('li_index_fix', '1521f59c'), ('rulings_c2i', 'd4f80fe3'), ('ledgers_c2i', 'f9e94487'), ('sitting_gen', '4780d829'),
          ('sitting_fix', '2d4d28d7'), ('sitting', 'a2a39a09'), ('rulings_c2s', '9d95c615'), ('wl_wwords', 'bb496b75'),
          ('rows_66_76', '81d8ac6a'), ('rows_77_81', '68d3fc5b'), ('rulings_c3', '4bfa29e4'), ('rulings_c4', 'ea1a9943'),
-         ('read_8', '7f6ca3aa'))   # ### b770: steps 11, 13-28, 30-32, 34-37, 39-43, 46, 49, 52, 54, 56 and 57, each from its step row (scratch steps770s.py, 03:43:41Z; steps 56 and 57 from commit.py's row lines, 03:52:00Z and 03:55:29Z; steps 12, 29, 38, 44, 55 and 58 the papers` repository's, steps 33, 45, 47, 48, 50, 51 and 53 the kernel's); the act's relay commits after step zero's banks, in their order, appended as made; b769's stands in git at tools/b769_worklist.py
+         ('read_8', '7f6ca3aa'),
+         ('ledgers_c4', '40ffd737'), ('prelock', 'db67cc2f'), ('prelock_stubs', '1ae60670'), ('ceiling', '7bdb8198'))   # ### b770, Component 5 (the Edit tool): steps 59 to 62, each from its step row (scratch ceilfacts770.py, 06:22:40Z; step 58 the papers` repository's c4pp); later commits appended as made. b770: steps 11, 13-28, 30-32, 34-37, 39-43, 46, 49, 52, 54, 56 and 57, each from its step row (scratch steps770s.py, 03:43:41Z; steps 56 and 57 from commit.py's row lines, 03:52:00Z and 03:55:29Z; steps 12, 29, 38, 44, 55 and 58 the papers` repository's, steps 33, 45, 47, 48, 50, 51 and 53 the kernel's); the act's relay commits after step zero's banks, in their order, appended as made; b769's stands in git at tools/b769_worklist.py
 CHAIN_B765 = ()   # ### b765's fifty keys stand in git at tools/b765_worklist.py
 CHAIN_B764 = ()   # ### b764's sixty keys stand in git at tools/b764_worklist.py
 CHAIN_B763 = ()   # ### b763's fifty-seven keys stand in git at tools/b763_worklist.py
@@ -817,7 +834,7 @@ _KEYS = tuple(k_ for k_, _h in CHAIN)
 # ### group's OPEN_TRAILS commit before that group's relay banks (scratch steps768.py: 14:23:33Z, 15:35:31Z, 00:23:41Z)
 # ### b769, before the lock (the Edit tool, 2026-11-25): each PLACE-papers key placed before the relay commit that follows it in time
 # ### (scratch chainchk769.py, 22:25:24Z: 19:08:47Z, 19:54:20Z, 20:06:39Z, 20:47:18Z, 21:02:32Z, 21:13:23Z, 21:26:24Z and 22:12:04Z)
-_PP_BEFORE = {'corr': 'c1pp', 'ledgers_c2': 'c2pp', 'ledgers_c2i': 'c2ipp', 'wl_wwords': 'c2spp', 'rulings_c4': 'c3pp'}   # ### b770: each papers` repository write's key placed before the relay commit that follows it in time, from the step rows (step 12 between steps 11 and 13; step 29 between steps 28 and 30; step 38 between 37 and 39; step 44 between 43 and 46; step 55 between 54 and 56), set as made; c4pp (step 58) before the next relay commit, set when it is made
+_PP_BEFORE = {'corr': 'c1pp', 'ledgers_c2': 'c2pp', 'ledgers_c2i': 'c2ipp', 'wl_wwords': 'c2spp', 'rulings_c4': 'c3pp', 'ledgers_c4': 'c4pp'}   # ### b770, Component 5: c4pp (step 58, 03:56:38Z) before ledgers_c4 (step 59, 04:03:19Z). b770: each papers` repository write's key placed before the relay commit that follows it in time, from the step rows (step 12 between steps 11 and 13; step 29 between steps 28 and 30; step 38 between 37 and 39; step 44 between 43 and 46; step 55 between 54 and 56), set as made; c4pp (step 58) before the next relay commit, set when it is made
 TIME_ORDER = ('actcur', 'stepzero') + tuple(x_ for k_ in _KEYS for x_ in ((_PP_BEFORE[k_], k_) if k_ in _PP_BEFORE else (k_,)))
 # ### b766, Component 5 (the Edit tool, before any run): each key's words, from its commit's subject and files (scratch steps766r.py,
 # ### 18:38:32Z); later keys given words as made. b765's kept below under its own name, read by nothing
@@ -861,6 +878,10 @@ CHAIN_WORDS.update({'c1': 'the c1 route with b769`s findings after its lock and 
                     'c3pp': '[Z1], [U1], [D1] and [L1] in OPEN_TRAILS',
                     'rulings_c4': 'the rulings tool`s group c4 with the worklist`s chain and kernel commits, rows (88) and (89) and the ledgers of group c3',
                     'read_8': 'dispatch 8 read with row (90) and the act module`s N2 section set', 'c4pp': '[C11] in OPEN_TRAILS',
+                    'ledgers_c4': 'the ledgers of group c4 with [C11] entered and the dispatch tool`s bank, Component 4 complete',
+                    'prelock': 'the act module`s pre-lock pass where b769`s forms stood under b770`s name',
+                    'prelock_stubs': 'the act module`s carried stubs set from b769`s bodies and the step-zero bank`s two rows from the transcript',
+                    'ceiling': 'the ceiling read before the lock, within the ceiling, with its four readers set to b768`s close',
                     'gate': 'the gate commit with its subject composed by the one-call tool from its banks'})
 CHAIN_WORDS_B768 = ({'c1': 'the c1 route with b769`s findings after its lock and the navigator`s claims as events', 'c1pp': 'the corrigendum for b769',
                     'corr': 'the corrigendum banks and the corrigenda row (88)', 'cites': 'the carried ferry cites and the corrigendum`s constants',
@@ -1401,7 +1422,7 @@ EF_BRANCHES_ENTERING = ('01fd33c2d7dc62d4702b075de3dda9253c5c2f87', '0395f15d3b2
 # ### b768: the act's dispatches of SIDE-explicit-formula by run id, in their order, as rowed in data/b768_dispatch_rows.json: 1-2 the trial at
 # ### small size (item a), 3-9 L9c (item b), 10 L11c (item c), 11-12 L11d and L12 (item d), 13 the closing build from source at ffefddc6
 # ### (restore off, route (i)); a repeat appended where the closing build stops under the hold (set at Component 4, events (106))
-EF_RUNS = ()   # ### b770 (R380)(4), N1: the act's dispatches of SIDE-explicit-formula by run id, in their order, each appended when sent (data/b770_dispatch_rows.json)
+EF_RUNS = (45922049731, 45927530723, 45929106349, 45930524580, 45931997405, 45933086394, 45933637198, 45935483550)   # ### b770 (R380)(4), N1: the act's dispatches of SIDE-explicit-formula by run id, in their order, as rowed in data/b770_dispatch_rows.json (8 rows of kind dispatch, read by scratch ceilfacts770.py 06:22:40Z): 1-6 the steps (b) to (g) with the restore on at 1b413384, c8913190, 5e1c7b72, 97d7285b, b34fdb2e and cc2f3ba8, each COMPILED; 7 the closing build from source at cc2f3ba8 (restore off, route (i)) and 8 its one repeat, each STOPPED UNDER THE HOLD, [C11] (events (72)-(90)); set at Component 5 by the Edit tool, where the carry left it empty
 EF_RUNS_B769 = ()   # ### LEFT EMPTY BY (R379)(9): the dispatch cap 0, no dispatch of SIDE-explicit-formula at this act, so no run id
 EF_RUNS_B768 = (45439584241, 45447787162, 45454217113, 45459715839, 45463999522, 45469187228, 45474141600, 45478679725, 45489301040, 45494658063,
            45510384327, 45514975816, 45518506879, 45521560784)   # ### b768: 14 the closing build's one repeat at ffefddc6 (restore off, route (i)), exit 0, read at 03:04:09Z (data/b768_events.txt (122))
