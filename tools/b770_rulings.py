@@ -28,7 +28,21 @@ the register nor SPIRAL_MAP.md, so OPEN_TRAILS is the one file here.
                          status word into it, read in memory alone. The inputs and agenda banks committed and unmodified before the write,
                          read as controls. Bank: data/b770_ledgers_c2s.txt and .json. Added by an Edit committed before its run (b770, after
                          the inputs bank's write).
-The later texts -- each of (4)'s pair of texts and [C10] or [C11] -- are groups this tool gains by an Edit committed before its run; their
+  ledgers c3 dry|write   Component 3's end ((4), data/b770_ferry.txt :25: "Each compiled theorem is read at its statement by the E0 gate
+                         before it is entered"): [Z1], [U1], [D1] and [L1] (data/b770_ferry.txt :56, :64, :72, :80), each where its step
+                         compiles, under one dated head appended at OPEN_TRAILS' end beneath [S5], no line moving: <commit> the act's last
+                         restored read exiting 0 by tools/b770_controls.py verdicts() over data/b770_dispatch_rows.json (the bank committed
+                         and unmodified, a control); <name> and <names> the step's theorems, each COMPILED in that read; <the print> their
+                         axioms print from the read. Every theorem of the act (ACT_NAMES, (b) to (g)) found once by its declaration line
+                         among the act's six files at the commit, read at its statement (from its name to its first `:=`) and graded by
+                         tools/e0_rule.py grade(head, 'theorem'), its lexicon extended in this tool by the one Prop the act declares as a
+                         premise (E0_EXTENSION, the shared file not edited); the position each text states read against the gate; [D1]'s
+                         premises read; [Z1]'s import closure read with a control that holds the folder, and its "two proofs of one
+                         statement" read against zq_offline_zero's statement; the plan's kind printed beside the gate (a reading, no
+                         control). (f) and (g) take no line (data/b770_author_words_preseal.txt :8). A step not COMPILED holds the group:
+                         its CARRIED text comes by a later Edit. Bank: data/b770_ledgers_c3.txt and .json. Added by an Edit committed
+                         before its run (b770, after dispatch 6's read).
+The later texts -- each of (4)'s CARRIED texts and [C10] or [C11] -- are groups this tool gains by an Edit committed before its run; their
 lines are checked here already (WANT).
 
 No line of the papers` repository is printed but the texts this tool composes; the account is counted, never printed; no git write.
@@ -61,10 +75,11 @@ WANT = dict(A5=(52, 52), Z1=(56, 56), Z2=(60, 60), U1=(64, 64), U2=(68, 68), D1=
             C10=(88, 88), C11=(92, 92), I1=(96, 96), I2=(100, 100), S5=(104, 104))
 FIELD = re.compile(r'<[A-Za-z][^<>\n]*>')
 LI_INDEX = 'W-ORD-LI-INDEX'      # ### the one order [A5] names, at its (k) (data/b770_ferry.txt :52)
-GROUPS = dict(c2=('A5',), c2i=('I1',), c2s=('S5',))   # ### c2i: [I1], or [I2] where data/b770_li_index.json reads NOT AS READ (set at run time)
-# ### the papers` repository's HEAD before each group's write: c2 after the corrigendum (step 12), c2i after [A5] (step 29), c2s after [I1] (step 38)
-PP_BEFORE = dict(c2=C1PP, c2i='f945cbd9', c2s='c599930d')
-CLAUSE = dict(c2='7', c2i='6', c2s='7')
+GROUPS = dict(c2=('A5',), c2i=('I1',), c2s=('S5',), c3=('Z1', 'U1', 'D1', 'L1'))   # ### c2i: [I1], or [I2] where data/b770_li_index.json reads NOT AS READ (set at run time)
+# ### the papers` repository's HEAD before each group's write: c2 after the corrigendum (step 12), c2i after [A5] (step 29), c2s after [I1] (step 38),
+# ### c3 after [S5] (step 44)
+PP_BEFORE = dict(c2=C1PP, c2i='f945cbd9', c2s='c599930d', c3='a0ac08c9')
+CLAUSE = dict(c2='7', c2i='6', c2s='7', c3='4')
 # ### the planted status word set after the order's name in each text, read in memory alone; [S5] names no order, so its plant sets one into it
 PLANTS = dict(A5=(LI_INDEX + ' is read', LI_INDEX + ' CLOSED, is read'), I1=('`%s` READ' % LI_INDEX, '`%s` CLOSED, READ' % LI_INDEX),
               I2=('`%s` READ' % LI_INDEX, '`%s` CLOSED, READ' % LI_INDEX),
@@ -354,9 +369,353 @@ def ledgers(group, mode):
     return 0
 
 
+# ================================================================================ GROUP c3: [Z1], [U1], [D1], [L1]
+DROWS_REL = 'data/b770_dispatch_rows.json'
+DROWS = os.path.join(RELAY, DROWS_REL)
+STD3 = '[propext, Classical.choice, Quot.sound]'
+AX3 = {'propext', 'Classical.choice', 'Quot.sound'}
+STEP_ITEMS = ('b', 'c', 'd', 'e', 'f', 'g')
+# ### each text of (4) with its step and the theorems whose names fill it, in reading order (data/b770_ferry.txt :56, :64, :72, :80)
+C3_TEXTS = (('Z1', 'b', ('SIDEExplicitFormula.Schema.ZQ.zq_offline_from_coefficients', 'SIDEExplicitFormula.Schema.online_imp_zeroSideQ_nonneg')),
+            ('U1', 'c', ('SIDEExplicitFormula.positive_iff_forall_upto', 'SIDEExplicitFormula.positiveUpto_mono',
+                         'SIDEExplicitFormula.h2_sign_upto_iff', 'SIDEExplicitFormula.control_not_positiveUpto',
+                         'SIDEExplicitFormula.control_not_positiveUpto_of_le')),
+            ('D1', 'd', ('SIDEExplicitFormula.familyConfig_h2_sign', 'SIDEExplicitFormula.positivity_of_premises')),
+            ('L1', 'e', ('SIDEExplicitFormula.Window.cQ_least_negative',)))
+# ### the position each text states, read against the E0 gate: [Z1] "Its position: DERIVED." of its closing statement (the lemma takes no
+# ### position in it); [U1] "Their position: DERIVED."; [D1] "its grade is INTERFACES on those named premises"; [L1] "Its position: DERIVED."
+POSITION = {'SIDEExplicitFormula.Schema.ZQ.zq_offline_from_coefficients': 'DERIVES',
+            'SIDEExplicitFormula.positive_iff_forall_upto': 'DERIVES', 'SIDEExplicitFormula.positiveUpto_mono': 'DERIVES',
+            'SIDEExplicitFormula.h2_sign_upto_iff': 'DERIVES', 'SIDEExplicitFormula.control_not_positiveUpto': 'DERIVES',
+            'SIDEExplicitFormula.control_not_positiveUpto_of_le': 'DERIVES',
+            'SIDEExplicitFormula.familyConfig_h2_sign': 'INTERFACES', 'SIDEExplicitFormula.positivity_of_premises': 'INTERFACES',
+            'SIDEExplicitFormula.Window.cQ_least_negative': 'DERIVES'}
+D1_PREMISES = {'RiemannHypothesis', 'DirichletHypothesis'}   # ### (4)(d): Mathlib's RiemannHypothesis and the act's one proposition
+# ### the plan's kind for each theorem (data/b770_plan.txt :51, :57, :86, :105, :123, :139, :151), printed beside the gate: a reading, no control
+PLAN_KIND = {'SIDEExplicitFormula.Schema.online_imp_zeroSideQ_nonneg': ('DERIVES', 51),
+             'SIDEExplicitFormula.Schema.ZQ.zq_offline_from_coefficients': ('DERIVES', 57),
+             'SIDEExplicitFormula.positive_iff_forall_upto': ('DERIVES', 86), 'SIDEExplicitFormula.positiveUpto_mono': ('DERIVES', 86),
+             'SIDEExplicitFormula.h2_sign_upto_iff': ('DERIVES', 86), 'SIDEExplicitFormula.control_not_positiveUpto': ('DERIVES', 86),
+             'SIDEExplicitFormula.control_not_positiveUpto_of_le': ('DERIVES', 86),
+             'SIDEExplicitFormula.familyConfig_h2_sign': ('INTERFACES', 105), 'SIDEExplicitFormula.positivity_of_premises': ('INTERFACES', 105),
+             'SIDEExplicitFormula.Window.cq_nonneg_ok': ('DERIVES', 123), 'SIDEExplicitFormula.Window.cQ_least_negative': ('DERIVES', 123),
+             'SIDEExplicitFormula.Schema.ZQ.OffZero.zq_offline_zero_located': ('DERIVES', 139),
+             'SIDEExplicitFormula.Schema.ZQ.zq_ne_zero_of_real_one_lt': ('DERIVES', 151)}
+SP4 = ('SIDEExplicitFormula/Schema/ZQ/OffZero/SP4.lean', 'SIDEExplicitFormula.Schema.ZQ.OffZero.zq_offline_zero')
+LOCATED = 'SIDEExplicitFormula/Schema/ZQ/OffZero/Located.lean'   # ### the closure's control: a file of the act whose closure holds the folder
+DECL_RE = re.compile(r'^(?:@\[[^\]\n]*\]\s*)?(?:(?:protected|private|nonrec)\s+)*(?:theorem|lemma)\s+([^\s(\[{:]+)')
+NS_RE, SEC_RE, END_RE = re.compile(r'^namespace\s+(\S+)\s*$'), re.compile(r'^section(?:\s+\S+)?\s*$'), re.compile(r'^end(?:\s+\S+)?\s*$')
+DIGITS = re.compile(r'\d{8,}')
+# ### the E0 rule's lexicon extended in this tool, the shared tools/e0_rule.py not edited (tools/b768_rulings.py :290-:297's form): the one
+# ### Prop this act declares and binds as a premise, read at its declaration line at the commit
+E0_EXTENSION = {'DirichletHypothesis': ('prop', 'SIDE-explicit-formula SIDEExplicitFormula/Composition.lean :27 (def, b770, (R380)(4)(d): '
+                                                'the premise stated as one proposition)')}
+E0_EXT_DECL = {'DirichletHypothesis': ('SIDEExplicitFormula/Composition.lean', 27, 'def DirichletHypothesis : Prop :=')}
+QUALIFIED_NOTE = ('the rule`s restriction reader (tools/e0_rule.py restriction_case, :404-:413) matches a RESTRICTIONS head written as '
+                  'itself, so a binder typed by the qualified `B321.classK k` reads as a premise where `classK k` reads as a restriction')
+_EXT = {}
+
+
+def masked(s):
+    """each run of eight digits or more replaced by its length, so that no datum enters a printed row."""
+    return DIGITS.sub(lambda m: '#%d-digits' % len(m.group(0)), str(s))
+
+
+def e0_extend():
+    """the extension laid over the shared lexicon once; returns the keys the shared lexicon held before it (wanted none)."""
+    import e0_rule as E0
+    if 'held' not in _EXT:
+        _EXT['held'] = sorted(k for k in E0_EXTENSION if k in E0.LEXICON)
+        E0.LEXICON.update(E0_EXTENSION)
+    return _EXT['held']
+
+
+def ax_within(ax):
+    s = str(ax or '').strip()
+    if not (s.startswith('[') and s.endswith(']')):
+        return False
+    return set(x.strip() for x in s[1:-1].split(',') if x.strip()) <= AX3
+
+
+def gate_ok(gates):
+    return bool(gates) and all(g['line'] and g['grade'] not in ('NOT READ', 'UNCLASSED') for g in gates)
+
+
+def decls(src):
+    """{full name: [line, ...]} for each theorem or lemma of a Lean source, its namespaces read from `namespace`, `section` and `end`."""
+    stack, out = [], {}
+    for i, l in enumerate(src.split(NL)):
+        m = NS_RE.match(l)
+        if m:
+            stack.append(m.group(1))
+            continue
+        if SEC_RE.match(l):
+            stack.append(None)
+            continue
+        if END_RE.match(l):
+            if stack:
+                stack.pop()
+            continue
+        m = DECL_RE.match(l)
+        if m:
+            out.setdefault('.'.join([s for s in stack if s] + [m.group(1)]), []).append(i + 1)
+    return out
+
+
+def head_at(src, line):
+    """the statement at a declaration line, from its name to its first `:=`, its whitespace folded."""
+    L = src.split(NL)
+    m = DECL_RE.match(L[line - 1])
+    start = sum(len(x) + 1 for x in L[:line - 1]) + m.end()
+    end = src.find(':=', start)
+    return src[start:end] if end > 0 else ''
+
+
+def e0_at(src, line):
+    """the theorem's statement at its declaration line graded by tools/e0_rule.py, with the types of the hypotheses the grade read."""
+    import e0_rule as E0
+    e0_extend()
+    head = head_at(src, line)
+    try:
+        g, why, read = E0.grade(head, 'theorem')
+    except Exception as ex:   # noqa: BLE001
+        g, why, read = 'UNCLASSED', ' '.join(str(ex).split())[:300], []
+    return dict(line=line, grade=g, why=' '.join(str(why).split()), prem=[' '.join(str(t).split()) for _n, t in read])
+
+
+def nlist(ns):
+    b = ['`%s`' % n for n in ns]
+    return b[0] if len(b) == 1 else ', '.join(b[:-1]) + ' and ' + b[-1]
+
+
+def pos_ok(gates):
+    G = dict((g['name'], g) for g in gates)
+    return all(n in G and G[n]['grade'] == want for n, want in POSITION.items())
+
+
+def d1_ok(gates):
+    G = dict((g['name'], g) for g in gates)
+    rows = [G.get(n) for n in C3_TEXTS[2][2]]
+    return (all(r and r['grade'] == 'INTERFACES' and r['prem'] and set(r['prem']) <= D1_PREMISES for r in rows)
+            and set(rows[-1]['prem']) == D1_PREMISES)
+
+
+def c3_read():
+    import b770_controls as C
+    with open(DROWS, encoding='utf-8') as f:
+        R = json.load(f)
+    lk = C.verdicts(R)['last_kernel']
+    if not lk:
+        return dict(miss='no restored read exiting 0 in %s' % DROWS_REL)
+    commit = str(lk.get('built_ref'))[:8]
+    st = dict((x[0], (x[1], x[2])) for x in (lk.get('names') or []))
+    built = str(lk.get('build_exit')) == '0' and lk.get('verdict') == 'KERNEL' and bool(lk.get('built_equal'))
+    disp = [r for r in R if r.get('kind') == 'dispatch' and r.get('kernel') == C.EF]
+    dn = [r.get('n') for r in disp if int(r['run']) == int(lk['run'])]
+    later = [r.get('n') for r in disp if dn and r.get('n', 0) > dn[0] and r.get('item') in STEP_ITEMS]
+    closing = [r for r in disp if r.get('item') == 'closing']
+    pt = set(x.strip() for x in git(C.KPATH, 'show', '%s:print_targets.txt' % commit).split(NL) if x.strip())
+    srcs = dict((p, git(C.KPATH, 'show', '%s:%s' % (commit, p)).replace('\r', '')) for p in C.LEAN_FILES)
+    where = {}
+    for p, s in srcs.items():
+        for full, lines in decls(s).items():
+            for ln in lines:
+                where.setdefault(full, []).append((p, ln))
+    gates = []
+    for full in C.ACT_NAMES:
+        loc = where.get(full, [])
+        e = e0_at(srcs[loc[0][0]], loc[0][1]) if len(loc) == 1 else {}
+        state, ax = st.get(full, (None, None))
+        gates.append(dict(name=full, path=loc[0][0] if len(loc) == 1 else ('NOT FOUND' if not loc else 'IN %d PLACES' % len(loc)),
+                          line=e.get('line'), grade=e.get('grade', 'NOT READ'), why=e.get('why', ''), prem=e.get('prem', []), state=state,
+                          axioms=ax, plan=PLAN_KIND.get(full, (None, None))))
+    ext = [(k, p, ln, p in srcs and len(srcs[p].split(NL)) >= ln and srcs[p].split(NL)[ln - 1] == want)
+           for k, (p, ln, want) in sorted(E0_EXT_DECL.items())]
+    sp4 = git(C.KPATH, 'show', '%s:%s' % (commit, SP4[0])).replace('\r', '')
+    d4 = decls(sp4).get(SP4[1], [])
+    zb = where.get(C3_TEXTS[0][2][0], [])
+    heads = (' '.join(head_at(sp4, d4[0]).split()) if len(d4) == 1 else None,
+             ' '.join(head_at(srcs[zb[0][0]], zb[0][1]).split()) if len(zb) == 1 else None, d4[0] if len(d4) == 1 else None)
+    kg = C.import_graph(C.KPATH, commit, ['*.lean'], C.kmodule)
+    held = sorted(m for m in C.kernel_closure(C.file_imports(srcs[C.NO_OFFZERO[0]]), kg) if m.startswith(C.NO_OFFZERO[1]))
+    ctl_held = sorted(m for m in C.kernel_closure(C.file_imports(srcs[LOCATED]), kg) if m.startswith(C.NO_OFFZERO[1]))
+    return dict(lk=lk, commit=commit, built=built, dn=dn[0] if dn else None, later=later, closing=closing, gates=gates, ext=ext,
+                held_ext=e0_extend(), pt_act=sorted(n for n in C.ACT_NAMES if n in pt), act=sorted(C.ACT_NAMES),
+                read_names=sorted(st), heads=heads, offzero=(C.NO_OFFZERO, held, ctl_held), files=len([p for p in srcs if srcs[p]]))
+
+
+def ledgers_c3(mode):
+    from standing import orders as O
+    group, date = 'c3', today()
+    base = at_head(OT)
+    pp_head = git(PP, 'rev-parse', 'HEAD').strip()
+    X = texts(ferry())
+    TP = dict((k, X[k][2]) for k in X)
+    r = c3_read()
+    if r.get('miss'):
+        die('[Z1] TO [L1]: %s' % r['miss'])
+    gates = r['gates']
+    G = dict((g['name'], g) for g in gates)
+    E, fills, miss = {}, {}, []
+    for key, item, names in C3_TEXTS:
+        bad = [n for n in names if G[n]['state'] != 'COMPILED']
+        if bad:
+            miss.append('[%s] of (4)(%s): not COMPILED in the read: %s' % (key, item, ', '.join(bad)))
+            continue
+        axs = [str(G[n]['axioms']) for n in names]
+        pr = axs[0] if len(set(axs)) == 1 else '; '.join('`%s` %s' % (n, G[n]['axioms']) for n in names)
+        vals = (['`%s`' % names[0], r['commit'], '`%s`' % names[1], axs[0]] if key == 'Z1' else [nlist(names), r['commit'], pr])
+        fills[key], E[key] = vals, fill(TP[key], vals)
+    n_ot = len(base.split(NL)) - 1
+    head = ('**Dated head, %s, b770, `(R380)`(4): the lines the ruling orders for OPEN_TRAILS where the statements of (4) compile** (relay '
+            'data/b770_ferry.txt :25, :55-:57, :63-:65, :71-:73 and :79-:81), appended at the end of the file (its last line :%d), so that no '
+            'line before them moves: each compiled theorem of the Lean of this act read at its statement by the E0 gate (relay tools/e0_rule.py) '
+            'before it is entered, its name in print_targets.txt at its commit and its axioms print banked (relay data/b770_dispatch_rows.json '
+            'and data/b770_ledgers_c3.txt). The two statements of the author’s word amending (4), (f) and (g), take no line here (relay '
+            'data/b770_author_words_preseal.txt :8). Where the closing build from source and the restored build print different axioms files, '
+            '[C10] is appended beneath it; where the closing build and its repeat each stop under the hold, [C11].' % (date, n_ot))
+    keys = tuple(k for k in GROUPS[group] if k in E)
+    paras = [head] + [E[k] for k in keys]
+    text = NL.join(sum(([p, ''] for p in paras), []))[:-1]
+    new = base + NL + text + NL
+    I, acct = ids(), account()
+    eq = dict((k, bool(re.fullmatch(pattern(TP[k]), v, re.S)) and (NL + v + NL) in (NL + text + NL)) for k, v in E.items())
+    left = sorted(set(FIELD.findall(text)))
+    ticks = [k + 1 for k, l in enumerate(text.split(NL)) if l.count('`') % 2]
+    st = lambda R_, n: (R_.get(n) or {}).get('status')   # noqa: E731
+    bl, nl_ = base.split(NL), new.split(NL)
+    before, after = dict(O.read(bl)), dict(O.read(nl_))
+    moved = sorted((n, st(before, n), st(after, n)) for n in after if n in before and st(before, n) != st(after, n))
+    added = sorted(n for n in after if n not in before)
+    hf = O.hand_flags(nl_)
+    in_hand = [i + 1 for i in range(n_ot, len(hf)) if hf[i]]
+    ib, ia, it = idcount(base, I, acct), idcount(new, I, acct), idcount(text, I, acct)
+    present = [k for k, v in E.items() if v in base]
+    last = [l for l in bl if l.strip()][-1:]
+    tracked = git(RELAY, 'show', 'HEAD:' + DROWS_REL, raw=True)
+    with open(DROWS, 'rb') as f:
+        wb = f.read()
+    grades, axs_ = {}, {}
+    for g in gates:
+        grades[g['grade']] = grades.get(g['grade'], 0) + 1
+        axs_[str(g['axioms'])] = axs_.get(str(g['axioms']), 0) + 1
+    plant_gate = gate_ok([dict(gates[0], line=None, grade='NOT READ')] + gates[1:]) if gates else True
+    plant_pop = (r['act'] + ['SIDEExplicitFormula.b999_planted']) == r['read_names']
+    plant_pos = pos_ok([dict(g, grade='INTERFACES') if g['name'] == C3_TEXTS[1][2][0] else g for g in gates])
+    nz, held, ctl_held = r['offzero']
+    h_sp4, h_zb, sp4_line = r['heads']
+    names_c3 = [n for _k, _i, ns in C3_TEXTS for n in ns]
+    lk = r['lk']
+    differ = [g for g in gates if g['plan'][0] != g['grade']]
+    ctl = [('the papers` repository`s HEAD %s, the act`s last commit there before this write (%s)' % (PP_BEFORE[group], pp_head[:8]),
+            pp_head.startswith(PP_BEFORE[group])),
+           ('OPEN_TRAILS` bytes at HEAD a prefix of its new bytes: no line moves', new.startswith(base)),
+           ('each text as entered equals the ruling`s with its fields filled, each whole in the appended text: %s' % (
+               ' '.join('%s %s' % (k, eq[k]) for k in GROUPS[group] if k in eq)), len(eq) == len(GROUPS[group]) and all(eq.values())),
+           ('every text of the group composed (%s)' % ('; '.join(miss) or 'none missing'), not miss),
+           ('no field left in the appended text (%s)' % (left or 'none'), not left),
+           ('each appended line`s backticks even (odd at %s)' % (ticks or 'none'), not ticks),
+           ('the identifiers` counts and the account`s equal before and after, and 0 in the appended text (the account read from the relay`s remote, '
+            'never printed)', ib == {k: ia[k] - it[k] for k in ia} and not any(it.values()) and acct is not None),
+           ('none of the texts in OPEN_TRAILS before the write (%s)' % (present or 'none'), not present),
+           ('[S5] as entered the last line of OPEN_TRAILS before the write, so the dated head of (4) stands beneath it',
+            bool(last) and bool(re.fullmatch(pattern(TP['S5']), last[0], re.S))),
+           ('the dispatch rows bank %s committed at HEAD and its working file equal to it (%d bytes)' % (DROWS_REL, len(wb)),
+            bool(tracked) and tracked == wb),
+           ('THE RUN: dispatch %s read, built at %s equal with exit 0, KERNEL (run %s)' % (r['dn'], r['commit'], lk.get('run')), r['built']),
+           ('<commit> the act`s last restored read exiting 0 by verdicts(): dispatch %s at %s; no step dispatched after it (%s); the closing '
+            'build rows %d' % (r['dn'], r['commit'], r['later'] or 'none', len(r['closing'])), bool(r['commit']) and not r['later']),
+           ('each text`s theorems COMPILED in the read, their axioms within %s (%s)' % (STD3, ' '.join(
+               '%s %s' % (k, all(G[n]['state'] == 'COMPILED' and ax_within(G[n]['axioms']) for n in ns)) for k, _i, ns in C3_TEXTS)),
+            all(G[n]['state'] == 'COMPILED' and ax_within(G[n]['axioms']) for n in names_c3)),
+           ('THE POPULATION: the act`s %d theorems (ACT_NAMES, (b) to (g)) each in print_targets.txt at %s (%d) and equal both ways to the names '
+            'the read gives (%d)' % (len(r['act']), r['commit'], len(r['pt_act']), len(r['read_names'])),
+            r['pt_act'] == r['act'] and r['read_names'] == r['act']),
+           ('THE E0 RULE`S LEXICON extended in this tool, tools/e0_rule.py not edited: %s a Prop, read at its declaration line at the commit (%s), '
+            'none held by the shared lexicon before (held: %s)' % (', '.join(sorted(E0_EXTENSION)), ' '.join(
+                '%s :%d %s' % (k, ln, ok_) for k, _p, ln, ok_ in r['ext']) or 'none', r['held_ext'] or 'none'),
+            len(r['ext']) == len(E0_EXTENSION) and all(x[3] for x in r['ext']) and not r['held_ext']),
+           ('THE E0 GATE: each of the %d theorems found once by its declaration line among the %d files of the act at the commit, read at its '
+            'statement and graded (%s)' % (len(gates), r['files'], ', '.join('%s %d' % kv for kv in sorted(grades.items()))), gate_ok(gates)),
+           ('each COMPILED in the read, its axioms within %s, sorryAx in none (the prints: %s)' % (
+               STD3, '; '.join('%s %d' % kv for kv in sorted(axs_.items()))),
+            bool(gates) and all(g['state'] == 'COMPILED' and ax_within(g['axioms']) for g in gates)),
+           ('THE POSITIONS THE TEXTS STATE, read by the gate: [Z1]`s closing statement, [U1]`s five and [L1]`s one DERIVES, [D1]`s two '
+            'INTERFACES (%s)' % ' '.join('%s %s' % (n.split('.')[-1], G[n]['grade'] if n in G else 'ABSENT') for n in POSITION), pos_ok(gates)),
+           ('[D1]: each statement binds its named premises and nothing else, the premises the gate read within %s and the joined statement '
+            'binding both (%s)' % (sorted(D1_PREMISES), '; '.join('%s %s' % (n.split('.')[-1], G[n]['prem']) for n in C3_TEXTS[2][2])), d1_ok(gates)),
+           ('[Z1]: its file`s import closure holds no module under %s (held %s), read through the kernel`s import graph at the commit; the '
+            'control %s`s closure holding %d' % (nz[1], held or 'none', LOCATED.split('/')[-1], len(ctl_held)), not held and bool(ctl_held)),
+           ('[Z1]: two proofs of one statement: %s`s statement equal by its words to %s`s (%s :%s)' % (
+               C3_TEXTS[0][2][0].split('.')[-1], SP4[1].split('.')[-1], SP4[0].split('/')[-1], sp4_line), bool(h_sp4) and h_sp4 == h_zb),
+           ('PLANTED: a gate row with no statement read as the gate`s failure, a planted name as the population`s, and a [U1] theorem read '
+            'INTERFACES as the positions` (%s, %s, %s)' % ('FAILED' if not plant_gate else 'PASSED', 'DIFFER' if not plant_pop else 'EQUAL',
+                                                          'FAILED' if not plant_pos else 'PASSED'),
+            not plant_gate and not plant_pop and not plant_pos),
+           ('the appended lines outside a hand section (inside at %s)' % (in_hand or 'none'), not in_hand),
+           ('the roster: no order moving and none added (moved %s ; added %s)' % (moved or 'none', added or 'none'), not moved and not added)]
+    ok = all(o for _w, o in ctl)
+    P = ['%s -- (R380)(4), GROUP C3: %s, OPEN_TRAILS, APPENDED AT ITS END (%s)' % (ACT, ' '.join('[%s]' % k for k in GROUPS[group]), utc()), '',
+         '### tools/b770_rulings.py ledgers c3; the papers` repository at HEAD %s; the texts from the ferry bank (data/b770_ferry.txt, sha256 %s),'
+         % (pp_head[:8], FERRY_SHA),
+         '### the fields from %s (sha256 %s) and SIDE-explicit-formula at %s; <DATE> %s; each text by line and sha256 here; no line of'
+         % (DROWS_REL, fsha(DROWS), r['commit'], date),
+         '### the papers` repository printed but the texts composed; each run of eight digits or more in a gate row masked by its length.', '',
+         '## THE CONTROLS']
+    P += ['  %-150s %s' % (w, 'AS WANTED' if o else 'NOT AS WANTED') for w, o in ctl]
+    P += ['', '## THE E0 GATE (tools/e0_rule.py grade(head, \'theorem\'), the head the statement from the name to its first `:=`, read at %s)'
+          % r['commit']]
+    P += [masked('  %-62s %s :%s ; GRADE %s ; %s ; %s %s' % (g['name'], g['path'], g['line'], g['grade'], g['why'] or '-', g['state'], g['axioms']))
+          for g in gates]
+    P += ['', '## THE PLAN`S KIND BESIDE THE GATE (data/b770_plan.txt; a reading, no control): equal %d, differing %d' % (
+        len(gates) - len(differ), len(differ))]
+    P += ['  DIFFER %s: the plan :%s %s, the gate %s (%s)' % (g['name'], g['plan'][1], g['plan'][0], g['grade'], masked(g['why'])) for g in differ]
+    if any('B321.classK' in g['why'] for g in differ):
+        P += ['  ### the cause read: ' + QUALIFIED_NOTE + '; the shared rule not edited, the gate`s grade standing, printed for the navigator']
+    P += ['', '## THE ROSTER BY tools/standing/orders.py`S RULE IN MEMORY (printed)',
+          '  orders %d -> %d ; statuses moving %s ; added %s' % (len(before), len(after), moved or 'none', added or 'none')]
+    P += ['', '## THE FILE: OPEN_TRAILS.md | lines %d -> %d | the appended text from :%d | its sha256 %s | the file`s sha256 %s -> %s' % (
+        n_ot, len(nl_) - 1, n_ot + 2, sha(text)[:16], sha(base)[:16], sha(new)[:16])]
+    rows = [('head', head)] + [(k, E[k]) for k in keys]
+    P += ['', '## THE PARAGRAPHS BY LINE'] + ['  %-10s :%d (sha256 %s)' % (k, nl_.index(v) + 1, sha(v)[:16]) for k, v in rows]
+    P += ['', '### ### **THE LEDGERS, GROUP C3: OPEN_TRAILS APPENDED, NO LINE MOVING ; %d LINES UNDER ONE HEAD (%s) ; THE E0 GATE %d OF %d READ ; '
+          'THE PLAN`S KIND DIFFERING %d ; CONTROLS %d OF %d AS WANTED ; %s.**' % (
+              len(keys), ' '.join('[%s]' % k for k in keys), sum(1 for g in gates if g['line']), len(gates), len(differ),
+              sum(1 for _w, o in ctl if o), len(ctl), ('WRITTEN' if mode == 'write' else 'DRY, NOTHING WRITTEN') if ok else 'HELD')]
+    print(NL.join(P))
+    if mode == 'dry':
+        print(NL + '### THE TEXT APPENDED TO OPEN_TRAILS.md (the dry run`s print alone):')
+        print(text)
+        return 0 if ok else 1
+    if not ok:
+        die('A CONTROL NOT AS WANTED')
+    lb, lj = os.path.join(D, 'b770_ledgers_c3.txt'), os.path.join(D, 'b770_ledgers_c3.json')
+    if os.path.exists(lb) or os.path.exists(lj):
+        die('THE BANK STANDS ALREADY')
+    if any(idcount(NL.join(P), I, acct).values()):
+        die('AN IDENTIFIER OR THE ACCOUNT IN THE BANK')
+    with open(os.path.join(PP, OT), 'wb') as f:
+        f.write(new.encode('utf-8'))
+    if fsha(os.path.join(PP, OT)) != sha(new)[:16]:
+        die('THE WRITTEN FILE IS NOT ITS COMPOSITION')
+    put(lb, NL.join(P) + NL)
+    put(lj, json.dumps(dict(at=utc(), act=ACT, group=group, date=date, pp_head=pp_head,
+                            file=dict(path=OT, lines_before=n_ot, lines_after=len(nl_) - 1, first_new=n_ot + 2, sha_before=sha(base)[:16],
+                                      sha_after=sha(new)[:16], text_sha=sha(text)[:16], prefix=new.startswith(base)),
+                            entered=dict((k, [nl_.index(v) + 1, sha(v)[:16]]) for k, v in E.items()), head=[nl_.index(head) + 1, sha(head)[:16]],
+                            keys=list(keys), fills=fills, run=lk.get('run'), commit=r['commit'],
+                            e0=[dict((x, masked(g[x]) if x == 'why' else g[x]) for x in ('name', 'path', 'line', 'grade', 'why', 'prem', 'state', 'axioms', 'plan'))
+                                for g in gates],
+                            differ=[g['name'] for g in differ], controls=[[w, o] for w, o in ctl]), ensure_ascii=False, indent=1) + NL)
+    print('written OPEN_TRAILS.md ; %s and .json' % os.path.relpath(lb, RELAY).replace(os.sep, '/'))
+    return 0
+
+
 def main(argv):
     if len(argv) != 3 or argv[0] != 'ledgers' or argv[1] not in GROUPS or argv[2] not in ('dry', 'write'):
         sys.exit(__doc__)
+    if argv[1] == 'c3':
+        return ledgers_c3(argv[2])
     return ledgers(argv[1], argv[2])
 
 
