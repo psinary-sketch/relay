@@ -125,11 +125,27 @@ def next_of(relay=RELAY):
         return None
 
 
+def closed_act(act, relay=RELAY):
+    """v1.38.33, (R380)(8) [K33], b769 events (39): the act is closed where its closing record (data/<act>_closing.txt) is written AND its
+    closing commit stands -- the relay's row of phase `closing` in data/<act>_steps.json, which the one-call tool writes after that commit.
+    standing.act.closed reads the same predicate; it is read here apart, so that the hook never fails on an import."""
+    try:
+        if not (act and os.path.exists(os.path.join(relay, 'data', '%s_closing.txt' % act))):
+            return False
+        with open(os.path.join(relay, 'data', '%s_steps.json' % act), encoding='utf-8') as f:
+            rows = (json.load(f) or {}).get('rows') or []
+        return any(isinstance(r, dict) and r.get('repo') == 'relay' and r.get('phase') == 'closing' and r.get('commit') for r in rows)
+    except Exception:  # noqa: BLE001
+        return False
+
+
 def bank_act(relay=RELAY):
     """v1.10.0, (R340)(2)(iv): the one act whose refusal bank a refusal may reach: the act data/act_current.json names, while that act is open. A closed
-    act (its closing bank written) has no bank left to append to: the refusal is the next act's, b729's two rows at step zero into b728's bank the case."""
+    act (its closing bank written) has no bank left to append to: the refusal is the next act's, b729's two rows at step zero into b728's bank the case.
+    v1.38.33, (R380)(8) [K33]: closed where its closing record is written AND its closing commit stands (closed_act): b769's closing question,
+    put after its record and before its refused commit, was read against b770's put banks and its refusal written under b770's name."""
     act = act_of(relay)
-    if act and os.path.exists(os.path.join(relay, 'data', '%s_closing.txt' % act)):
+    if act and closed_act(act, relay):
         return next_of(relay)
     return act
 

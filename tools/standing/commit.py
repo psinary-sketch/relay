@@ -146,11 +146,22 @@ v1.38.31, (R380)(8) [K31]: THE KERNEL ROUTE FOR b770. KERNEL_ACTS and FF_ACTS na
   3c67b8b5); SIDE-dirichlet-mod-24 stays closed ("no kernel touched beyond SIDE-explicit-formula"); no file is named for a conflicted
   merge; PUSHTO_ACTS does not name b770. Its control (tools/b770_repair_controls.py K31) plants a second kernel's name and reads it refused.
 
+v1.38.33, (R380)(8) [K33], b769 events (37)-(40): THE CLOSING ACT HELD UNTIL ITS COMMIT. (i) The act is read closed where its closing record
+  is written and its closing commit stands -- the relay's row of phase `closing` in data/<act>_steps.json, written by this tool after that
+  commit (standing.act.closed; tools/standing/hook.py's bank_act by the same predicate) -- and only then does a commit's scan go to the
+  next act's per-commit bank (scan_bank_act); a rows-only closing commit no longer flips the bank by its phase alone. (ii) At the closing
+  commit close_left_out reads standing.act.close_carried(act, closing=True): the mirror's and the Project set's banks with the act's push
+  captures that stand written (the relay's push-<act>-closing capture, written after that commit, left out), so a capture written and not
+  staged refuses the closing commit; `relay add --close [<path> ...]` stages the paths named and each bank of that list that stands
+  (close_add), the list printed, so that no carried note decides what the closing commit holds. Its control (tools/b770_repair_controls.py
+  K33) plants a closing record with no closing commit and reads the act as read, and a closing list lacking one capture and reads it refused.
+
   python -X utf8 -u tools/standing/commit.py <relay|pp> <gate|lock|seal>
   python -X utf8 -u tools/standing/commit.py <relay|pp> branch push-<act>-<preroot|record|closing>
   python -X utf8 -u tools/standing/commit.py relay repair <the words naming the edits>
   python -X utf8 -u tools/standing/commit.py <relay|pp> "component 1" <the words>
   python -X utf8 -u tools/standing/commit.py <relay|pp> add <path> [<path> ...]
+  python -X utf8 -u tools/standing/commit.py relay add --close [<path> ...]
   python -X utf8 -u tools/standing/commit.py <relay|pp> restore <path>
   python -X utf8 -u tools/standing/commit.py <relay|pp> delete <branch>
   python -X utf8 -u tools/standing/commit.py <kernel> add <path> [<path> ...]
@@ -705,6 +716,24 @@ def close_left_out(banks, names, untracked):
             'the mirror`s banks and the Project set`s together (the add is its own message)' % ', '.join(left)) if left else None
 
 
+def close_add(args, carried, present):
+    """v1.38.33, (R380)(8) [K33], b769 events (37), (38): THE CLOSING ROUTE STAGES ITS LIST. `relay add --close [<path> ...]`: the paths named,
+    then each bank of `carried` (standing.act.close_carried(act, closing=True): the mirror's, the Project set's and the act's push captures)
+    that stands written (`present`, a predicate on a relay-relative path), none twice, so the closing commit holds what close_left_out reads
+    and no carried note decides it. Pure but for `present`."""
+    named = []
+    for a in args:
+        if a != '--close' and a not in named:
+            named.append(a)
+    return named + [b for b in carried if b not in named and present(b)]
+
+
+def scan_bank_act(act, closed):
+    """v1.38.33, (R380)(8) [K33]: the act whose per-commit scan bank takes a commit's run where it is not the act's own -- the next act's where
+    the act is closed (its closing record written and its closing commit's row standing, standing.act.closed), else None. Pure."""
+    return ('b%d' % (int(act[1:]) + 1)) if closed else None
+
+
 def version_refusal(names, head_version, staged_version):
     """v1.34.0, (R364)(3)(vi), (R345)(2)(iv), b753 events (7), (8), (9): None, or the refusal, for a relay commit staging `names`: a path under
     tools/standing/ staged without tools/standing/VERSION staged with it and moved (its staged text not its HEAD text; a patch number
@@ -1175,6 +1204,12 @@ def write_route(key, verb, args, act=None, repo=None, mark_path=MARK):
         raise Refused('THE %s NAMES NOTHING' % verb.upper())
     if any(ch in a for a in args for ch in '*?['):
         raise Refused('A GLOB IN THE %s: name each path (%s)' % (verb.upper(), ' '.join(args)[:80]))
+    if key == 'relay' and verb == 'add' and args[0] == '--close':   # ### v1.38.33, (R380)(8) [K33]: the closing route stages its list
+        args = close_add(args[1:], A.close_carried(act, closing=True), lambda p: os.path.isfile(os.path.join(repo, *p.split('/'))))
+        print('  THE CLOSING ROUTE`S LIST ((R380)(8) [K33]): %d paths, the close`s banks and the act`s push captures that stand among them: %s' % (
+            len(args), ' '.join(args)))
+        if not args:
+            raise Refused('THE CLOSING ROUTE NAMES NOTHING: no path named and no bank of the close standing')
     if verb == 'ff':   # ### v1.36.0, (R368)(6)(i): its own table, apart from KERNEL_ACTS
         bad = ff_refusal(key, act)
         if bad:
@@ -1280,7 +1315,7 @@ def run(key, phase, words, act=None, data=None, row_writer=None, after_seal=None
                 raise Refused(bad)
         if os.path.abspath(repo) == os.path.abspath(RELAY):   # ### v1.31.0, (R361)(3)(v)
             unt = [p for p in _git(repo, 'ls-files', '--others', '--exclude-standard', '--', 'data/').stdout.split('\n') if p]
-            bad = scan_left_out(act, names, unt) or close_left_out(A.close_carried(act), names, unt)   # ### v1.38.24, (R376)(7) [K24]
+            bad = scan_left_out(act, names, unt) or close_left_out(A.close_carried(act, closing=(phase == 'closing' and not rows_only(act, names))), names, unt)   # ### v1.38.24, (R376)(7) [K24]; v1.38.33 [K33]: the act's push captures at the closing commit
             if bad:
                 raise Refused(bad)
         if phase == 'seal' and os.path.abspath(repo) == os.path.abspath(RELAY):   # ### v1.38.10, (R374)(5) [K11]: the post-lock scan in its place, step [8a]
@@ -1297,10 +1332,11 @@ def run(key, phase, words, act=None, data=None, row_writer=None, after_seal=None
         if scanner is False:   # ### v1.29.0 (iii): no commit without the scan
             raise Refused('A COMMIT WITHOUT THE SCAN: the tool runs the act`s scan over the staged set before every commit')
         # ### v1.34.0, (R364)(3)(iii): the closing step-row commit's scan, taken over its staged set before it as every commit's is, is written to
-        # ### the next act's per-commit bank as that bank's opening rows; nothing is appended to the act's own bank, committed and then pushed
-        nxt = ('b%d' % (int(act[1:]) + 1)) if (only and phase == 'closing') else None
-        what = '%s commit %s in %s' % (act, phase, key) + ((', the closing step-row commit: its scan written to %s`s per-commit bank as its opening rows '
-                                                            '((R364)(3)(iii))' % nxt) if nxt else '')
+        # ### the next act's per-commit bank as that bank's opening rows; nothing is appended to the act's own bank, committed and then pushed.
+        # ### v1.38.33, (R380)(8) [K33]: the act read closed by its closing record and its closing commit's row, not by a commit's phase
+        nxt = scan_bank_act(act, A.closed(act, data))
+        what = '%s commit %s in %s' % (act, phase, key) + ((', the act closed (its closing record and its closing commit`s row standing): its scan '
+                                                            'written to %s`s per-commit bank ((R364)(3)(iii), (R380)(8) [K33])' % nxt) if nxt else '')
         sc = (scanner or (lambda a: run_scan(a, what, bank_dir=scan_dir, bank_act=nxt)))(act)   # ### v1.28.0 (ii); v1.29.0 (ii) the per-commit bank
         if kern and not scan_names(sc, key):   # ### v1.35.4, (R367)(3): the scan over the kernel's staged set, read from its own run
             raise Refused('THE SCAN DID NOT READ THE KERNEL: %s is not among the repositories its run names (its line "## THE REPOSITORIES READ") '

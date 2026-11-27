@@ -244,7 +244,8 @@ def postlock_place(act, seal_at, bank_text, staged):
 STEP_23A = ('23a', 'the Project set from [23]`s export, root line in it, banks committed at [25] ([K24]): `tools/project_set.py branch`, '
                    '`write` and `commit`, the gated push of push-<act>-set, then `readback`; the repository equal to that export file for '
                    'file by md5 ((R376)(7))', 'data/<act>_project_set_build.txt')
-STEP_25_WORDS = 'the closing and its push, captured, the commit carrying [23]`s and [23a]`s banks ([K24])'
+STEP_25_WORDS = ('the closing and its push, captured, the commit carrying [23]`s and [23a]`s banks ([K24]) and the act`s push captures, '
+                 'staged by `tools/standing/commit.py relay add --close` ([K33])')
 CLOSE_COMMITS = (19, 25)   # ### v1.38.24, [K24]: the relay's commits of the close after the root, the record commit and the closing commit
 
 
@@ -256,11 +257,43 @@ def project_set_banks(act):
                                                    'PLACE-project-set_push-%s-set_push_out.txt' % act))
 
 
-def close_carried(act):
+def close_carried(act, closing=False, relay=None):
     """v1.38.24, (R376)(7) [K24]: the banks the closing commit [25] carries -- the mirror's of [23] (the record tool's mbuild, mroot, mverify
-    and mbank, as b765's closing commit c90a62d7 carried them) and the Project set's of [23a]."""
-    return tuple('data/%s_%s' % (act, n) for n in ('mirror.txt', 'mirror.json', 'mirror_build.json', 'mirror_root.json',
+    and mbank, as b765's closing commit c90a62d7 carried them) and the Project set's of [23a]. v1.38.33, (R380)(8) [K33]: `closing` True at
+    the closing commit and its route: the act's push captures that stand written beside them (close_captures)."""
+    base = tuple('data/%s_%s' % (act, n) for n in ('mirror.txt', 'mirror.json', 'mirror_build.json', 'mirror_root.json',
                                                    'mirror_verify.txt')) + project_set_banks(act)
+    return base + tuple(c for c in close_captures(act, relay) if c not in base) if closing else base
+
+
+def close_captures(act, relay=None):
+    """v1.38.33, (R380)(8) [K33], b769 events (37), (38): THE ACT'S PUSH CAPTURES THE CLOSING COMMIT CARRIES -- each capture of the gated push
+    that stands written in the relay's data/ under the act's name (data/<act>_<repository>_<branch>_push_out.txt, tools/push_gated.sh's
+    name), the relay's push-<act>-closing capture left out: it is written after the closing commit and committed at the next act's step zero.
+    b768's closing commit carried five captures and b769's three, each by the seat's hand from a carried note; the list is the tool's."""
+    try:
+        names = sorted(os.listdir(os.path.join(relay or RELAY, 'data')))
+    except OSError:
+        return ()
+    last = '%s_relay_push-%s-closing_push_out.txt' % (act, act)
+    return tuple('data/' + n for n in names if n.startswith(act + '_') and n.endswith('_push_out.txt') and n != last)
+
+
+def closed(act, data=None):
+    """v1.38.33, (R380)(8) [K33], b769 events (39): THE ACT CLOSED WHERE ITS CLOSING RECORD IS WRITTEN AND ITS CLOSING COMMIT STANDS -- the
+    record data/<act>_closing.txt and the relay's row of phase `closing` in data/<act>_steps.json, which the one-call tool writes after the
+    closing commit (a rows-only commit writes none). b769's closing question was read against b770's put banks and its refusal written under
+    b770's name once the record stood, its commit refused; tools/standing/hook.py's bank_act reads the same predicate (its closed_act) and the
+    one-call tool takes the next act's per-commit bank by it. `data` the folder holding the banks (the relay's data/ where None)."""
+    d = data or os.path.join(RELAY, 'data')
+    if not (act and os.path.exists(os.path.join(d, '%s_closing.txt' % act))):
+        return False
+    try:
+        with open(os.path.join(d, '%s_steps.json' % act), encoding='utf-8') as f:
+            rows = (json.load(f) or {}).get('rows') or []
+    except (OSError, ValueError, AttributeError):
+        return False
+    return any(isinstance(r, dict) and r.get('repo') == 'relay' and r.get('phase') == 'closing' and r.get('commit') for r in rows)
 
 
 def close_order(text=None):
