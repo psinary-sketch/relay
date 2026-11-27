@@ -1,14 +1,24 @@
 # HANDOFF
 
-*Written whole by `tools/standing/handoff.py` (tools/standing/ v1.38.30) at relay `c794598f` and PLACE-papers `3deb3dca`, 2026-11-26T05:23:31Z, from the banks: the closings and ferries of b757 to b768 (data/<act>_closing.txt :1, data/<act>_ferry.txt), data/b769_ferry.txt (the holds), PLACE-papers OPEN_TRAILS.md (the Next and the open orders), REGISTRY.md, FINDINGS.md, phase1.5/method/INSTRUMENTS.md and the census, and the relay`s standing clauses, rules banks and registrations banks; edited by no hand ((R364)(5)[H1]). Its earlier pages stand in this file`s history.*
+*Written whole by `tools/standing/handoff.py` (tools/standing/ v1.38.33) at relay `ad351148` and PLACE-papers `423a6b78`, 2026-11-27T12:21:55Z, from the banks: the closings and ferries of b758 to b769 (data/<act>_closing.txt :1, data/<act>_ferry.txt), data/b770_ferry.txt (the holds), PLACE-papers OPEN_TRAILS.md (the Next and the open orders), REGISTRY.md, FINDINGS.md, phase1.5/method/INSTRUMENTS.md and the census, and the relay`s standing clauses, rules banks and registrations banks; edited by no hand ((R364)(5)[H1]). Its earlier pages stand in this file`s history.*
 
 ## The holds in force
 
-The last ruling`s clause on them, data/b769_ferry.txt :46:
+The last ruling`s clause on them, data/b770_ferry.txt :45:
 
-> (12) THE DRAFT stands at v5, HELD; no deposit; no write to Zenodo, the reads of (6) and no other call; no kernel touched and no dispatch sent; no push forced; no tag cut or moved; no kernel branch removed; no sentence of a paper written or edited; REGISTRY, ERRATA and SPIRAL_MAP.md written under (4) and (5) and by nothing else; the census, the register and SPIRAL_MAP_v0_7.md not written; nothing fetched from the web by the seat beyond the reads of (6); nothing computed at a zero, and the window's frequency read by name and not printed. tools/research/reproduce.py's full run is made and banked as the standing clauses order it, and the rows of a bank of zeros that the run itself reads are read by it and by nothing else.
+> (12) THE DRAFT stands at no version: the draft 23228113 was discarded at b749 (REGISTRY :1247), and none is made at this act. No deposit and no Zenodo call; no kernel touched beyond SIDE-explicit-formula; no push forced; no tag cut or moved beyond v0.47 under (4); no kernel branch removed; no sentence of a paper written or edited; REGISTRY, ERRATA, the census, the register and SPIRAL_MAP.md not written; nothing fetched from the web by the seat; nothing computed at a zero, and the window's frequency read by name and not printed. tools/research/reproduce.py's full run is made and banked as the standing clauses order it, and the rows of a bank of zeros that the run itself reads are read by it and by nothing else.
 
 ## The last twelve acts, newest first
+
+### b769
+
+data/b769_closing.txt :1:
+
+> b769 closed: relay 8737fa91, PLACE-papers 7868560; suite 111 of 116; root 14ebaf2f7e6633ac…; 4 prompts answered; scores 8 of 8 HELD; 24 defects
+
+data/b769_ferry.txt :13, THE ACT`S PLACE:
+
+> (2) THE ACT'S PLACE. b768 compiled the control's failure from its coefficients, and main and the tag hold it. The record around that theorem is older than it. The registry's keystone rows were read at b766 and not yet written into the registry. The federation map stands in two files. The subject cluster on the Lean archive of November 2026 has rulings and no home. Four groups of passages in the papers are known not to hold as stated, two of them in the deposited monograph, and no entry of ERRATA names them. And the deposit waves that the registry has carried since July stand behind a held draft whose description cites the criterion's kernel at v0.26. This act sets that record in order and builds nothing: it writes the registry's block, merges the map, gives the cluster its row and its source record, files the four entries with the corrections of record, and reads each keystone of the three waves and each deposited record against what a deposit asks, so that the acts after it can be cut exactly. The author's order for those acts stands in (7): the tip, then Phase 1.2, then Phase 1.5.
 
 ### b768
 
@@ -120,25 +130,15 @@ data/b760_places.txt :7, THE ACT`S PLACE:
 
 > THE ACT'S PLACE. b757 built the control's parts and left them on branches. b758 joined them on one main under one tag and landed the two coefficient statements and the wide direction, so that sections 6 to 8 of the Epstein document could be written from compiled statements on main.
 
-### b757
-
-data/b757_closing.txt :1:
-
-> b757 closed: relay ff65ccdb, PLACE-papers b8c0bd7; suite 110 of 116; root 95f84fdeeb9dac74…; 2 prompts answered; scores 7 of 8 HELD; 28 defects
-
-data/b757_ferry.txt :31, THE ACT`S PLACE:
-
-> (11) THE ACT'S PLACE. The criterion kernel has held the control's parts on four branches: a zero located off the line, a count bound, and an explicit formula whose prime-power side carries the coefficients of the logarithmic derivative. This act puts them on one main under one tag and compiles the two statements that say what that side lacks beside zeta's: an Euler product, and nonnegative coefficients. With the one direction over the wider strip the control becomes a compiled case in which the criterion's own expression goes negative, stated for this function and its own formula. Nothing here is a statement about zeta.
-
 ## The Next
 
-PLACE-papers OPEN_TRAILS.md :19497, the trail of b768 headed at :19433:
+PLACE-papers OPEN_TRAILS.md :19591, the trail of b769 headed at :19527:
 
-> **Next:** the act after this one, as the author answers at the root (the answers bank) ((R378)(13)): relay data/b768_author_answers.txt :7, the author chose: Option 1 narrowed, typed. b769 is the act that places documents by subject: it writes the registry's block and the map's merge under the author's strikes with the rulings of (R378)(7) in it, gives the Alpoge cluster its home in Phase 1.2 with its workspace bundle entered whole and privately in PLACE-papers as the source record, and takes up part one of W-ORD-NOVEMBER-RIDERS, the errors, each wording put to the author before it is written. Part two of the riders, the scope sentences, waits for a later act. The navigator brings The Epstein Control Object to the deposit rubric with the proof in it. The proof stands compiled at ffefddc6 with main and v0.46 there and b769 writes no Lean. The suite's growth and the keys are ruled in (R379), which the navigator writes from b768's closing banks; nothing here changes a clause, a cap or a gate of (R378) for b768's close.; as put: where [P1] stands, the registry’s block and the map’s merge under the author’s strikes with the rulings of (7) in it, W-ORD-NOVEMBER-RIDERS taken up in its two parts, and the navigator brings The Epstein Control Object to the deposit rubric with the proof in it; where [P2] stands, the proof continued at the step that did not compile; or another the author names; the open orders whose status names b769 (OPEN_TRAILS, read at closing time): NONE.
+> **Next:** the act after this one, as the author answers at the root (the answers bank) ((R379)(13)): relay data/b769_author_answers.txt :14, the author chose: b770 is the tip, as recommended: the Day 1 record brought current with the monograph's next edition taking b769's fact items, beside it the record of SIDE-explicit-formula at v0.46 and The Epstein Control Object at the deposit rubric, the four parts of the act-root chain run again, and nothing published before my word at a prompt of its own. The Lean act waits until I have read the navigator's (R380), cut to the parts I have read.; as put: THE TIP, the draft of the Day 1 record brought current with the monograph’s next edition taking this act’s fact items, the Day 1 files at their current editions and the description at a sixth edition from the navigator’s text, beside it the record of SIDE-explicit-formula at v0.46 and The Epstein Control Object at the deposit rubric, the four parts of the act-root chain run again and nothing published before the author’s word at a prompt of its own; or THE LEAN ACT, the composition of (7)(a), the criterion’s bounded-support form for a configuration and the price of a shorter window for the control’s failure; or another the author names; the open orders whose status names b770 (OPEN_TRAILS, read at closing time): NONE.
 
 ## The open orders
 
-69 open of 229 orders, read by `tools/standing/orders.py` from PLACE-papers OPEN_TRAILS.md at `3deb3dca`:
+69 open of 229 orders, read by `tools/standing/orders.py` from PLACE-papers OPEN_TRAILS.md at `423a6b78`:
 
 `W-ORD-ROUTE-DE-EQUIV`, `W-ORD-P2-9-RESYNC`, `W-ORD-IMP2-TAU`, `W-ORD-LI-WEIL-BRIDGE`, `W-ORD-LI-FAMILY-CONTROL`, `W-ORD-FLOOR-HELD-AXES`, `W-ORD-MATCHER-SHAPE`, `W-ORD-EXACT-SUPPORT`, `W-ORD-STRICT-BOUND`, `W-ORD-SEAM-UPSTREAM`, `W-ORD-DETECTION-REGION`, `W-ORD-POWER-SWEEP`, `W-ORD-STORMER-CLASH`, `W-ORD-DEPRECATIONS`, `W-ORD-KEIPER-FACE`, `W-ORD-PNT-CHI`, `W-ORD-VENDOR-FINALMULT`, `W-ORD-ZETA23-SERIAL-BUILD`, `W-ORD-PREMISE-BOUNDPREMISES`, `W-ORD-PREMISE-NONTRIVIALZEROEXISTSINSTRIP`, `W-ORD-PREMISE-PERCLASSEXCLUDES`, `W-ORD-PREMISE-REGISTER4-CHANNELINEQUALITY`, `W-ORD-PREMISE-REGISTER4-POSITIVITY`, `W-ORD-PREMISE-ZEROACTINGPAIRING`, `W-ORD-PREMISE-IS-XI-ZERO`, `W-ORD-STATEMENT-PIN`, `W-ORD-H2-PI1`, `W-ORD-LATE-BANKS`, `W-ORD-READER-COMPREHENSION`, `W-ORD-TESTS-WITH-THE-LISTS-IN-FORCE`, `W-ORD-CLOSE-PAIR-BENCH`, `W-ORD-E2-SEPARATION`, `W-ORD-ROOT-BINARY-BANK`, `W-ORD-BESSEL-BOUND-TIGHTEN`, `W-ORD-GRADE-MOVED`, `W-ORD-PRINT-TARGETS`, `W-ORD-ABSENT-DECLARATIONS`, `W-ORD-PROSE-PINS`, `W-ORD-CHAIN-PAGE-B638-CASES`, `W-ORD-CORRESPONDENCE-BEHIND-SCOPE`, `W-ORD-B518-FLOAT`, `W-ORD-EXPLICIT-FORMULA-C1`, `W-ORD-KEYSTONE-HEADS`, `W-ORD-QUASI-RH-FIELD-WATCH`, `W-ORD-MOVES-BY-LOCUS`, `W-ORD-MECHANISM-TABLE`, `W-ORD-VISIBILITY`, `W-ORD-ADMISSIBLE-CONE`, `W-ORD-DETECTION-DUAL`, `W-ORD-SIDE-DIAGNOSTIC`, `W-ORD-CHAIN-PAGE-LLM-LINE`, `W-ORD-ZQ-FAMILY`, `W-ORD-LI-INDEX`, `W-ORD-CAPACITY-ATTRIBUTION`, `W-ORD-EPSTEIN-SECTIONS-3-4`, `W-ORD-WSC-TITCHMARSH`, `W-ORD-RECUT-QUOTE-W4`, `W-ORD-RECUT-QUOTE-W8`, `W-ORD-RECUT-QUOTE-W9`, `W-ORD-RECUT-QUOTE-C4`, `W-ORD-SIGN-SECTORS`, `W-ORD-EPSTEIN-CLASSICAL`, `W-ORD-ONSET-DENSITY`, `W-ORD-STATEMENT-FILE`, `W-ORD-ONEPAGE-REFERENCES`, `W-ORD-ONEPAGE-POINTERS`, `W-ORD-PREMISE-POSITIONS`, `W-ORD-SOURCE-BUILD`, `W-ORD-NOVEMBER-RIDERS`
 
