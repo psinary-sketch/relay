@@ -22,6 +22,11 @@ whether the keystone's text at HEAD carries it; and the item's reading, one of t
   BANKED, NO SEAT                               the maps name no cluster
 THE CLUSTER by b761's four rules (R1)-(R4), each item printing the rule that placed it (tools/b761_sitting.py :18-:22). b761's orders section
 and the navigator's recommendation are not carried: the light form asks the author about the second reading's items alone.
+THE SECOND SHAPE (b770, the agenda's first dry, 01:44:40Z: the maps' rules read all nine items BANKED, NO SEAT, five of whose own
+INTEGRATION lines name the cluster The Epstein instance, its keystone and the stage CLUSTERED; the rules read a heading alone and seat no
+entry whose banks no map row or keystone yet names): each item's own INTEGRATION line read for its cluster, keystone and stage beside the
+maps' reading, which stays the reading as b761's tool gives it; the items CLUSTERED by either shape are the ones put to the author, the two
+readings' conflict named in the question; a planted heading and a planted own line show that the second reading can fire.
 
 No keystone, map or FINDINGS line is written; no line of the papers` repository is printed but the names, the cluster's label and the stage
 words; the protected word neither printed nor stored; no git write.
@@ -195,6 +200,50 @@ def carried(name, KL):
     return at, path
 
 
+OWN = re.compile(r'^INTEGRATION: cluster (.+?) ; keystone (.+?) ; stage (.+?)\s*$')
+
+
+def reads_of(htext, ct, rr, ktexts):
+    """the item's reads by b761's rules: [dict(cluster, row, why, keys, per, reading, path_only)], and the reading the highest of them gives."""
+    nm = LM.names(htext)
+    reads = []
+    for row, why in place(htext, ct, rr, ktexts):
+        keys = row['keys']
+        per = [(kp, [(x,) + carried(x, ktexts[kp][0]) for x in nm]) for kp in keys]
+        hit = [(kp, x, at, p) for kp, rows in per for x, at, p in rows if at]
+        rd = 'CLUSTERED, NO KEYSTONE NAMED' if not keys else ('SYNTHESISED' if hit else READINGS[1])
+        reads.append(dict(cluster=row['name'], row=row['line'], why=why, keys=keys, per=per, reading=rd,
+                          path_only=bool(hit) and all(p for _k, _x, _a, p in hit)))
+    if not reads:
+        return reads, READINGS[2], None
+    cl = sorted(reads, key=lambda r: 0 if r['reading'] == 'SYNTHESISED' else 1)[0]
+    return reads, cl['reading'], cl
+
+
+def own_reading(line, nm, ct, ktexts):
+    """THE SECOND SHAPE, printed beside the maps' reading and deciding nothing by itself (b770, the agenda's first dry, 01:44:40Z: the maps'
+    rules read all nine items BANKED, five of whose own INTEGRATION lines name the cluster The Epstein instance and its keystone at stage
+    CLUSTERED): the entry's own line's cluster, keystone and stage; the cluster found among the table's rows by name, the line's keystone
+    among that row's keystones; the keystone's text read for the entry's names; its reading by the line's stage, SYNTHESISED where the
+    keystone carries a name of the entry."""
+    m = OWN.match(line or '')
+    if not m:
+        return None
+    cn, kp, stg = m.group(1).strip(), m.group(2).strip(), m.group(3).strip()
+    rows = [r for r in ct if r['name'].strip().lower() == cn.lower()]
+    row = rows[0] if len(rows) == 1 else None
+    kt = ktexts.get(kp)
+    at = [x for x in nm if kt and carried(x, kt[0])[0]]
+    if stg.startswith('CLUSTERED') and row and kp in row['keys']:
+        rd = 'SYNTHESISED' if at else READINGS[1]
+    elif stg.startswith('SYNTHESISED') and at:
+        rd = 'SYNTHESISED'
+    else:
+        rd = READINGS[2]
+    return dict(cluster=cn, keystone=kp, stage=stg, row=row['line'] if row else None, key_of_row=bool(row) and kp in row['keys'],
+                carried=at, reading=rd)
+
+
 def headings(F):
     """(the corrigendum to b760's lines, the item headings, their acts): the non-corrigendum `## ` headings after `## Corrigendum to b760`,
     each the act whose corrigendum is the next after it."""
@@ -229,24 +278,13 @@ def agenda(mode):
         il = next((k for k in range(h + 1, nxt) if F[k - 1].startswith('INTEGRATION:')), None)
         st = re.search(r'stage ([A-Z]+(?: \([^)]*\))?(?:, [A-Z]+ \([^)]*\))?)\s*$', F[il - 1]) if il else None
         nm = LM.names(F[h - 1])
-        found = place(F[h - 1], ct, rr, ktexts)
-        reads = []
-        for row, why in found:
-            keys = row['keys']
-            per = [(kp, [(x,) + carried(x, ktexts[kp][0]) for x in nm]) for kp in keys]
-            hit = [(kp, x, at, p) for kp, rows in per for x, at, p in rows if at]
-            rd = 'CLUSTERED, NO KEYSTONE NAMED' if not keys else ('SYNTHESISED' if hit else READINGS[1])
-            reads.append(dict(cluster=row['name'], row=row['line'], why=why, keys=keys, per=per, reading=rd,
-                              path_only=bool(hit) and all(p for _k, _x, _a, p in hit)))
-        if not reads:
-            reading, cl = READINGS[2], None
-        else:
-            cl = sorted(reads, key=lambda r: 0 if r['reading'] == 'SYNTHESISED' else 1)[0]
-            reading = cl['reading']
+        reads, reading, cl = reads_of(F[h - 1], ct, rr, ktexts)
+        own = own_reading(F[il - 1] if il else '', nm, ct, ktexts)
         items.append(dict(n=n, act=a, line=h, sha=sha(F[h - 1]), names=nm, iline=il, isha=sha(F[il - 1]) if il else None,
                           istage=(st.group(1) if st else ('a tally, no stage word' if il else 'none')), reads=reads, reading=reading,
                           cluster=cl['cluster'] if cl else None, crow=cl['row'] if cl else None, keys=cl['keys'] if cl else [],
-                          path_only=cl['path_only'] if cl else False, several=len(reads) > 1))
+                          path_only=cl['path_only'] if cl else False, several=len(reads) > 1, own=own,
+                          differ=bool(own) and own['reading'] != reading))
     cnt = dict((r, sum(1 for i in items if i['reading'].startswith(r))) for r in ('SYNTHESISED', 'CLUSTERED', 'BANKED'))
     P = ['%s -- (R380)(7): THE SITTING OF THE TENTH ACT IN THE LIGHT FORM, ITS AGENDA BANKED BEFORE ANY QUESTION IS PUT (%s)' % (ACT, utc()), '',
          '### tools/b770_sitting.py agenda %s; the papers` repository at HEAD %s; REGISTRY, SPIRAL_MAP`s cluster table (:%d, its rows :%d-:%d),' % (
@@ -280,12 +318,27 @@ def agenda(mode):
         if i['several']:
             note += ' -- placed in %d clusters, the highest reading taken' % len(i['reads'])
         P.append('      READING: %s%s%s' % (i['reading'], (' (%s)' % ', '.join(i['keys'])) if i['reading'] == 'SYNTHESISED' else '', note))
+        o = i['own']
+        P.append('      BY ITS OWN LINE (the second shape, printed beside): %s' % (
+            ('cluster %s (%s), keystone %s (%s), stage %s, its names carried by that keystone %s -> %s ; the maps` reading %s' % (
+                o['cluster'], ('SPIRAL_MAP :%d' % o['row']) if o['row'] else 'not a row of the table', o['keystone'],
+                'the row`s keystone' if o['key_of_row'] else 'not the row`s keystone', o['stage'], o['carried'] or 'none', o['reading'],
+                'DIFFERS' if i['differ'] else 'AGREES')) if o else 'its line not of the form INTEGRATION: cluster ; keystone ; stage'))
     P.append('')
     clu = [i for i in items if i['reading'].startswith('CLUSTERED')]
-    P.append('## THE ITEMS OF THE SECOND READING, PUT TO THE AUTHOR AT ONE PROMPT ((R380)(7)): %s' % (
-        ', '.join('[%d] %s' % (i['n'], i['act']) for i in clu) or 'none -- no prompt is put'))
+    dif = [i for i in items if i['differ']]
+    diff_at = len(P) + 1
+    P.append('## THE TWO READINGS DIFFER AT %d ITEM(S): %s' % (len(dif), ', '.join('[%d] %s (the maps %s, its own line %s, %s)' % (
+        i['n'], i['act'], i['reading'].split(',')[0], i['own']['reading'].split(',')[0], i['own']['cluster']) for i in dif) or 'none'))
+    ask = [i for i in items if i['reading'].startswith('CLUSTERED') or (i['differ'] and i['own']['reading'].startswith('CLUSTERED'))]
+    P.append('## THE ITEMS OF THE SECOND READING BY EITHER SHAPE, PUT TO THE AUTHOR AT ONE PROMPT ((R380)(7)), the readings` conflict named in it: %s' % (
+        ', '.join('[%d] %s' % (i['n'], i['act']) for i in ask) or 'none -- no prompt is put'))
     P.append('')
     ep = [v for k, v in ktexts.items() if 'EPSTEIN' in k]
+    ek = [k for k in ktexts if k.endswith('THE_EPSTEIN_CONTROL_OBJECT_v0_2.md')]
+    pl_reads, pl_reading, pl_cl = reads_of('## b999_planted_x read for THE_EPSTEIN_CONTROL_OBJECT', ct, rr, ktexts)
+    pl_own = own_reading('INTEGRATION: cluster %s ; keystone %s ; stage CLUSTERED' % (
+        next((r['name'] for r in ct if ek and ek[0] in r['keys']), 'none'), ek[0] if ek else 'none'), ['b999_planted_x'], ct, ktexts)
     ctl = [('the corrigendum to b760 found once (FINDINGS :%s)' % (c0 or 'none'), len(c0) == 1),
            ('the headings: the non-corrigendum headings after it (%d), each before its act`s corrigendum, the acts b761 to b769 each at least once '
             'and in order (%s)' % (len(hs), ', '.join(a or '?' for a in acts)),
@@ -297,6 +350,11 @@ def agenda(mode):
             any(carried('pc_online', v[0])[0] for v in ep) and not any(carried('b999_planted', v[0])[0] for v in ktexts.values())),
            ('the placement`s planted control: a heading naming nothing of the maps (b999_planted_bank) placed nowhere',
             not place('## b999_planted_bank read', ct, rr, ktexts)),
+           ('THE SECOND READING CAN FIRE: a planted heading carrying the Epstein keystone`s stem placed by R2 in its row and read %s ; a planted '
+            'own line naming that row and keystone at stage CLUSTERED read %s' % (pl_reading, pl_own['reading'] if pl_own else None),
+            pl_reading == READINGS[1] and bool(pl_cl) and ek and ek[0] in pl_cl['keys'] and bool(pl_own) and pl_own['reading'] == READINGS[1]),
+           ('each item`s own line read in the form INTEGRATION: cluster ; keystone ; stage (%d of %d)' % (
+               sum(1 for i in items if i['own']), len(items)), all(i['own'] for i in items)),
            ('each item read one of the three readings (%s)' % (', '.join('[%d] %s' % (i['n'], i['reading']) for i in items
                                                                      if i['reading'] not in READINGS) or 'none outside them'),
             all(i['reading'] in READINGS for i in items))]
@@ -305,10 +363,11 @@ def agenda(mode):
     ok = all(o for _w, o in ctl)
     P.append('## THE CONTROLS')
     P += ['  %-150s %s' % (w, 'AS WANTED' if o else 'NOT AS WANTED') for w, o in ctl]
-    P += ['', '### ### **THE AGENDA: ITEMS %d ; SYNTHESISED %d ; CLUSTERED, AN INPUT OF A RE-CUT %d ; BANKED, NO SEAT %d ; PUT TO THE AUTHOR %s ; '
-          'CONTROLS %d OF %d AS WANTED ; %s.**' % (
-              len(items), cnt['SYNTHESISED'], cnt['CLUSTERED'], cnt['BANKED'], len(clu) or 'NONE', sum(1 for _w, o in ctl if o), len(ctl),
-              ('WRITTEN' if mode == 'write' else 'DRY, NOTHING WRITTEN') if ok else 'HELD')]
+    ocnt = dict((r, sum(1 for i in items if i['own'] and i['own']['reading'].startswith(r))) for r in ('SYNTHESISED', 'CLUSTERED', 'BANKED'))
+    P += ['', '### ### **THE AGENDA: ITEMS %d ; BY THE MAPS SYNTHESISED %d ; CLUSTERED, AN INPUT OF A RE-CUT %d ; BANKED, NO SEAT %d ; BY THEIR OWN '
+          'LINES %d, %d, %d ; DIFFERING %d ; PUT TO THE AUTHOR %s ; CONTROLS %d OF %d AS WANTED ; %s.**' % (
+              len(items), cnt['SYNTHESISED'], cnt['CLUSTERED'], cnt['BANKED'], ocnt['SYNTHESISED'], ocnt['CLUSTERED'], ocnt['BANKED'], len(dif),
+              len(ask) or 'NONE', sum(1 for _w, o in ctl if o), len(ctl), ('WRITTEN' if mode == 'write' else 'DRY, NOTHING WRITTEN') if ok else 'HELD')]
     foot_at = len(P)
     text = NL.join(P) + NL
     print(text)
@@ -319,7 +378,8 @@ def agenda(mode):
         put(AJSON, json.dumps(dict(at=utc(), act=ACT, pp_head=head, table=[cth, ctf, ctl_], items=[dict((k, v) for k, v in i.items() if k != 'reads') | dict(
             reads=[dict(cluster=r['cluster'], row=r['row'], why=r['why'], keys=r['keys'], reading=r['reading'], path_only=r['path_only'],
                         names=[[x, at, p] for _kp, rows_ in r['per'] for x, at, p in rows_]) for r in i['reads']]) for i in items],
-            counts=cnt, item_at=item_at, foot_at=foot_at, clustered=[i['n'] for i in clu],
+            counts=cnt, own_counts=ocnt, item_at=item_at, foot_at=foot_at, diff_at=diff_at, clustered=[i['n'] for i in clu],
+            differ=[i['n'] for i in dif], ask=[i['n'] for i in ask],
             controls=[[w, o] for w, o in ctl]), ensure_ascii=False, indent=1) + NL)
         print('written %s (%d lines) and %s' % (os.path.relpath(AGENDA, RELAY).replace(os.sep, '/'), len(P),
                                                os.path.relpath(AJSON, RELAY).replace(os.sep, '/')))
@@ -331,29 +391,38 @@ def question(mode):
     L = relay_lines('data/b770_sitting_agenda.txt')
     it = A['items']
     c, fa = A['counts'], A['foot_at']
-    clu = [i for i in it if i['reading'].startswith('CLUSTERED')]
-    if not clu:
-        print('### NO ITEM READS CLUSTERED (data/b770_sitting_agenda.txt :%d): NO QUESTION IS COMPOSED AND NO PROMPT IS PUT ((R380)(7))' % fa)
+    ask = [i for i in it if i['n'] in A['ask']]
+    if not ask:
+        print('### NO ITEM READS CLUSTERED BY EITHER SHAPE (data/b770_sitting_agenda.txt :%d): NO QUESTION IS COMPOSED AND NO PROMPT IS PUT ((R380)(7))' % fa)
         return
-    keys = list(dict.fromkeys(k for i in clu for k in i['keys']))
-    lst = ', '.join('%d %s (FINDINGS :%d)' % (i['n'], i['act'], i['line']) for i in clu)
+    oc, da = A['own_counts'], A['diff_at']
+    by_maps = [i for i in ask if i['reading'].startswith('CLUSTERED')]
+    keys = list(dict.fromkeys(k for i in ask for k in (i['keys'] if i in by_maps else [i['own']['keystone']])))
+    cls = list(dict.fromkeys((i['cluster'] if i in by_maps else i['own']['cluster']) for i in ask))
+    lst = ', '.join('%d %s' % (i['n'], i['act']) for i in ask)
+    why = (' The maps seat none of them because no map row or keystone yet names their banks.' if not by_maps else '')
     q = ('The sitting of the tenth act under (R380)(7), in the light form: the agenda is banked whole (data/b770_sitting_agenda.txt :%d), %d items, '
-         'one for each FINDINGS heading of b761 to b769 that is no corrigendum, each read from REGISTRY, the cluster table of SPIRAL_MAP and the '
-         'keystone`s text at the papers` repository`s HEAD. As the maps read them: %d SYNTHESISED, %d CLUSTERED and %d BANKED with no seat '
-         '(data/b770_sitting_agenda.txt :%d). You are asked about the CLUSTERED items alone, each an input of its keystone`s re-cut: items %s, '
-         'the keystone %s. No keystone is written at this sitting. Pass these items whole, or strike items by number (name them in your note).') % (
-        fa, len(it), c['SYNTHESISED'], c['CLUSTERED'], c['BANKED'], fa, lst, ', '.join(keys))
+         'one for each FINDINGS heading of b761 to b769 that is no corrigendum. By the four rules of b761`s tool, which read each heading against '
+         'the cluster table of SPIRAL_MAP, REGISTRY and the keystones` text at the papers` repository`s HEAD, %d read SYNTHESISED, %d CLUSTERED and '
+         '%d BANKED with no seat (data/b770_sitting_agenda.txt :%d). By their own INTEGRATION lines %d read CLUSTERED, and the two readings differ '
+         'at %d items (data/b770_sitting_agenda.txt :%d). You are asked about the items CLUSTERED by either reading and no other: items %s, of the '
+         'cluster %s, the keystone %s.%s Passed, each is an input of that keystone`s re-cut at the tip, listed in the inputs bank; struck, it stands '
+         'banked with no seat and the re-cut does not list it. No keystone is written at this sitting. Pass these items whole, or strike items by '
+         'number (name them in your note).') % (
+        fa, len(it), c['SYNTHESISED'], c['CLUSTERED'], c['BANKED'], fa, oc['CLUSTERED'], len(A['differ']), da, lst, ', '.join(cls),
+        ', '.join(keys), why)
     q = q.replace('`', '’')
-    opts = [dict(label=PASS, description=('Each item named stands as the agenda reads it, an input of its keystone’s re-cut; the inputs bank '
-                                          'written for each keystone with these items.')),
-            dict(label=STRIKE, description=('Items struck by number, named in your note: a struck item is no input of a re-cut and stands banked '
-                                            'with your word beside it; the rest pass.'))]
+    opts = [dict(label=PASS, description=('Each item named stands as an input of its keystone’s re-cut at the tip, and the inputs bank lists it '
+                                          'for that keystone.')),
+            dict(label=STRIKE, description=('Items struck by number, named in your note: a struck item stands banked with no seat, as the maps '
+                                            'read it, with your word beside it; the rest pass.'))]
     Q = dict(questions=[dict(header='Sitting', multiSelect=False, question=q, options=opts)])
     I = RG.ids()
     qw = RG.qword(show('REGISTRY.md'))
     blob = json.dumps(Q, ensure_ascii=False)
     ctl = [('the agenda`s foot line at :%d, as its JSON gives it' % fa, L[fa - 1].startswith('### ### **THE AGENDA:')),
-           ('the CLUSTERED items %d, as the agenda`s counts give them (%d)' % (len(clu), c['CLUSTERED']), len(clu) == c['CLUSTERED']),
+           ('the items asked %d, those the agenda names for the prompt (%s), the differing line at :%d' % (len(ask), A['ask'], da),
+            [i['n'] for i in ask] == A['ask'] and L[da - 1].startswith('## THE TWO READINGS DIFFER AT')),
            ('no clause naming the act`s FINDINGS record by the word the composer reads as about it', not re.search(r'\bentry\b', blob, re.I)),
            ('the question opens with its words for the inputs route`s read of the answer', q.startswith(Q_OPEN)),
            ('the identifiers 0 and the protected word 0', RG.idcount(blob, I) == 0 and qw.lower() not in blob.lower())]
@@ -385,7 +454,7 @@ def answer(it):
 def inputs(mode, struck):
     A = json.load(open(AJSON, encoding='utf-8'))
     it = A['items']
-    clu = [i for i in it if i['reading'].startswith('CLUSTERED')]
+    clu = [i for i in it if i['n'] in A['ask']]
     tracked = set(subprocess.run(['git', '-C', RELAY, 'ls-files', 'data/'], capture_output=True).stdout.decode('utf-8').split(NL))
     ctl = []
     if clu:
@@ -402,10 +471,14 @@ def inputs(mode, struck):
         ctl.append(('no item reads CLUSTERED, so no prompt was put and no answer is read; no number struck (%s)' % (struck or 'none'), not struck))
     final = []
     for i in it:
-        r = i['reading']
+        r, ks = i['reading'], i['keys']
         if i['n'] in struck:
             r = 'STRUCK BY THE AUTHOR, BANKED'
-        final.append(dict(i, final=r))
+        elif i['n'] in A['ask']:
+            r = READINGS[1]
+            if not i['reading'].startswith('CLUSTERED'):
+                ks = [i['own']['keystone']]   # ### an item asked by its own line: the keystone its line names
+        final.append(dict(i, final=r, keys=ks))
 
     def banks(i):
         b = sorted(f for x in i['names'] for f in tracked if f.startswith('data/' + x + '.'))
@@ -444,9 +517,10 @@ def inputs(mode, struck):
         ', '.join(str(i['n']) for i in clu) or 'none', ', '.join(map(str, passed)) or 'none', ', '.join(map(str, struck)) or 'none'))
     I = RG.ids()
     qw = RG.qword(show('REGISTRY.md'))
-    ctl += [('every input read not carried: none of its names carried by its keystone in the agenda`s read (VACUOUS for the %d whose heading names none)' % sum(
-                1 for i in final if i['final'].startswith('CLUSTERED') and not i['names']), all(
-                not at for i in final if i['final'].startswith('CLUSTERED') for r in i['reads'] for _x, at, _p in r['names'])),
+    ctl += [('every input read not carried: none of its names carried by its keystone, by the maps` read and by its own line`s (VACUOUS for the '
+             '%d whose heading names none)' % sum(1 for i in final if i['final'].startswith('CLUSTERED') and not i['names']), all(
+                not at for i in final if i['final'].startswith('CLUSTERED') for r in i['reads'] for _x, at, _p in r['names']) and all(
+                not (i['own'] or {}).get('carried') for i in final if i['final'].startswith('CLUSTERED'))),
             ('every input`s bank found among the tracked files (misses %s)' % (miss or 'none'), not miss),
             ('the inputs %d, the CLUSTERED items passed %d' % (n_in, cnt['CLUSTERED']), n_in == cnt['CLUSTERED'] == len(passed)),
             ('the counts summing to the items (%d)' % len(final), sum(cnt.values()) == len(final))]
